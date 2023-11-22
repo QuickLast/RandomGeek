@@ -24,7 +24,6 @@ namespace RandomGeek
         public MainWindow()
         {
             InitializeComponent();
-            navFr.NavigationService.Navigate(new AuthorizationPage());
         }
     }
 }

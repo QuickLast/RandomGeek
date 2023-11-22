@@ -24,5 +24,15 @@ namespace RandomGeek.Pages
         {
             InitializeComponent();
         }
+
+        private void NoEntryBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MainPage());
+        }
+
+        private void EntranceBtn_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

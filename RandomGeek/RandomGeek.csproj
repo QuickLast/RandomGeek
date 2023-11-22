@@ -112,5 +112,26 @@
     <Folder Include="Database\" />
     <Folder Include="Functions\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\SignIn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Cinema.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Games.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\MainPageBanner.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

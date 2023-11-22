@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RandomGeek"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="1080" Width="1920" ResizeMode="NoResize"
+        WindowState="Maximized"
+        >
     <Grid>
         <Frame NavigationUIVisibility="Hidden" Source="pages/AuthorizationPage.xaml"/>
     </Grid>

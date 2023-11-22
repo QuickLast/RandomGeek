@@ -24,5 +24,15 @@ namespace RandomGeek.Pages
         {
             InitializeComponent();
         }
+
+        private void Image_MouseEnter(object sender, MouseEventArgs e)
+        {
+            NavigationService.Navigate(new AuthorizationPage());
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
