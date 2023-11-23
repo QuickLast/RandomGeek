@@ -60,11 +60,13 @@
                         Margin="0 35 0 0">
                 <TextBlock Text="Добро пожаловать!"
                            TextAlignment="Center"
-                           FontFamily="Dela Gothic One"
-                           Foreground="#FF323A68"/>
+                           Foreground="#FF323A68"
+                           FontWeight="Black"
+                           Style="{StaticResource DelaGothicOne}"/>
                 <TextBlock Text="Мы очень рады вас видеть!"
                            TextAlignment="Center"
                            Foreground="#FF507A9F"
+                           FontWeight="Bold"
                            FontFamily="Raleway"/>
             </StackPanel>
 

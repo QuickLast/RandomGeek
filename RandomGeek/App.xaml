@@ -4,7 +4,26 @@
              xmlns:local="clr-namespace:RandomGeek"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="DelaGothicOne">
+            <Setter Property="TextElement.FontFamily"
+                    Value="/Assets/Fonts/#DelaGothicOne">
+            </Setter>
+        </Style>
+        <Style x:Key="RalewayBold">
+            <Setter Property="TextElement.FontFamily"
+            Value="/Assets/Fonts/#Raleway">
+            </Setter>
+        </Style>
+        <Style x:Key="RalewayMedium">
+            <Setter Property="TextElement.FontFamily"
+            Value="/Assets/Fonts/#Raleway">
+            </Setter>
+        </Style>
+        <Style x:Key="RalewayRegular">
+            <Setter Property="TextElement.FontFamily"
+            Value="/Assets/Fonts/#Raleway">
+            </Setter>
+        </Style>
         <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
         <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
         <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
