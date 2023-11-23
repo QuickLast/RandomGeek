@@ -1,0 +1,254 @@
+﻿<Page x:Class="RandomGeek.Pages.ProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RandomGeek.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="ProfilePage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.RowSpan="20" Background="#FB323A68">
+            <Grid Height="1080">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Source="/Assets/Images/Logo.png" Width="65" Height="65" Margin="0 20 0 0"></Image>
+                <Image Grid.Row="1" Source="/Assets/Images/SignIn.png" Width="55" Height="55" Margin="0 31 0 0" MouseDown="MoveToAuthPage_MouseDown"></Image>
+                <Image Grid.Row="2" Source="/Assets/Images/Cinema.png" Width="55" Height="55" Margin="0 31 0 0" MouseDown="MoveToCinemaPage_MouseDown"></Image>
+                <Image Grid.Row="3" Source="/Assets/Images/Games.png" Width="55" Height="55" Margin="0 31 0 0"></Image>
+                <Image Grid.Row="11" Source="/Assets/Images/Settings.png" Width="75" Height="75" Margin="22,4,22,0" VerticalAlignment="Top"></Image>
+                <Image Grid.Row="12" Source="/Assets/Images/Exit.png" Width="55" Height="55" Margin="0 0 0 10"></Image>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="100" Grid.RowSpan="100" Background="#FF99AAC6">
+            <Grid Height="1080">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock TextAlignment="Center"
+                           Grid.Row="2"
+                           Grid.Column="5"
+                           Grid.ColumnSpan="9"
+                           Grid.RowSpan="2"
+                           Text="Имя пользователя"
+                           FontSize="50"
+                           FontWeight="Black"
+                           Foreground="#FB323A68"/>
+
+                <StackPanel Grid.Column="2"
+                            Grid.ColumnSpan="14"
+                            Grid.Row="3"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal"
+                            Margin="10 0 0 0">
+                    <TextBlock Text="Просмотрено фильмов" Foreground="#FB323A68"/>
+                    <TextBlock Text="Просмотрено сериалов" Foreground="#FB323A68" Margin="50 0 0 0"/>
+                    <TextBlock Text="Пройдено игр" Foreground="#FB323A68" Margin="50 0 0 0"/>
+                </StackPanel>
+
+                <Ellipse Width="200" Height="200" Grid.Column="1" Grid.Row="1">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="/Assets/Images/MainPageBanner.png" Stretch="UniformToFill"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+
+                <Border CornerRadius="20" BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="6">
+                    <Button x:Name="ChoosePhotoBtn"
+                            Foreground="#FB323A68"
+                            FontSize="25"
+                            Content="Выбрать фото"
+                            Background="Transparent"
+                            BorderThickness="0"/>
+                </Border>
+
+                <StackPanel Grid.Column="1" Grid.ColumnSpan="10" Grid.Row="9" Orientation="Horizontal">
+                    <Border CornerRadius="15" BorderBrush="Black" BorderThickness="1">
+                        <Button x:Name="WatchedMovieBtn"
+                            Foreground="#FB323A68"
+                            FontSize="18"
+                            FontWeight="Bold"
+                            Content="Просмотренное кино"
+                            Background="Transparent"
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border CornerRadius="15" BorderBrush="Black" BorderThickness="1">
+                        <Button x:Name="CompletedGameBtn"
+                            Foreground="#FB323A68"
+                            FontSize="18"
+                            FontWeight="Bold"
+                            Content="Пройденные игры"
+                            Background="Transparent"
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border CornerRadius="15" BorderBrush="Black" BorderThickness="1">
+                        <Button x:Name="CommentBtn"
+                            Foreground="#FB323A68"
+                            FontSize="18"
+                            FontWeight="Bold"
+                            Content="Комментарии"
+                            Background="Transparent"
+                            BorderThickness="0"/>
+                    </Border>
+
+                </StackPanel>
+
+                <Line X1="490" Y1="0" X2="0" Y2="0" Stroke="Black" StrokeThickness="1" Grid.Column="1" Grid.ColumnSpan="9" Grid.Row="10"/>
+
+                <StackPanel Grid.Row="11" Grid.Column="0" Grid.RowSpan="11" Grid.ColumnSpan="23">
+
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Center" Margin="0 25 0 0">
+                        <StackPanel Margin="0 0 40 0">
+                            <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
+                            <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
+                        </StackPanel>
+                        <StackPanel Margin="0 0 40 0">
+                            <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
+                            <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
+                        </StackPanel>
+                        <StackPanel Margin="0 0 40 0">
+                            <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
+                            <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
+                        </StackPanel>
+                        <StackPanel Margin="0 0 40 0">
+                            <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
+                            <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
+                        </StackPanel>
+                        <StackPanel Margin="0 0 40 0">
+                            <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
+                            <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Center" Margin="0 25 480 0">
+                        <StackPanel Margin="0 0 40 0">
+                            <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
+                            <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
+                        </StackPanel>
+                        <StackPanel Margin="0 0 40 0">
+                            <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
+                            <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
+                        </StackPanel>
+                        <StackPanel Margin="0 0 40 0">
+                            <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
+                            <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>
