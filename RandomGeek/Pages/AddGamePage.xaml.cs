@@ -15,17 +15,14 @@ using System.Windows.Shapes;
 
 namespace RandomGeek.Pages
 {
-  
-    public partial class AdminPage : Page
+    /// <summary>
+    /// Логика взаимодействия для AddGamePage.xaml
+    /// </summary>
+    public partial class AddGamePage : Page
     {
-        public AdminPage()
+        public AddGamePage()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new AddMoviePage());
         }
     }
 }

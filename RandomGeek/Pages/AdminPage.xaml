@@ -135,13 +135,16 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-
-                <TextBlock TextAlignment="Center" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="9" Grid.RowSpan="2" FontSize="50" FontWeight="Black" Foreground="#FB323A68">АДМИН-ПАНЕЛЬ</TextBlock>
-                <Border Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="9" Grid.RowSpan="3"
-            CornerRadius="20" BorderBrush="White" BorderThickness="1"
-            VerticalAlignment="Center" UseLayoutRounding="True" Height="50">
-                    <TextBox VerticalAlignment="Center" Margin="20 0 0 0" FontSize="20" BorderThickness="0" Background="Transparent"/>
-                </Border>
+                <StackPanel Margin="0 20 0 0" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="15" Grid.RowSpan="2"   Orientation="Horizontal">
+                    <Border CornerRadius="20" BorderBrush="#FB323A68" BorderThickness="3">
+                        <Button x:Name="AddGameBtn"  Foreground="Black" FontSize="30" Content="Добавить кино" Background="Transparent" BorderThickness="0" Click="Button_Click" Width="231"/>
+                    </Border>
+                    <Border Margin="20 0 0 0" CornerRadius="20" BorderBrush="#FB323A68" BorderThickness="3">
+                        <Button Foreground="Black" FontSize="30" Content="Добавить игру" Background="Transparent" BorderThickness="0" Width="236"/>
+                    </Border>
+                </StackPanel>
+                <TextBlock  Margin="10 10 10 10" TextAlignment="Center" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="9" Grid.RowSpan="2" FontSize="50" FontWeight="Black" Foreground="#FB323A68">АДМИН-ПАНЕЛЬ</TextBlock>
+                <TextBox VerticalAlignment="Center" Margin="20 0 0 0" FontSize="20" BorderThickness="0" Background="Transparent"/>
             </Grid>
         </StackPanel>
     </Grid>
