@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RandomGeek.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="1000" d:DesignWidth="1920"
+      d:DesignHeight="1080" d:DesignWidth="1920"
       Title="MainPage" FontSize="40">
 
     <Grid>
@@ -167,7 +167,27 @@
                     </StackPanel>
                     <TextBlock FontWeight="Bold" FontSize="30" Foreground="#FB323A68" Margin="0 20 0 0">Подборки от RandomGeeks</TextBlock>
                 </StackPanel>
-                <
+
+                <StackPanel HorizontalAlignment="Center" Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="18" Grid.RowSpan="5" Orientation="Horizontal" VerticalAlignment="Center">
+                    <StackPanel Margin="0 0 40 0">
+                        <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
+                        <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
+                    </StackPanel>
+                    <StackPanel Margin="0 0 40 0">
+                        <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
+                        <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
+                    </StackPanel>
+                    <StackPanel Margin="0 0 40 0">
+                        <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
+                        <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
+                    </StackPanel>
+                    <StackPanel Margin="0 0 40 0">
+                        <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
+                        <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
+                    </StackPanel>
+                </StackPanel>
+
+
                 <Image Width="1200" Grid.Column="20" Grid.ColumnSpan="200" Grid.RowSpan="30"  Source="/Assets/Images/MainPageBanner.png"></Image>
             </Grid>
         </StackPanel>
