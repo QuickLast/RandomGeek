@@ -65,16 +65,16 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Image Grid.Row="0" Source="/Assets/Images/Logo.png" Width="65" Height="65" Margin="0 20 0 0"></Image>
-                <Image Grid.Row="1" Source="/Assets/Images/SignIn.png" Width="55" Height="55" Margin="0 31 0 0" MouseDown="Image_MouseEnter"></Image>
-                <Image Grid.Row="2" Source="/Assets/Images/Cinema.png" Width="55" Height="55" Margin="0 31 0 0"></Image>
+                <Image Grid.Row="1" Source="/Assets/Images/SignIn.png" Width="55" Height="55" Margin="0 31 0 0" MouseDown="MoveToAuthPage_MouseDown"></Image>
+                <Image Grid.Row="2" Source="/Assets/Images/Cinema.png" Width="55" Height="55" Margin="0 31 0 0" MouseDown="MoveToCinemaPage_MouseDown"></Image>
                 <Image Grid.Row="3" Source="/Assets/Images/Games.png" Width="55" Height="55" Margin="0 31 0 0"></Image>
-                <Image Grid.Row="10" Source="/Assets/Images/Settings.png" Width="75" Height="75"></Image>
-                <Image Grid.Row="11" Source="/Assets/Images/Exit.png" Width="55" Height="55" Margin="0 0 0 10"></Image>
+                <Image Grid.Row="11" Source="/Assets/Images/Settings.png" Width="75" Height="75" Margin="22,4,22,0" VerticalAlignment="Top"></Image>
+                <Image Grid.Row="12" Source="/Assets/Images/Exit.png" Width="55" Height="55" Margin="0 0 0 10"></Image>
             </Grid>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.ColumnSpan="100" Grid.RowSpan="100" Background="#FF99AAC6">
-            <Grid Height="1000">
+            <Grid Height="1080">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>

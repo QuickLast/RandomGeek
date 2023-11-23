@@ -25,7 +25,7 @@ namespace RandomGeek.Pages
             InitializeComponent();
         }
 
-        private void Image_MouseEnter(object sender, MouseEventArgs e)
+        private void MoveToAuthPage_MouseDown(object sender, MouseEventArgs e)
         {
             NavigationService.Navigate(new AuthorizationPage());
         }
@@ -33,6 +33,11 @@ namespace RandomGeek.Pages
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void MoveToCinemaPage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService.Navigate(new CinemaPage());
         }
     }
 }
