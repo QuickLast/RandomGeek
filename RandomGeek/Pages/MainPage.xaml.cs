@@ -39,5 +39,6 @@ namespace RandomGeek.Pages
         {
             NavigationService.Navigate(new CinemaPage());
         }
+
     }
 }

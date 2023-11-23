@@ -159,10 +159,10 @@
                     <TextBlock FontWeight="Bold" FontSize="30" Foreground="#FB323A68" Margin="0 10 0 0">Решайте:</TextBlock>
                     <StackPanel Margin="0 20 0 0" Orientation="Horizontal">
                         <Border CornerRadius="20" BorderBrush="#FB323A68" BorderThickness="3">
-                            <Button Foreground="Black" FontSize="30" Margin="17 10 17 10" Content="Случайный фильм" Background="Transparent" BorderThickness="0"></Button>
+                            <Button x:Name="RandomMovieBtn" Foreground="Black" FontSize="30" Margin="17 10 17 10" Content="Случайный фильм" Background="Transparent" BorderThickness="0"></Button>
                         </Border>
                         <Border Margin="20 0 0 0" CornerRadius="20" BorderBrush="#FB323A68" BorderThickness="3">
-                            <Button Foreground="Black" FontSize="30" Margin="17 10 17 10" Content="Случайный сериал" Background="Transparent" BorderThickness="0"></Button>
+                            <Button x:Name="RandomSerialBtn" Foreground="Black" FontSize="30" Margin="17 10 17 10" Content="Случайный сериал" Background="Transparent" BorderThickness="0"></Button>
                         </Border>
                     </StackPanel>
                     <TextBlock FontWeight="Bold" FontSize="30" Foreground="#FB323A68" Margin="0 20 0 0">Подборки от RandomGeeks</TextBlock>
