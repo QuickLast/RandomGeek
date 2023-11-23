@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace RandomGeek.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для AdminPage.xaml
-    /// </summary>
+  
     public partial class AdminPage : Page
     {
         public AdminPage()
