@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RandomGeek.Database
 {
-    internal class DBConnection
+    public class DbConnection
     {
+        public static RandomGeek_KamilEntities RandomGeek_KamilEntities = new RandomGeek_KamilEntities();
     }
 }
