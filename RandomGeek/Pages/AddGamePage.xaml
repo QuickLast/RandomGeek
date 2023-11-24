@@ -8,14 +8,44 @@
       d:DesignHeight="1000" d:DesignWidth="1920"
       Title="AddGamePage">
     <Grid>
-        <ScrollViewer>
-            <StackPanel>
-                <Button MinHeight="60" Background="Red"/>
-                <Button MinHeight="60" Background="Orange"/>
-                <Button MinHeight="60" Background="Yellow"/>
-                <Button MinHeight="60" Background="Green"/>
-                <Button MinHeight="60" Background="Blue"/>
-            </StackPanel>
-        </ScrollViewer>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        
     </Grid>
 </Page>
