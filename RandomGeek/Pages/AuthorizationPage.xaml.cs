@@ -32,7 +32,12 @@ namespace RandomGeek.Pages
 
         private void EntranceBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            NavigationService.Navigate(new MainPage());
+        }
+
+        private void RegBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new RegistrationPage());
         }
     }
 }

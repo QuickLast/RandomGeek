@@ -16,18 +16,18 @@ using System.Windows.Shapes;
 namespace RandomGeek.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для ProfilePage.xaml
+    /// Логика взаимодействия для RegistrationPage.xaml
     /// </summary>
-    public partial class ProfilePage : Page
+    public partial class RegistrationPage : Page
     {
-        public ProfilePage()
+        public RegistrationPage()
         {
             InitializeComponent();
         }
 
-        private void CompletedGameBtn_Click(object sender, RoutedEventArgs e)
+        private void RegBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new MainPage());
         }
     }
 }

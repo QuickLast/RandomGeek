@@ -154,9 +154,7 @@
                             VerticalAlignment="Center"
                             Orientation="Horizontal"
                             Margin="10 0 0 0">
-                    <TextBlock Text="Просмотрено фильмов" Foreground="#FB323A68"/>
-                    <TextBlock Text="Просмотрено сериалов" Foreground="#FB323A68" Margin="50 0 0 0"/>
-                    <TextBlock Text="Пройдено игр" Foreground="#FB323A68" Margin="50 0 0 0"/>
+
                 </StackPanel>
 
                 <Ellipse Width="200" Height="200" Grid.Column="1" Grid.Row="1">
@@ -175,39 +173,16 @@
                 </Border>
 
                 <StackPanel Grid.Column="1" Grid.ColumnSpan="10" Grid.Row="9" Orientation="Horizontal">
-                    <Border CornerRadius="15" BorderBrush="Black" BorderThickness="1">
-                        <Button x:Name="WatchedMovieBtn"
+                    <TextBlock x:Name="WatchedMovieBtn"
                             Foreground="#FB323A68"
-                            FontSize="18"
+                            FontSize="40"
                             FontWeight="Bold"
-                            Content="Просмотренное кино"
                             Background="Transparent"
-                            BorderThickness="0"/>
-                    </Border>
-                    <Border CornerRadius="15" BorderBrush="Black" BorderThickness="1">
-                        <Button x:Name="CompletedGameBtn"
-                            Foreground="#FB323A68"
-                            FontSize="18"
-                            FontWeight="Bold"
-                            Content="Пройденные игры"
-                            Background="Transparent"
-                            BorderThickness="0"/>
-                    </Border>
-                    <Border CornerRadius="15" BorderBrush="Black" BorderThickness="1">
-                        <Button x:Name="CommentBtn"
-                            Foreground="#FB323A68"
-                            FontSize="18"
-                            FontWeight="Bold"
-                            Content="Комментарии"
-                            Background="Transparent"
-                            BorderThickness="0"/>
-                    </Border>
+                            >Просмотренное кино</TextBlock>
 
                 </StackPanel>
 
-                <Line X1="490" Y1="0" X2="0" Y2="0" Stroke="Black" StrokeThickness="1" Grid.Column="1" Grid.ColumnSpan="9" Grid.Row="10"/>
-
-                <StackPanel Grid.Row="11" Grid.Column="0" Grid.RowSpan="11" Grid.ColumnSpan="23">
+                <StackPanel Grid.Row="11" Grid.Column="1" Grid.RowSpan="11" Grid.ColumnSpan="23">
 
                     <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Center" Margin="0 25 0 0">
                         <StackPanel Margin="0 0 40 0">

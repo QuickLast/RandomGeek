@@ -92,16 +92,17 @@
                         Width="170"
                         Height="60"
                         Background="#FF323A68"
+                        Margin="20 0 0 0"
                         Foreground="#FFD9D9D9" Click="EntranceBtn_Click"/>
                 <Button Style="{DynamicResource ButtonStyleAuth}"
                         x:Name="RegBtn"
                         Content="Зарегистрироваться"
                         FontSize="30"
-                        Width="465"
+                        Width="420"
                         Height="60"
-                        Margin="30 0 0 0"
+                        Margin="50 0 0 0"
                         Background="#FF323A68"
-                        Foreground="#FFD9D9D9"/>
+                        Foreground="#FFD9D9D9" Click="RegBtn_Click"/>
             </StackPanel>
 
                 <Button x:Name="NoEntryBtn"
