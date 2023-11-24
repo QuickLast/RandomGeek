@@ -121,6 +121,7 @@
           <Property Name="IDUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="100" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_ContentSelection_Game">
           <End Role="Game" Type="Self.Game" Multiplicity="1" />
@@ -490,6 +491,7 @@
           <Property Name="IDUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Game_AgeRating">
           <End Type="RandomGeek_KamilModel.AgeRating" Role="AgeRating" Multiplicity="1" />
@@ -611,7 +613,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -740,6 +742,7 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="RandomGeek_KamilModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="IDUser" ColumnName="IDUser" />
