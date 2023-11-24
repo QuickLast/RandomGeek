@@ -31,7 +31,7 @@ namespace RandomGeek.Pages
 
         private void MoveToGamesPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new GamesPage());
+            //NavigationService.Navigate(new GamesPage());
         }
 
         private void MoveToCinemaPage_MouseDown(object sender, MouseButtonEventArgs e)

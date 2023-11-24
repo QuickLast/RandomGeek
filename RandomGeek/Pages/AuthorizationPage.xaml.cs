@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RandomGeek.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,8 @@ namespace RandomGeek.Pages
     /// </summary>
     public partial class AuthorizationPage : Page
     {
+        public static User user;
+        public static List<User> users { get; set; }
         public AuthorizationPage()
         {
             InitializeComponent();
@@ -32,12 +35,32 @@ namespace RandomGeek.Pages
 
         private void EntranceBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MainPage());
+            string login = EmailTb.Text.Trim();
+            string password = PasswordPb.Password.Trim();
+
+            users = new List<User>(DbConnection.RandomGeek_KamilEntities.User.ToList());
+            user = users.FirstOrDefault(i => i.Email == login && i.Password == password);
+
+            if (user != null)
+            {
+                MessageBox.Show($"Успешно!");
+                NavigationService.Navigate(new MainPage());
+            }
+            else
+            {
+                MessageBox.Show("Повторите попытку!");
+                EmailTb.Text = string.Empty;
+                PasswordPb.Password = string.Empty;
+            }
+
+
+            //NavigationService.Navigate(new MainPage()); 
         }
 
         private void RegBtn_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new RegistrationPage());
         }
+
     }
 }

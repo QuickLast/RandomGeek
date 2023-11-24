@@ -78,9 +78,8 @@
                          x:Name="EmailTb"
                          Background="#FFD9D9D9"/>
                 <TextBlock Text="Пароль" Foreground="#FF323A68"/>
-                <TextBox Style="{DynamicResource TextBoxStyleAuth}"
-                         x:Name="PasswordTb"
-                         Background="#FFD9D9D9"/>
+                <PasswordBox x:Name="PasswordPb"
+                             Background="#FFD9D9D9"/>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="675"
