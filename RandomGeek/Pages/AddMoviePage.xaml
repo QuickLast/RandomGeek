@@ -86,7 +86,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ToggleButton}">
-                        <Border x:Name="templateRoot" CornerRadius="3" Background="{StaticResource ComboBox.Static.Background}" BorderBrush="{StaticResource ComboBox.Static.Border}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                        <Border x:Name="templateRoot" CornerRadius="3"  Background="{StaticResource ComboBox.Static.Background}" BorderBrush="{StaticResource ComboBox.Static.Border}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
                             <Border x:Name="splitBorder" BorderBrush="Transparent" BorderThickness="1" HorizontalAlignment="Right" Margin="0" SnapsToDevicePixels="true" Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}">
                                 <Path x:Name="arrow" Data="F1 M 0,0 L 2.667,2.66665 L 5.3334,0 L 5.3334,-1.78168 L 2.6667,0.88501 L0,-1.78168 L0,0 Z" Fill="{StaticResource ComboBox.Static.Glyph}" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
                             </Border>
@@ -571,7 +571,8 @@
         </Style>
     </Page.Resources>
     <Grid>
-        <StackPanel Background="#FF99AAC6" Height="NaN" Margin="0,0,0,-507" >
+        <ScrollViewer>
+            <StackPanel Background="#FF99AAC6" Height="NaN" Margin="0,0,0,-507" >
             <Grid Height="1000">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -633,6 +634,14 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
 
                 <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="2" >
@@ -640,9 +649,9 @@
                         <Button x:Name="BackBtn" Foreground="White" FontSize="45" Content="Вернуться" Background="Transparent" BorderThickness="0" Width="236" />
                     </Border>
                 </StackPanel>
-                <TextBlock  Margin="10 10 10 10" TextAlignment="Center" Grid.Row="2" Grid.Column="12" Grid.ColumnSpan="9" Grid.RowSpan="2" FontSize="40" FontWeight="Black" Foreground="#FB323A68">Добавление кино</TextBlock>
-                <TextBlock TextAlignment="Left" Grid.Row="8" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="28" FontWeight="Black" Foreground="#FB323A68">Название</TextBlock>
-                <TextBox Grid.Column="11" Grid.Row="9" Grid.ColumnSpan="10"
+                <TextBlock  TextAlignment="Center" Grid.Row="2" Grid.Column="12" Grid.ColumnSpan="9" Grid.RowSpan="2" FontSize="40" FontWeight="Black" Foreground="#FB323A68">Добавление кино</TextBlock>
+                <TextBlock TextAlignment="Left" Grid.Row="10" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="Black" Foreground="#FB323A68">Название</TextBlock>
+                <TextBox  Margin="5 5 5 5" Grid.Column="11" Grid.Row="11" Grid.ColumnSpan="10"
                          x:Name="NameTbx"
                          Background="#FFD9D9D9">
                     <TextBox.Resources>
@@ -651,8 +660,8 @@
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-                <TextBlock TextAlignment="Left" Grid.Row="10" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="28" FontWeight="Black" Foreground="#FB323A68">Описание</TextBlock>
-                <TextBox Grid.Column="11" Grid.Row="11" Grid.ColumnSpan="10"
+                <TextBlock TextAlignment="Left" Grid.Row="12" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="Black" Foreground="#FB323A68">Описание</TextBlock>
+                <TextBox Margin="5 5 5 5"  Grid.Column="11" Grid.Row="13" Grid.ColumnSpan="10"
                          x:Name="DistructionTbx"
                          Background="#FFD9D9D9">
                     <TextBox.Resources>
@@ -661,8 +670,8 @@
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-                <TextBlock TextAlignment="Left" Grid.Row="12" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="28" FontWeight="Black" Foreground="#FB323A68">Режиссер</TextBlock>
-                <TextBox Grid.Column="11" Grid.Row="13" Grid.ColumnSpan="10"
+                <TextBlock TextAlignment="Left" Grid.Row="14" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="Black" Foreground="#FB323A68">Режиссер</TextBlock>
+                <TextBox Margin="5 5 5 5" Grid.Column="11" Grid.Row="15" Grid.ColumnSpan="10"
                          x:Name="DirectorTbx"
                          Background="#FFD9D9D9">
                     <TextBox.Resources>
@@ -671,8 +680,8 @@
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-                <TextBlock TextAlignment="Left" Grid.Row="14" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="28" FontWeight="Black" Foreground="#FB323A68">Сценарист</TextBlock>
-                <TextBox Grid.Column="11" Grid.Row="15" Grid.ColumnSpan="10"
+                <TextBlock TextAlignment="Left" Grid.Row="16" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="Black" Foreground="#FB323A68">Сценарист</TextBlock>
+                <TextBox Margin="5 5 5 5" Grid.Column="11" Grid.Row="17" Grid.ColumnSpan="10"
                          x:Name="ScreenwriterTbx"
                          Background="#FFD9D9D9">
                     <TextBox.Resources>
@@ -681,8 +690,8 @@
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-                <TextBlock TextAlignment="Left" Grid.Row="16" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="28" FontWeight="Black" Foreground="#FB323A68">Продюсер</TextBlock>
-                <TextBox Grid.Column="11" Grid.Row="17" Grid.ColumnSpan="10"
+                <TextBlock TextAlignment="Left" Grid.Row="18" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="Black" Foreground="#FB323A68">Продюсер</TextBlock>
+                <TextBox Margin="5 5 5 5" Grid.Column="11" Grid.Row="19" Grid.ColumnSpan="10"
                          x:Name="ProducerTbx"
                          Background="#FFD9D9D9">
                     <TextBox.Resources>
@@ -691,8 +700,8 @@
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-                <TextBlock TextAlignment="Left" Grid.Row="18" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="28" FontWeight="Black" Foreground="#FB323A68">Страна производства</TextBlock>
-                <TextBox Grid.Column="11" Grid.Row="19" Grid.ColumnSpan="10"
+                <TextBlock TextAlignment="Left" Grid.Row="20" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="Black" Foreground="#FB323A68">Страна производства</TextBlock>
+                <TextBox Margin="5 5 5 5" Grid.Column="11" Grid.Row="21" Grid.ColumnSpan="10"
                          x:Name="CountryProjectTbx"
                          Background="#FFD9D9D9">
                     <TextBox.Resources>
@@ -701,8 +710,8 @@
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-                <TextBlock TextAlignment="Left" Grid.Row="20" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="28" FontWeight="Black" Foreground="#FB323A68">Жанр</TextBlock>
-                <ComboBox Style="{DynamicResource ComboBoxStyle2}"  Grid.Column="11" Grid.Row="21" Grid.ColumnSpan="10"
+                <TextBlock TextAlignment="Left" Grid.Row="22" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="Black" Foreground="#FB323A68">Жанр</TextBlock>
+                <ComboBox  Margin="5 5 5 5"  Style="{DynamicResource ComboBoxStyle2}"  Grid.Column="11" Grid.Row="23" Grid.ColumnSpan="10"
                          x:Name="GenreCmmx"
                          Background="#FFD9D9D9" >
                     <ComboBox.Resources>
@@ -711,7 +720,34 @@
                         </Style>
                     </ComboBox.Resources>
                 </ComboBox>
+                <TextBlock TextAlignment="Left" Grid.Row="24" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="Black" Foreground="#FB323A68">Возрастной рейтинг</TextBlock>
+                <ComboBox Margin="5 5 5 5" Style="{DynamicResource ComboBoxStyle2}"  Grid.Column="11" Grid.Row="25" Grid.ColumnSpan="10"
+                         x:Name="AgeratingCmmx"
+                         Background="#FFD9D9D9" >
+                    <ComboBox.Resources>
+                        <Style TargetType= "{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="8"/>
+                        </Style>
+                    </ComboBox.Resources>
+                </ComboBox>
+                <TextBlock TextAlignment="Left" Grid.Row="26" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="Black" Foreground="#FB323A68">Тип</TextBlock>
+                <ComboBox Margin="5 5 5 5" Style="{DynamicResource ComboBoxStyle2}"  Grid.Column="11" Grid.Row="27" Grid.ColumnSpan="10"
+                         x:Name="TypeCmmx"
+                         Background="#FFD9D9D9" >
+                    <ComboBox.Resources>
+                        <Style TargetType= "{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="8"/>
+                        </Style>
+                    </ComboBox.Resources>
+                </ComboBox>
+                <Border Margin="20 0 0 0" CornerRadius="20" Grid.Column="13" Grid.Row="9" Grid.ColumnSpan="6" Grid.RowSpan="1" BorderBrush="#FB323A68" BorderThickness="3">
+                    <Button x:Name="AddPhotoBtn"   Foreground="Black" FontSize="15" Content="Выбрать фото" Background="Transparent" BorderThickness="0" Width="236" Click="AddGameBtn_Click" />
+                </Border>
+                <Border Margin="20 -20 0 0" CornerRadius="20" Grid.Column="11" Grid.Row="29" Grid.ColumnSpan="9" Grid.RowSpan="1"  BorderBrush="#FB323A68" BorderThickness="3" Background="#323A68">
+                    <Button x:Name="AddMoviebtn" Foreground="White" FontSize="25" Content="Добавить кино" Background="Transparent" BorderThickness="0"/>
+                </Border>
             </Grid>
         </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>
