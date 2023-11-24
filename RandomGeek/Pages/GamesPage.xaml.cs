@@ -16,15 +16,14 @@ using System.Windows.Shapes;
 namespace RandomGeek.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainPage.xaml
+    /// Логика взаимодействия для GamesPage.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class GamesPage : Page
     {
-        public MainPage()
+        public GamesPage()
         {
             InitializeComponent();
         }
-
         private void MoveToAuthPage_MouseDown(object sender, MouseEventArgs e)
         {
             NavigationService.Navigate(new AuthorizationPage());
@@ -40,5 +39,9 @@ namespace RandomGeek.Pages
             NavigationService.Navigate(new CinemaPage());
         }
 
+        private void MoveToMainPage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService.Navigate(new MainPage());
+        }
     }
 }

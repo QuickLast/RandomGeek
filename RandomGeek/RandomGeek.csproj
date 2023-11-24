@@ -63,6 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Functions\Functions.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -84,6 +85,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\CinemaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\GamesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -115,6 +120,9 @@
     </Compile>
     <Compile Include="Pages\CinemaPage.xaml.cs">
       <DependentUpon>CinemaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GamesPage.xaml.cs">
+      <DependentUpon>GamesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -156,7 +164,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Database\" />
-    <Folder Include="Functions\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\Logo.png" />
@@ -180,13 +187,13 @@
     <Resource Include="Assets\Images\MainPageBanner.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Images\Search.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\Images\Main.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\Profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -72,7 +72,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="2" Margin="20 0 0 0" CornerRadius="20" BorderBrush="#FB323A68" BorderThickness="3" Background="#323A68">
-                    <Button x:Name="BackBtn" Foreground="White" FontSize="45" Content="Вернуться" Background="Transparent" BorderThickness="0" Width="236" Click="AddGameBtn_Click" />
+                    <Button x:Name="BackBtn" Foreground="White" FontSize="45" Content="Вернуться" Background="Transparent" BorderThickness="0" Width="236" />
                 </Border>
             </Grid>
         </StackPanel>

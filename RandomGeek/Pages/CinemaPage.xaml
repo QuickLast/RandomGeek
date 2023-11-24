@@ -47,6 +47,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
+
         <StackPanel Grid.RowSpan="20" Background="#FB323A68">
             <Grid Height="1080">
                 <Grid.RowDefinitions>
@@ -65,17 +66,24 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Image Grid.Row="0" Source="/Assets/Images/Logo.png" Width="65" Height="65" Margin="0 20 0 0"></Image>
-                <Image Grid.Row="1" Source="/Assets/Images/Main.png" Width="55" Height="55" Margin="0 31 0 0"></Image>
-                <Image Grid.Row="2" Source="/Assets/Images/SignIn.png" Width="55" Height="55" Margin="0 31 0 0"></Image>
-                <Image Grid.Row="3" Source="/Assets/Images/Games.png" Width="55" Height="55" Margin="0 31 0 0"></Image>
+                <Image Grid.Row="1" Source="/Assets/Images/Main.png" Width="55" Height="55" Margin="0 31 0 0"
+                       MouseDown="MoveToMainPage_MouseDown"></Image>
+                <Image Grid.Row="2" Source="/Assets/Images/SignIn.png" Width="55" Height="55" Margin="0 31 0 0"
+                       MouseDown="MoveToAuthPage_MouseDown"></Image>
+                <Image Grid.Row="3" Source="/Assets/Images/Games.png" Width="55" Height="55" Margin="0 31 0 0"
+                       MouseDown="MoveToGamesPage_MouseDown"></Image>
                 <Image Grid.Row="11" Source="/Assets/Images/Settings.png" Width="75" Height="75" Margin="22,4,22,0" VerticalAlignment="Top"></Image>
                 <Image Grid.Row="12" Source="/Assets/Images/Exit.png" Width="55" Height="55" Margin="0 0 0 10"></Image>
             </Grid>
         </StackPanel>
 
-        <ScrollViewer Grid.Column="1" Grid.ColumnSpan="100" Grid.RowSpan="100" Background="#FF99AAC6">
+
+        
+        
+        <ScrollViewer Grid.Column="1" Grid.ColumnSpan="15" Grid.Row="0" 
+                      Grid.RowSpan="100" Background="#FF99AAC6">
             <StackPanel>
-                <Grid Height="1080">
+                <Grid Height="1300">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -138,21 +146,22 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <TextBlock TextAlignment="Left" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="15" Grid.RowSpan="2" FontSize="50" FontWeight="Black" Foreground="#FB323A68">КИНО: ФИЛЬМЫ И СЕРИАЛЫ</TextBlock>
-                <Border Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="9" Grid.RowSpan="3"
+                    <TextBlock TextAlignment="Left" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="15" Grid.RowSpan="2" FontSize="50" FontWeight="Black" Foreground="#FB323A68">КИНО: ФИЛЬМЫ И СЕРИАЛЫ</TextBlock>
+                    <Border Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="9" Grid.RowSpan="3"
                     CornerRadius="20" BorderBrush="White" BorderThickness="1"
-                    VerticalAlignment="Center" UseLayoutRounding="True" Height="50">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBox Foreground="White" VerticalAlignment="Center" Margin="17 0 0 0" Width="410" FontSize="25" BorderThickness="0" Background="Transparent"/>
-                        <Image Source="/Assets/Images/Search.png" Width="40" Height="40"/>
-                    </StackPanel>
-                </Border>
-                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="27" Grid.ColumnSpan="5" Grid.RowSpan="2" Orientation="Horizontal">
-                    <Border CornerRadius="20" BorderBrush="#FB323A68" BorderThickness="3">
-                        <Button Foreground="Black" FontSize="30" Margin="15 10" Content="Случайное кино" Background="Transparent" BorderThickness="0"></Button>
+                    VerticalAlignment="Center" Height="50">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Foreground="White" VerticalAlignment="Center" Margin="17 0 0 0" Width="425" FontSize="25" BorderThickness="0" Background="Transparent"/>
+                            <Image Source="/Assets/Images/Search.png" Width="25" Height="25"/>
+                        </StackPanel>
                     </Border>
-                </StackPanel>
-                <StackPanel Grid.Row="5" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="31">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="27" Grid.ColumnSpan="5" Grid.RowSpan="2" Orientation="Horizontal">
+                        <Border CornerRadius="20" BorderBrush="#FB323A68" BorderThickness="3">
+                            <Button Foreground="Black" FontSize="30" Margin="15 10" Content="Случайное кино" Background="Transparent" BorderThickness="0"></Button>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="4" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="31">
                     <TextBlock FontWeight="Bold" FontSize="40" Foreground="#FB323A68" Margin="0 20 0 0">Лучшие фильмы</TextBlock>
                     <StackPanel Margin="0 20 0 0" HorizontalAlignment="Left" Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="18" Grid.RowSpan="5" Orientation="Horizontal" VerticalAlignment="Center">
                         <StackPanel Margin="0 0 40 0">
@@ -186,7 +195,7 @@
                     </StackPanel>
                 </StackPanel>
 
-                <StackPanel Grid.Row="12" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="31">
+                <StackPanel Grid.Row="10" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="31">
                     <TextBlock FontWeight="Bold" FontSize="40" Foreground="#FB323A68" Margin="0 20 0 0">Лучшие сериалы</TextBlock>
                     <StackPanel Margin="0 20 0 0" HorizontalAlignment="Left" Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="18" Grid.RowSpan="5" Orientation="Horizontal" VerticalAlignment="Center">
                         <StackPanel Margin="0 0 40 0">
@@ -220,7 +229,7 @@
                     </StackPanel>
                 </StackPanel>
 
-                    <StackPanel Grid.Row="19" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="31">
+                    <StackPanel Grid.Row="16" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="31">
                         <TextBlock FontWeight="Bold" FontSize="40" Foreground="#FB323A68" Margin="0 20 0 0">Лучшие мультфильмы</TextBlock>
                         <StackPanel Margin="0 20 0 0" HorizontalAlignment="Left" Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="18" Grid.RowSpan="5" Orientation="Horizontal" VerticalAlignment="Center">
                             <StackPanel Margin="0 0 40 0">

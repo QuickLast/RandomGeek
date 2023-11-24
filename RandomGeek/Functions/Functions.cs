@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RandomGeek.Functions
 {
-    internal class Functions
+    public class Functions
     {
     }
 }
