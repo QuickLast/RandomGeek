@@ -26,6 +26,7 @@ namespace RandomGeek.Database
         }
     
         public virtual DbSet<AgeRating> AgeRating { get; set; }
+        public virtual DbSet<ContentSelection> ContentSelection { get; set; }
         public virtual DbSet<Game> Game { get; set; }
         public virtual DbSet<GameGenre> GameGenre { get; set; }
         public virtual DbSet<GenreGame> GenreGame { get; set; }
@@ -33,6 +34,7 @@ namespace RandomGeek.Database
         public virtual DbSet<Movie> Movie { get; set; }
         public virtual DbSet<MovieGenre> MovieGenre { get; set; }
         public virtual DbSet<MovieType> MovieType { get; set; }
+        public virtual DbSet<Selection> Selection { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
     }

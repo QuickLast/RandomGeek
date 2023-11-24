@@ -75,6 +75,9 @@
     <Compile Include="Database\AgeRating.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\ContentSelection.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database\DBConnection.cs" />
     <Compile Include="Database\Game.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -110,6 +113,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\MovieType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Selection.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\sysdiagrams.cs">

@@ -17,6 +17,7 @@ namespace RandomGeek.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Movie()
         {
+            this.ContentSelection = new HashSet<ContentSelection>();
             this.GenreMovie = new HashSet<GenreMovie>();
         }
     
@@ -39,6 +40,8 @@ namespace RandomGeek.Database
         public byte[] Photo { get; set; }
     
         public virtual AgeRating AgeRating { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ContentSelection> ContentSelection { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GenreMovie> GenreMovie { get; set; }
         public virtual MovieType MovieType { get; set; }
