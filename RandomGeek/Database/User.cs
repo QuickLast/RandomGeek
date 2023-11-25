@@ -19,5 +19,6 @@ namespace RandomGeek.Database
         public string Password { get; set; }
         public string Name { get; set; }
         public byte[] Photo { get; set; }
+        public Nullable<int> Admin { get; set; }
     }
 }
