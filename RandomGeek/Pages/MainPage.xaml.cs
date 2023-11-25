@@ -40,5 +40,9 @@ namespace RandomGeek.Pages
             NavigationService.Navigate(new CinemaPage());
         }
 
+        private void MoveToSettingsPage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService.Navigate(new AdminPage());
+        }
     }
 }
