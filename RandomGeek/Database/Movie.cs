@@ -24,22 +24,17 @@ namespace RandomGeek.Database
         public int IDMovieType { get; set; }
         public string Name { get; set; }
         public string Director { get; set; }
-        public string Screenwriter { get; set; }
-        public string Producer { get; set; }
         public string Studio { get; set; }
         public string Country { get; set; }
         public Nullable<int> Year { get; set; }
-        public Nullable<decimal> BoxOffice { get; set; }
         public int IDMovieGenre { get; set; }
         public Nullable<int> Duration { get; set; }
         public Nullable<int> EpisodeCount { get; set; }
         public Nullable<int> SeasonCount { get; set; }
         public Nullable<double> Rating { get; set; }
-        public int IDAgeRating { get; set; }
         public string Description { get; set; }
         public byte[] Photo { get; set; }
     
-        public virtual AgeRating AgeRating { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ContentSelection> ContentSelection { get; set; }
         public virtual MovieGenre MovieGenre { get; set; }

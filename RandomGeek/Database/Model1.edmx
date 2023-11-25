@@ -5,13 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Хранилище RandomGeek_KamilModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="AgeRating">
-          <Key>
-            <PropertyRef Name="IDAgeRating" />
-          </Key>
-          <Property Name="IDAgeRating" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Rating" Type="nchar" MaxLength="3" />
-        </EntityType>
         <EntityType Name="ContentSelection">
           <Key>
             <PropertyRef Name="IDContentSelection" />
@@ -27,14 +20,11 @@
           </Key>
           <Property Name="IDGame" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Developer" Type="nvarchar" MaxLength="50" />
           <Property Name="Publisher" Type="nvarchar" MaxLength="50" />
           <Property Name="Platforms" Type="nvarchar" MaxLength="50" />
           <Property Name="Year" Type="int" />
           <Property Name="IDGameGenre" Type="int" Nullable="false" />
-          <Property Name="Part" Type="int" />
           <Property Name="Rating" Type="float" />
-          <Property Name="IDAgeRating" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="Photo" Type="varbinary(max)" />
         </EntityType>
@@ -53,18 +43,14 @@
           <Property Name="IDMovieType" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Director" Type="nvarchar" MaxLength="50" />
-          <Property Name="Screenwriter" Type="nvarchar" MaxLength="50" />
-          <Property Name="Producer" Type="nvarchar" MaxLength="50" />
           <Property Name="Studio" Type="nvarchar" MaxLength="50" />
           <Property Name="Country" Type="nvarchar" MaxLength="50" />
           <Property Name="Year" Type="int" />
-          <Property Name="BoxOffice" Type="money" />
           <Property Name="IDMovieGenre" Type="int" Nullable="false" />
           <Property Name="Duration" Type="int" />
           <Property Name="EpisodeCount" Type="int" />
           <Property Name="SeasonCount" Type="int" />
           <Property Name="Rating" Type="float" />
-          <Property Name="IDAgeRating" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="Photo" Type="varbinary(max)" />
         </EntityType>
@@ -144,18 +130,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Game_AgeRating">
-          <End Role="AgeRating" Type="Self.AgeRating" Multiplicity="1" />
-          <End Role="Game" Type="Self.Game" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AgeRating">
-              <PropertyRef Name="IDAgeRating" />
-            </Principal>
-            <Dependent Role="Game">
-              <PropertyRef Name="IDAgeRating" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Game_GameGenre">
           <End Role="GameGenre" Type="Self.GameGenre" Multiplicity="1" />
           <End Role="Game" Type="Self.Game" Multiplicity="*" />
@@ -165,18 +139,6 @@
             </Principal>
             <Dependent Role="Game">
               <PropertyRef Name="IDGameGenre" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Movie_AgeRating">
-          <End Role="AgeRating" Type="Self.AgeRating" Multiplicity="1" />
-          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AgeRating">
-              <PropertyRef Name="IDAgeRating" />
-            </Principal>
-            <Dependent Role="Movie">
-              <PropertyRef Name="IDAgeRating" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -205,7 +167,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище RandomGeek_KamilModelContainer">
-          <EntitySet Name="AgeRating" EntityType="Self.AgeRating" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ContentSelection" EntityType="Self.ContentSelection" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GameGenre" EntityType="Self.GameGenre" Schema="dbo" store:Type="Tables" />
@@ -227,17 +188,9 @@
             <End Role="Selection" EntitySet="Selection" />
             <End Role="ContentSelection" EntitySet="ContentSelection" />
           </AssociationSet>
-          <AssociationSet Name="FK_Game_AgeRating" Association="Self.FK_Game_AgeRating">
-            <End Role="AgeRating" EntitySet="AgeRating" />
-            <End Role="Game" EntitySet="Game" />
-          </AssociationSet>
           <AssociationSet Name="FK_Game_GameGenre" Association="Self.FK_Game_GameGenre">
             <End Role="GameGenre" EntitySet="GameGenre" />
             <End Role="Game" EntitySet="Game" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Movie_AgeRating" Association="Self.FK_Movie_AgeRating">
-            <End Role="AgeRating" EntitySet="AgeRating" />
-            <End Role="Movie" EntitySet="Movie" />
           </AssociationSet>
           <AssociationSet Name="FK_Movie_MovieGenre" Association="Self.FK_Movie_MovieGenre">
             <End Role="MovieGenre" EntitySet="MovieGenre" />
@@ -253,7 +206,6 @@
     <edmx:ConceptualModels>
       <Schema Namespace="RandomGeek_KamilModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="RandomGeek_KamilEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AgeRating" EntityType="RandomGeek_KamilModel.AgeRating" />
           <EntitySet Name="ContentSelection" EntityType="RandomGeek_KamilModel.ContentSelection" />
           <EntitySet Name="Game" EntityType="RandomGeek_KamilModel.Game" />
           <EntitySet Name="GameGenre" EntityType="RandomGeek_KamilModel.GameGenre" />
@@ -263,14 +215,6 @@
           <EntitySet Name="Selection" EntityType="RandomGeek_KamilModel.Selection" />
           <EntitySet Name="sysdiagrams" EntityType="RandomGeek_KamilModel.sysdiagrams" />
           <EntitySet Name="User" EntityType="RandomGeek_KamilModel.User" />
-          <AssociationSet Name="FK_Game_AgeRating" Association="RandomGeek_KamilModel.FK_Game_AgeRating">
-            <End Role="AgeRating" EntitySet="AgeRating" />
-            <End Role="Game" EntitySet="Game" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Movie_AgeRating" Association="RandomGeek_KamilModel.FK_Movie_AgeRating">
-            <End Role="AgeRating" EntitySet="AgeRating" />
-            <End Role="Movie" EntitySet="Movie" />
-          </AssociationSet>
           <AssociationSet Name="FK_ContentSelection_Game" Association="RandomGeek_KamilModel.FK_ContentSelection_Game">
             <End Role="Game" EntitySet="Game" />
             <End Role="ContentSelection" EntitySet="ContentSelection" />
@@ -296,15 +240,6 @@
             <End Role="Movie" EntitySet="Movie" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="AgeRating">
-          <Key>
-            <PropertyRef Name="IDAgeRating" />
-          </Key>
-          <Property Name="IDAgeRating" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Rating" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Game" Relationship="RandomGeek_KamilModel.FK_Game_AgeRating" FromRole="AgeRating" ToRole="Game" />
-          <NavigationProperty Name="Movie" Relationship="RandomGeek_KamilModel.FK_Movie_AgeRating" FromRole="AgeRating" ToRole="Movie" />
-        </EntityType>
         <EntityType Name="ContentSelection">
           <Key>
             <PropertyRef Name="IDContentSelection" />
@@ -323,17 +258,13 @@
           </Key>
           <Property Name="IDGame" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Developer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Publisher" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Platforms" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Year" Type="Int32" />
           <Property Name="IDGameGenre" Type="Int32" Nullable="false" />
-          <Property Name="Part" Type="Int32" />
           <Property Name="Rating" Type="Double" />
-          <Property Name="IDAgeRating" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="AgeRating" Relationship="RandomGeek_KamilModel.FK_Game_AgeRating" FromRole="Game" ToRole="AgeRating" />
           <NavigationProperty Name="ContentSelection" Relationship="RandomGeek_KamilModel.FK_ContentSelection_Game" FromRole="Game" ToRole="ContentSelection" />
           <NavigationProperty Name="GameGenre" Relationship="RandomGeek_KamilModel.FK_Game_GameGenre" FromRole="Game" ToRole="GameGenre" />
         </EntityType>
@@ -353,21 +284,16 @@
           <Property Name="IDMovieType" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Director" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Screenwriter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Producer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Studio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Year" Type="Int32" />
-          <Property Name="BoxOffice" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="IDMovieGenre" Type="Int32" Nullable="false" />
           <Property Name="Duration" Type="Int32" />
           <Property Name="EpisodeCount" Type="Int32" />
           <Property Name="SeasonCount" Type="Int32" />
           <Property Name="Rating" Type="Double" />
-          <Property Name="IDAgeRating" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="AgeRating" Relationship="RandomGeek_KamilModel.FK_Movie_AgeRating" FromRole="Movie" ToRole="AgeRating" />
           <NavigationProperty Name="ContentSelection" Relationship="RandomGeek_KamilModel.FK_ContentSelection_Movie" FromRole="Movie" ToRole="ContentSelection" />
           <NavigationProperty Name="MovieGenre" Relationship="RandomGeek_KamilModel.FK_Movie_MovieGenre" FromRole="Movie" ToRole="MovieGenre" />
           <NavigationProperty Name="MovieType" Relationship="RandomGeek_KamilModel.FK_Movie_MovieType" FromRole="Movie" ToRole="MovieType" />
@@ -415,30 +341,6 @@
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <Association Name="FK_Game_AgeRating">
-          <End Type="RandomGeek_KamilModel.AgeRating" Role="AgeRating" Multiplicity="1" />
-          <End Type="RandomGeek_KamilModel.Game" Role="Game" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AgeRating">
-              <PropertyRef Name="IDAgeRating" />
-            </Principal>
-            <Dependent Role="Game">
-              <PropertyRef Name="IDAgeRating" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Movie_AgeRating">
-          <End Type="RandomGeek_KamilModel.AgeRating" Role="AgeRating" Multiplicity="1" />
-          <End Type="RandomGeek_KamilModel.Movie" Role="Movie" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AgeRating">
-              <PropertyRef Name="IDAgeRating" />
-            </Principal>
-            <Dependent Role="Movie">
-              <PropertyRef Name="IDAgeRating" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ContentSelection_Game">
           <End Type="RandomGeek_KamilModel.Game" Role="Game" Multiplicity="1" />
           <End Type="RandomGeek_KamilModel.ContentSelection" Role="ContentSelection" Multiplicity="*" />
@@ -517,14 +419,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище RandomGeek_KamilModelContainer" CdmEntityContainer="RandomGeek_KamilEntities">
-          <EntitySetMapping Name="AgeRating">
-            <EntityTypeMapping TypeName="RandomGeek_KamilModel.AgeRating">
-              <MappingFragment StoreEntitySet="AgeRating">
-                <ScalarProperty Name="Rating" ColumnName="Rating" />
-                <ScalarProperty Name="IDAgeRating" ColumnName="IDAgeRating" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ContentSelection">
             <EntityTypeMapping TypeName="RandomGeek_KamilModel.ContentSelection">
               <MappingFragment StoreEntitySet="ContentSelection">
@@ -540,14 +434,11 @@
               <MappingFragment StoreEntitySet="Game">
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="IDAgeRating" ColumnName="IDAgeRating" />
                 <ScalarProperty Name="Rating" ColumnName="Rating" />
-                <ScalarProperty Name="Part" ColumnName="Part" />
                 <ScalarProperty Name="IDGameGenre" ColumnName="IDGameGenre" />
                 <ScalarProperty Name="Year" ColumnName="Year" />
                 <ScalarProperty Name="Platforms" ColumnName="Platforms" />
                 <ScalarProperty Name="Publisher" ColumnName="Publisher" />
-                <ScalarProperty Name="Developer" ColumnName="Developer" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IDGame" ColumnName="IDGame" />
               </MappingFragment>
@@ -566,18 +457,14 @@
               <MappingFragment StoreEntitySet="Movie">
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="IDAgeRating" ColumnName="IDAgeRating" />
                 <ScalarProperty Name="Rating" ColumnName="Rating" />
                 <ScalarProperty Name="SeasonCount" ColumnName="SeasonCount" />
                 <ScalarProperty Name="EpisodeCount" ColumnName="EpisodeCount" />
                 <ScalarProperty Name="Duration" ColumnName="Duration" />
                 <ScalarProperty Name="IDMovieGenre" ColumnName="IDMovieGenre" />
-                <ScalarProperty Name="BoxOffice" ColumnName="BoxOffice" />
                 <ScalarProperty Name="Year" ColumnName="Year" />
                 <ScalarProperty Name="Country" ColumnName="Country" />
                 <ScalarProperty Name="Studio" ColumnName="Studio" />
-                <ScalarProperty Name="Producer" ColumnName="Producer" />
-                <ScalarProperty Name="Screenwriter" ColumnName="Screenwriter" />
                 <ScalarProperty Name="Director" ColumnName="Director" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IDMovieType" ColumnName="IDMovieType" />
