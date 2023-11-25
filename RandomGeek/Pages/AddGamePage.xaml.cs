@@ -24,17 +24,14 @@ namespace RandomGeek.Pages
     public partial class AddGamePage : Page
     {
         public static List<GameGenre> gameGenres { get; set; }
-        public static Game game = new Game();
+        public static Game gameToAdd = new Game();
         public AddGamePage()
         {
             InitializeComponent();
 
-            /*gameGenres = new List<MovieGenre>(DbConnection.RandomGeek_KamilEntities.MovieGenre.ToList());
-            GenreCBx.ItemsSource = movieGenres;
+            gameGenres = new List<GameGenre>(DbConnection.RandomGeek_KamilEntities.GameGenre.ToList());
+            GenreCBx.ItemsSource = gameGenres;
             GenreCBx.DisplayMemberPath = "Name";
-            movieType = new List<MovieType>(DbConnection.RandomGeek_KamilEntities.MovieType.ToList());
-            TypeCBx.ItemsSource = movieType;
-            TypeCBx.DisplayMemberPath = "Name";*/
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
@@ -50,8 +47,35 @@ namespace RandomGeek.Pages
             };
             if (openFileDialog.ShowDialog().GetValueOrDefault())
             {
-                game.Photo = File.ReadAllBytes(openFileDialog.FileName);
+                gameToAdd.Photo = File.ReadAllBytes(openFileDialog.FileName);
                 PreviewImg.Source = new BitmapImage(new Uri(openFileDialog.FileName));
+            }
+        }
+
+        private void AddGamebtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (NameTbx.Text == string.Empty || DescriptionTbx.Text == string.Empty || RatingTbx.Text == string.Empty || CompanyTbx.Text == string.Empty || StartYearTbx.Text == string.Empty || GenreCBx.SelectedItem == null)
+            {
+                MessageBox.Show("Заполните все поля!");
+            }
+            else
+            {
+                Game game = new Game()
+                {
+                    Name = NameTbx.Text,
+                    Description = DescriptionTbx.Text,
+                    Publisher = CompanyTbx.Text,
+                    Year = int.Parse(StartYearTbx.Text),
+                    IDGameGenre = (GenreCBx.SelectedItem as GameGenre).IDGameGenre,
+                    Photo = gameToAdd.Photo
+                };
+
+                DbConnection.RandomGeek_KamilEntities.Game.Add(game);
+                DbConnection.RandomGeek_KamilEntities.SaveChanges();
+
+                MessageBox.Show("Данные записаны!");
+
+                NavigationService.Navigate(new AdminPage());
             }
         }
     }
