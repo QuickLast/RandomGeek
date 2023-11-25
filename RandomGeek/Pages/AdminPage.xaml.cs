@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RandomGeek.Functions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,7 +51,7 @@ namespace RandomGeek.Pages
 
         private void MoveToMainPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-           // NavigationService.Navigate(new MainPage());
+           NavigationService.Navigate(new MainPage(Auth.user));
         }
     }
 }
