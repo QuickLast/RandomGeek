@@ -15,8 +15,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using RandomGeek.Database;
-using RandomGeek.Functions;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace RandomGeek.Pages

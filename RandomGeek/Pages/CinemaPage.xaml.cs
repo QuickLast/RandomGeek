@@ -1,4 +1,5 @@
-﻿using RandomGeek.Functions;
+﻿using RandomGeek.Database;
+using RandomGeek.Functions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,28 @@ namespace RandomGeek.Pages
     /// </summary>
     public partial class CinemaPage : Page
     {
+        public static List<Movie> movies {  get; set; }
+        public static List<Movie> series { get; set; }
+        public static List<Movie> cartoons { get; set; }
         public CinemaPage()
         {
             InitializeComponent();
+
+            movies = new List<Movie>(DbConnection.RandomGeek_KamilEntities.Movie.Where(x => x.IDMovieType == 1).ToList());
+            this.DataContext = this;
+
+            BestMoviesLv.ItemsSource = movies;
+
+            series = new List<Movie>(DbConnection.RandomGeek_KamilEntities.Movie.Where(x => x.IDMovieType == 2).ToList());
+            this.DataContext = this;
+
+            BestSeriesLv.ItemsSource = series;
+
+            cartoons = new List<Movie>(DbConnection.RandomGeek_KamilEntities.Movie.Where(x => x.IDMovieType == 3).ToList());
+            this.DataContext = this;
+
+            BestCartoonsLv.ItemsSource = cartoons;
+
             if (!Auth.isAuth)
             {
                 ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
@@ -42,7 +62,9 @@ namespace RandomGeek.Pages
             {
                 SettingsImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
             }
+            
         }
+
         private void MoveToAuthPage_MouseDown(object sender, MouseEventArgs e)
         {
             if (Auth.isAuth)

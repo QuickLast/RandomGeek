@@ -22,9 +22,28 @@ namespace RandomGeek.Pages
     /// </summary>
     public partial class GamesPage : Page
     {
+        public static List<Game> games { get; set; }
+        public static List<Game> strategies { get; set; }
+        public static List<Game> shooters { get; set; }
         public GamesPage()
         {
             InitializeComponent();
+
+            games = new List<Game>(DbConnection.RandomGeek_KamilEntities.Game.ToList());
+            this.DataContext = this;
+
+            BestGamesLv.ItemsSource = games;
+
+            strategies = new List<Game>(DbConnection.RandomGeek_KamilEntities.Game.Where(x => x.IDGameGenre == 1).ToList());
+            this.DataContext = this;
+
+            StrategiesLv.ItemsSource = strategies;
+
+            shooters = new List<Game>(DbConnection.RandomGeek_KamilEntities.Game.Where(x => x.IDGameGenre == 2).ToList());
+            this.DataContext = this;
+
+            ShootersLv.ItemsSource = shooters;
+
             if (!Auth.isAuth)
             {
                 ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
@@ -44,6 +63,8 @@ namespace RandomGeek.Pages
                 SettingsImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
             }
         }
+           
+
         private void MoveToAuthPage_MouseDown(object sender, MouseEventArgs e)
         {
 

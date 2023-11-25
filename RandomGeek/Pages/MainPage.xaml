@@ -182,7 +182,7 @@
                                 <StackPanel>
                                     <Image Width="170"
                                            Height="170"
-                                           Source="/Assets/Images/Games.png" />
+                                           Source="/Assets/Images/Games.png"/>
                                     <TextBlock Margin="0 10 0 0"
                                                Foreground="#FB323A68"
                                                FontSize="25"
