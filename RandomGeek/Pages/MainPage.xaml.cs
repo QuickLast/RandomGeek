@@ -25,6 +25,22 @@ namespace RandomGeek.Pages
         public MainPage()
         {
             InitializeComponent();
+            if (Auth.isAuth)
+            {
+                 ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Exit.png"));
+            }
+            else
+            {
+                ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
+            }
+            if (Auth.isAuth)
+            {
+                SettingsImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Settings.png"));
+            }
+            else
+            {
+                SettingsImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
+            }
         }
 
 
