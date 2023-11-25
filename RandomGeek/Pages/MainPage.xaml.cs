@@ -1,5 +1,7 @@
-﻿using System;
+﻿using RandomGeek.Functions;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,9 +25,8 @@ namespace RandomGeek.Pages
         public MainPage()
         {
             InitializeComponent();
-
-            
         }
+
 
         private void MoveToAuthPage_MouseDown(object sender, MouseEventArgs e)
         {
