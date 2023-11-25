@@ -43,5 +43,10 @@ namespace RandomGeek.Pages
         {
             NavigationService.Navigate(new MainPage());
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MovieCardPage());
+        }
     }
 }

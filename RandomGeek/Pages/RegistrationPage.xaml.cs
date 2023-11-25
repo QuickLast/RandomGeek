@@ -49,8 +49,6 @@ namespace RandomGeek.Pages
                 NavigationService.Navigate(new MainPage());
             }
             
-            
-            
         }
     }
 }
