@@ -32,6 +32,7 @@ namespace RandomGeek.Database
         public virtual DbSet<MovieGenre> MovieGenre { get; set; }
         public virtual DbSet<MovieType> MovieType { get; set; }
         public virtual DbSet<Selection> Selection { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }
