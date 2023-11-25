@@ -104,7 +104,7 @@
                         Foreground="#FFD9D9D9" Click="RegBtn_Click"/>
             </StackPanel>
 
-                <Button x:Name="NoEntryBtn"
+            <Button Style="{StaticResource MyButtonStyle}" x:Name="NoEntryBtn"
                         Content="Продолжить без входа в аккаунт"
                         FontSize="23"
                         Width="400"

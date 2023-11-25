@@ -50,5 +50,10 @@ namespace RandomGeek.Pages
             }
             
         }
+
+        private void HaveAnAccountBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AuthorizationPage());
+        }
     }
 }

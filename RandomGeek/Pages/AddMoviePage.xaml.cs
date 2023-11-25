@@ -28,17 +28,17 @@ namespace RandomGeek.Pages
         {
             InitializeComponent();
 
-            movieGenres = new List<MovieGenre>(DbConnection.RandomGeek_KamilEntities.MovieGenre.ToList());
-            GenreCb.ItemsSource = movieGenres;
-            GenreCb.DisplayMemberPath = "Name";
+            //movieGenres = new List<MovieGenre>(DbConnection.RandomGeek_KamilEntities.MovieGenre.ToList());
+            //GenreCb.ItemsSource = movieGenres;
+           // GenreCb.DisplayMemberPath = "Name";
 
-            ageRating = new List<AgeRating>(DbConnection.RandomGeek_KamilEntities.AgeRating.ToList());
+            /*ageRating = new List<AgeRating>(DbConnection.RandomGeek_KamilEntities.AgeRating.ToList());
             AgeRatingCb.ItemsSource = ageRating;
             AgeRatingCb.DisplayMemberPath = "Rating";
 
             movieType = new List<MovieType>(DbConnection.RandomGeek_KamilEntities.MovieType.ToList());
             TypeCb.ItemsSource = movieType;
-            TypeCb.DisplayMemberPath = "Name";
+            TypeCb.DisplayMemberPath = "Name";*/
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
@@ -48,7 +48,7 @@ namespace RandomGeek.Pages
 
         private void AddMoviebtn_Click(object sender, RoutedEventArgs e)
         {
-            if (NameTb.Text == string.Empty || DescriptionTb.Text == string.Empty || DirectorTb.Text == string.Empty || ScreenwriterTb.Text == string.Empty || ProducerTb.Text == string.Empty || CountryProjectTb.Text == string.Empty || GenreCb.SelectedItem == null || AgeRatingCb.SelectedItem == null || TypeCb.SelectedItem == null)
+           /* if (NameTb.Text == string.Empty || DescriptionTb.Text == string.Empty || DirectorTb.Text == string.Empty || ScreenwriterTb.Text == string.Empty || ProducerTb.Text == string.Empty || CountryProjectTb.Text == string.Empty || GenreCb.SelectedItem == null || AgeRatingCb.SelectedItem == null || TypeCb.SelectedItem == null)
             {
                 MessageBox.Show("Заполните все поля!");
             }
@@ -73,7 +73,7 @@ namespace RandomGeek.Pages
                 MessageBox.Show("Данные записаны!");
 
                 NavigationService.Navigate(new AdminPage());
-            }
+            }*/
         }
     }
 }

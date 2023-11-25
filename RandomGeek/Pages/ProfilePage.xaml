@@ -164,7 +164,7 @@
                 </Ellipse>
 
                 <Border CornerRadius="20" BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="6">
-                    <Button x:Name="ChoosePhotoBtn"
+                    <Button Style="{StaticResource ButtonStyleAuth}" x:Name="ChoosePhotoBtn"
                             Foreground="#FB323A68"
                             FontSize="25"
                             Content="Выбрать фото"

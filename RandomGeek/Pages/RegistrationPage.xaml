@@ -94,7 +94,7 @@
                             FontSize="25"
                             Background="{x:Null}"
                             BorderBrush="{x:Null}"
-                            Foreground="#FF323A68" />
+                            Foreground="#FF323A68" Click="HaveAnAccountBtn_Click" />
                 </StackPanel>
             </StackPanel>
             <StackPanel Margin="0 5 0 0">
