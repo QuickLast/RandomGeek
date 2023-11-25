@@ -93,6 +93,7 @@
           <Property Name="Email" Type="nvarchar" MaxLength="100" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Photo" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK_ContentSelection_Game">
           <End Role="Game" Type="Self.Game" Multiplicity="1" />
@@ -340,6 +341,7 @@
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_ContentSelection_Game">
           <End Type="RandomGeek_KamilModel.Game" Role="Game" Multiplicity="1" />
@@ -510,6 +512,7 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="RandomGeek_KamilModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Email" ColumnName="Email" />

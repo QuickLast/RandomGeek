@@ -51,9 +51,7 @@
                      Grid.ColumnSpan="8"
                      Grid.Row="4"
                      Grid.RowSpan="9"
-                     Background="#FF99AAC6"
-                     
-                     >
+                     Background="#FF99AAC6">
             
             <StackPanel HorizontalAlignment="Center"
                         VerticalAlignment="Center"

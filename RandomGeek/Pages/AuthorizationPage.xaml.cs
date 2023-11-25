@@ -54,7 +54,7 @@ namespace RandomGeek.Pages
             }
 
 
-            //NavigationService.Navigate(new MainPage()); 
+             
         }
 
         private void RegBtn_Click(object sender, RoutedEventArgs e)
