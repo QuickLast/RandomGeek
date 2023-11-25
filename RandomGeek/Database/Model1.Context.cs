@@ -25,7 +25,6 @@ namespace RandomGeek.Database
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AgeRating> AgeRating { get; set; }
         public virtual DbSet<ContentSelection> ContentSelection { get; set; }
         public virtual DbSet<Game> Game { get; set; }
         public virtual DbSet<GameGenre> GameGenre { get; set; }
