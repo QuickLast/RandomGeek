@@ -23,10 +23,18 @@ namespace RandomGeek.Pages
     /// </summary>
     public partial class AddGamePage : Page
     {
+        public static List<GameGenre> gameGenres { get; set; }
         public static Game game = new Game();
         public AddGamePage()
         {
             InitializeComponent();
+
+            /*gameGenres = new List<MovieGenre>(DbConnection.RandomGeek_KamilEntities.MovieGenre.ToList());
+            GenreCBx.ItemsSource = movieGenres;
+            GenreCBx.DisplayMemberPath = "Name";
+            movieType = new List<MovieType>(DbConnection.RandomGeek_KamilEntities.MovieType.ToList());
+            TypeCBx.ItemsSource = movieType;
+            TypeCBx.DisplayMemberPath = "Name";*/
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
