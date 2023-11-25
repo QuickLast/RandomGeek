@@ -178,47 +178,35 @@
 
                 </StackPanel>
 
-                <StackPanel Grid.Row="11" Grid.Column="1" Grid.RowSpan="11" Grid.ColumnSpan="23">
+                <ListView x:Name="WatchedMoviesLv"
+                              Background="#99AAC6"
+                              Width="auto"
+                              ItemsSource="{Binding movies}"
+                              d:ItemsSource="{d:SampleData ItemCount=7}"
+                              Grid.Column="1"
+                              Grid.ColumnSpan="28"
+                              Grid.Row="11"
+                              Grid.RowSpan="5">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Image Width="150"
+                                           Height="150"
+                                           Source="{Binding Photo}"/>
+                                <TextBlock Margin="0 10 0 0"
+                                               Foreground="#FB323A68"
+                                               FontSize="25"
+                                               Text="{Binding Name}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
 
-                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Center" Margin="0 25 0 0">
-                        <StackPanel Margin="0 0 40 0">
-                            <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
-                            <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
-                        </StackPanel>
-                        <StackPanel Margin="0 0 40 0">
-                            <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
-                            <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
-                        </StackPanel>
-                        <StackPanel Margin="0 0 40 0">
-                            <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
-                            <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
-                        </StackPanel>
-                        <StackPanel Margin="0 0 40 0">
-                            <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
-                            <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
-                        </StackPanel>
-                        <StackPanel Margin="0 0 40 0">
-                            <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
-                            <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
-                        </StackPanel>
-                    </StackPanel>
-
-                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Center" Margin="0 25 480 0">
-                        <StackPanel Margin="0 0 40 0">
-                            <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
-                            <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
-                        </StackPanel>
-                        <StackPanel Margin="0 0 40 0">
-                            <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
-                            <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
-                        </StackPanel>
-                        <StackPanel Margin="0 0 40 0">
-                            <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
-                            <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
-                        </StackPanel>
-                    </StackPanel>
-
-                </StackPanel>
             </Grid>
         </StackPanel>
     </Grid>

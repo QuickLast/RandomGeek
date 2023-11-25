@@ -13,10 +13,10 @@ namespace RandomGeek.Database
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class RandomGeekEntities : DbContext
+    public partial class RandomGeek_KamilEntities : DbContext
     {
-        public RandomGeekEntities()
-            : base("name=RandomGeekEntities")
+        public RandomGeek_KamilEntities()
+            : base("name=RandomGeek_KamilEntities")
         {
         }
     
@@ -32,6 +32,7 @@ namespace RandomGeek.Database
         public virtual DbSet<MovieGenre> MovieGenre { get; set; }
         public virtual DbSet<MovieType> MovieType { get; set; }
         public virtual DbSet<Selection> Selection { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }

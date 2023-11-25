@@ -25,9 +25,16 @@ namespace RandomGeek.Pages
     /// </summary>
     public partial class ProfilePage : Page
     {
+        public static List<Movie> movies { get; set; }
         public ProfilePage()
         {
             InitializeComponent();
+
+            movies = new List<Movie>(DbConnection.RandomGeek_KamilEntities.Movie.ToList());
+            this.DataContext = this;
+
+            WatchedMoviesLv.ItemsSource = movies;
+
             if (!Auth.isAuth)
             {
                 ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));            }
