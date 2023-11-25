@@ -168,25 +168,35 @@
                     <TextBlock FontWeight="Bold" FontSize="30" Foreground="#FB323A68" Margin="0 20 0 0">Подборки от RandomGeeks</TextBlock>
                 </StackPanel>
 
-                <StackPanel HorizontalAlignment="Center" Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="18" Grid.RowSpan="5" Orientation="Horizontal" VerticalAlignment="Center">
-                    <StackPanel Margin="0 0 40 0">
-                        <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
-                        <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
-                    </StackPanel>
-                    <StackPanel Margin="0 0 40 0">
-                        <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
-                        <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
-                    </StackPanel>
-                    <StackPanel Margin="0 0 40 0">
-                        <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
-                        <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
-                    </StackPanel>
-                    <StackPanel Margin="0 0 40 0">
-                        <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
-                        <TextBlock Margin="0 10 0 0" Foreground="#FB323A68" FontSize="25">CompilationName</TextBlock>
-                    </StackPanel>
-                </StackPanel>
-
+                
+                    <ListView x:Name="LVPodborka"
+                              Background="#99AAC6"
+                              Width="auto" 
+                              d:ItemsSource="{d:SampleData ItemCount=5}"
+                              Grid.Row="17"
+                              Grid.Column="1"
+                              Grid.ColumnSpan="20"
+                              Grid.RowSpan="5">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Image Width="170"
+                                           Height="170"
+                                           Source="/Assets/Images/Games.png" />
+                                    <TextBlock Margin="0 10 0 0"
+                                               Foreground="#FB323A68"
+                                               FontSize="25"
+                                               Text="CompilationName"/> 
+                                </StackPanel>
+                            </DataTemplate>
+                            </ListView.ItemTemplate>
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                
 
                 <Image Width="1200" Grid.Column="20" Grid.ColumnSpan="13" Grid.RowSpan="23"  Source="/Assets/Images/MainPageBanner.png" Margin="0,0,-485.462,-0.043"></Image>
             </Grid>

@@ -32,5 +32,25 @@ namespace RandomGeek.Pages
         {
             NavigationService.Navigate(new AddGamePage());
         }
+
+        private void MoveToAuthPage_MouseDown(object sender, MouseEventArgs e)
+        {
+            NavigationService.Navigate(new AuthorizationPage());
+        }
+
+        private void MoveToGamesPage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService.Navigate(new GamesPage());
+        }
+
+        private void MoveToCinemaPage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService.Navigate(new CinemaPage());
+        }
+
+        private void MoveToMainPage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService.Navigate(new MainPage());
+        }
     }
 }

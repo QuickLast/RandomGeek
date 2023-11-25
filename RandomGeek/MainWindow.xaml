@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RandomGeek"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="1920" ResizeMode="NoResize"
+        Title="MainWindow" Height="1080" Width="1920"
         WindowState="Maximized"
-        >
+        Icon="/Assets/Images/Logo.png">
     <Grid>
         <Frame NavigationUIVisibility="Hidden" Source="pages/AuthorizationPage.xaml"/>
     </Grid>

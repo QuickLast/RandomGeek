@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace RandomGeek.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для CinemaPage.xaml
+    /// Логика взаимодействия для MovieCardPage.xaml
     /// </summary>
-    public partial class CinemaPage : Page
+    public partial class MovieCardPage : Page
     {
-        public CinemaPage()
+        public MovieCardPage()
         {
             InitializeComponent();
         }
@@ -33,20 +33,19 @@ namespace RandomGeek.Pages
         {
             NavigationService.Navigate(new GamesPage());
         }
+        private void MoveToMainPage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService.Navigate(new MainPage());
+        }
 
         private void MoveToCinemaPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             NavigationService.Navigate(new CinemaPage());
         }
 
-        private void MoveToMainPage_MouseDown(object sender, MouseButtonEventArgs e)
+        private void MoveToSettingsPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new MainPage());
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new MovieCardPage());
+            NavigationService.Navigate(new AdminPage());
         }
     }
 }

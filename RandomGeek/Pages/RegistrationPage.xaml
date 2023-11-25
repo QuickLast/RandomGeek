@@ -107,6 +107,7 @@
                         Background="#FF323A68"
                         Foreground="#FFD9D9D9"
                         Click="RegBtn_Click"/>
+                <TextBlock Name="ErrorTBk" Margin="0 10 0 0" Foreground="RED" FontSize="30" TextAlignment="Center"></TextBlock>
             </StackPanel>
         </StackPanel>
     </Grid>
