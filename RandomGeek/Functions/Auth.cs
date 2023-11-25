@@ -8,6 +8,6 @@ namespace RandomGeek.Functions
 {
     public class Auth
     {
-        static int isAuth = 0;
+        public static bool isAuth = false;
     }
 }
