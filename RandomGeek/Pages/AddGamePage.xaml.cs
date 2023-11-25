@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using RandomGeek.Database;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,15 +23,28 @@ namespace RandomGeek.Pages
     /// </summary>
     public partial class AddGamePage : Page
     {
+        public static Game game = new Game();
         public AddGamePage()
         {
             InitializeComponent();
         }
 
-       
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AdminPage());
+        }
+
+        private void AddPhotoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog()
+            {
+                Filter = "*.png|*.png|*.jpg|*.jpg|*.jpeg|*.jpeg"
+            };
+            if (openFileDialog.ShowDialog().GetValueOrDefault())
+            {
+                game.Photo = File.ReadAllBytes(openFileDialog.FileName);
+                PreviewImg.Source = new BitmapImage(new Uri(openFileDialog.FileName));
+            }
         }
     }
 }

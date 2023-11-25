@@ -22,11 +22,11 @@ namespace RandomGeek.Pages
     public partial class AddMoviePage : Page
     {
         public static List<MovieGenre> movieGenres {  get; set; }
-        public static List<AgeRating> ageRating { get; set; }
         public static List<MovieType> movieType { get; set; }
         public AddMoviePage()
         {
             InitializeComponent();
+
 
             //movieGenres = new List<MovieGenre>(DbConnection.RandomGeek_KamilEntities.MovieGenre.ToList());
             //GenreCb.ItemsSource = movieGenres;
