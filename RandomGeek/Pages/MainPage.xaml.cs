@@ -25,22 +25,15 @@ namespace RandomGeek.Pages
         public MainPage()
         {
             InitializeComponent();
-            if (Auth.isAuth)
+            if (Auth.isAuth == false )
             {
-                 ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Exit.png"));
+                 ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
             }
-            else
+            else if(Auth.isAuth == true)
             {
-                ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
+                ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Exit.png"));
             }
-            if (Auth.isAuth)
-            {
-                SettingsImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Settings.png"));
-            }
-            else
-            {
-                SettingsImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
-            }
+            
         }
 
 
@@ -62,6 +55,11 @@ namespace RandomGeek.Pages
         private void MoveToSettingsPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             NavigationService.Navigate(new AdminPage());
+        }
+
+        private void MoveToAuthorizationPage_MouseDown(object sender, MouseButtonEventArgs e)
+        { 
+            NavigationService.Navigate(new AuthorizationPage());
         }
     }
 }
