@@ -150,14 +150,16 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
+                <Image Name="PreviewImg" Grid.Row="3" Grid.Column="14" Grid.ColumnSpan="4" Grid.RowSpan="4"></Image>
+                
                 <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="2" >
                     <Border Margin="20 0 0 0" CornerRadius="20" BorderBrush="#FB323A68" BorderThickness="3" Background="#323A68">
-                        <Button Style="{StaticResource ButtonStyleAuth}" x:Name="BackBtn" Foreground="White" FontSize="45" Content="Вернуться" Background="Transparent" BorderThickness="0" Width="236" Click="BackBtn_Click" />
+                        <Button Style="{StaticResource ButtonStyleAuth}" x:Name="BackBtn" Foreground="White" FontSize="30" Content="Вернуться" Background="Transparent" BorderThickness="0" Click="BackBtn_Click" />
                     </Border>
                 </StackPanel>
-                <TextBlock  TextAlignment="Center" Grid.Row="2" Grid.Column="12" Grid.ColumnSpan="9" Grid.RowSpan="2" FontSize="40" FontWeight="Black" Foreground="#FB323A68">Добавление кино</TextBlock>
-                <TextBlock TextAlignment="Left" Grid.Row="9" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="Black" Foreground="#FB323A68">Название</TextBlock>
-                <TextBox  Grid.Column="11" Grid.Row="10" Grid.ColumnSpan="10"
+                <TextBlock  TextAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Grid.Column="12" Grid.ColumnSpan="9" Grid.RowSpan="2" FontSize="40" FontWeight="Black" Foreground="#FB323A68">Добавление кино</TextBlock>
+                <TextBlock TextAlignment="Left" Grid.Row="9" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="SemiBold" Foreground="#FB323A68">Название</TextBlock>
+                <TextBox TextAlignment="Left" Foreground="#FB323A68" FontSize="27" Grid.Column="11" Grid.Row="10" Grid.ColumnSpan="10"
                          x:Name="NameTbx"
                          Background="#FFD9D9D9">
                     <TextBox.Resources>
@@ -166,9 +168,9 @@
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-                <TextBlock TextAlignment="Left" Grid.Row="11" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="Black" Foreground="#FB323A68">Описание</TextBlock>
-                <TextBox Grid.Column="11" Grid.Row="12" Grid.ColumnSpan="10"
-                         x:Name="DistructionTbx"
+                <TextBlock TextAlignment="Left" FontWeight="SemiBold" Foreground="#FB323A68" Grid.Row="11" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" >Описание</TextBlock>
+                <TextBox TextAlignment="Left" Foreground="#FB323A68" FontSize="27" Grid.Column="11" Grid.Row="12" Grid.ColumnSpan="10"
+                         x:Name="DescriptionTbx"
                          Background="#FFD9D9D9">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
@@ -176,8 +178,8 @@
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-                <TextBlock TextAlignment="Left" Grid.Row="13" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="Black" Foreground="#FB323A68">Рейтинг</TextBlock>
-                <TextBox Grid.Column="11" Grid.Row="14" Grid.ColumnSpan="10"
+                <TextBlock TextAlignment="Left" Grid.Row="13" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="SemiBold" Foreground="#FB323A68">Рейтинг</TextBlock>
+                <TextBox TextAlignment="Left" Foreground="#FB323A68" FontSize="27" Grid.Column="11" Grid.Row="14" Grid.ColumnSpan="10"
                          x:Name="RatingTbx"
                          Background="#FFD9D9D9">
                     <TextBox.Resources>
@@ -186,8 +188,8 @@
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-                <TextBlock TextAlignment="Left" Grid.Row="15" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="Black" Foreground="#FB323A68">Компания</TextBlock>
-                <TextBox Grid.Column="11" Grid.Row="16" Grid.ColumnSpan="10"
+                <TextBlock TextAlignment="Left" Grid.Row="15" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="SemiBold" Foreground="#FB323A68">Компания</TextBlock>
+                <TextBox TextAlignment="Left" Foreground="#FB323A68" FontSize="27" Grid.Column="11" Grid.Row="16" Grid.ColumnSpan="10"
                          x:Name="CompanyTbx"
                          Background="#FFD9D9D9">
                     <TextBox.Resources>
@@ -196,8 +198,8 @@
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-                <TextBlock TextAlignment="Left" Grid.Row="17" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="Black" Foreground="#FB323A68">Год выхода</TextBlock>
-                <TextBox Grid.Column="11" Grid.Row="18" Grid.ColumnSpan="10"
+                <TextBlock TextAlignment="Left" Grid.Row="17" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="SemiBold" Foreground="#FB323A68">Год выхода</TextBlock>
+                <TextBox TextAlignment="Left" Foreground="#FB323A68" FontSize="27" Grid.Column="11" Grid.Row="18" Grid.ColumnSpan="10"
                          x:Name="StartYearTbx"
                          Background="#FFD9D9D9">
                     <TextBox.Resources>
@@ -206,8 +208,8 @@
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-                <TextBlock TextAlignment="Left" Grid.Row="19" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="Black" Foreground="#FB323A68">Страна производства</TextBlock>
-                <TextBox Grid.Column="11" Grid.Row="20" Grid.ColumnSpan="10"
+                <TextBlock TextAlignment="Left" Grid.Row="19" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="SemiBold" Foreground="#FB323A68">Страна производства</TextBlock>
+                <TextBox TextAlignment="Left" Foreground="#FB323A68" FontSize="27" Grid.Column="11" Grid.Row="20" Grid.ColumnSpan="10"
                          x:Name="CountryProjectTbx"
                          Background="#FFD9D9D9">
                     <TextBox.Resources>
@@ -216,9 +218,19 @@
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-                <TextBlock TextAlignment="Left" Grid.Row="21" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="Black" Foreground="#FB323A68">Жанр</TextBlock>
-                <ComboBox  Grid.Column="11" Grid.Row="22" Grid.ColumnSpan="10"
-                         x:Name="GenreCmmx"
+                <TextBlock TextAlignment="Left" Grid.Row="21" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="SemiBold" Foreground="#FB323A68">Режиссер</TextBlock>
+                <TextBox TextAlignment="Left" Foreground="#FB323A68" FontSize="27" Grid.Column="11" Grid.Row="22" Grid.ColumnSpan="10"
+                         x:Name="DirectorTbx"
+                         Background="#FFD9D9D9">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="8"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+                <TextBlock TextAlignment="Left" Grid.Row="23" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="SemiBold" Foreground="#FB323A68">Жанр</TextBlock>
+                <ComboBox Foreground="#FB323A68" FontSize="27" Grid.Column="11" Grid.Row="24" Grid.ColumnSpan="10"
+                         x:Name="GenreCBx"
                          Background="#FFD9D9D9" >
                     <ComboBox.Resources>
                         <Style TargetType= "{x:Type Border}">
@@ -226,9 +238,9 @@
                         </Style>
                     </ComboBox.Resources>
                 </ComboBox>
-                <TextBlock TextAlignment="Left" Grid.Row="23" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="Black" Foreground="#FB323A68">Возрастной рейтинг</TextBlock>
-                <ComboBox Grid.Column="11" Grid.Row="24" Grid.ColumnSpan="10"
-                         x:Name="AgeratingCmmx"
+                <TextBlock TextAlignment="Left" Grid.Row="25" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="SemiBold" Foreground="#FB323A68">Тип</TextBlock>
+                <ComboBox Foreground="#FB323A68" FontSize="27" Grid.Column="11" Grid.Row="26" Grid.ColumnSpan="10"
+                         x:Name="TypeCBx"
                          Background="#FFD9D9D9" >
                     <ComboBox.Resources>
                         <Style TargetType= "{x:Type Border}">
@@ -236,21 +248,11 @@
                         </Style>
                     </ComboBox.Resources>
                 </ComboBox>
-                <TextBlock TextAlignment="Left" Grid.Row="25" Grid.Column="11" Grid.ColumnSpan="9" Grid.RowSpan="1" FontSize="25" FontWeight="Black" Foreground="#FB323A68">Тип</TextBlock>
-                <ComboBox  Grid.Column="11" Grid.Row="26" Grid.ColumnSpan="10"
-                         x:Name="TypeCmmx"
-                         Background="#FFD9D9D9" >
-                    <ComboBox.Resources>
-                        <Style TargetType= "{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="8"/>
-                        </Style>
-                    </ComboBox.Resources>
-                </ComboBox>
-                <Border Margin="20 0 0 0" CornerRadius="20" Grid.Column="13" Grid.Row="8" Grid.ColumnSpan="6" Grid.RowSpan="1" BorderBrush="#FB323A68" BorderThickness="3">
-                    <Button  Style="{StaticResource ButtonStyleAuth}" x:Name="AddPhotoBtn"   Foreground="Black" FontSize="15" Content="Выбрать фото" Background="Transparent" BorderThickness="0" Width="236"/>
+                <Border CornerRadius="20" Grid.Column="13" Grid.Row="8" Grid.ColumnSpan="6" Grid.RowSpan="1" BorderBrush="#FB323A68" BorderThickness="3">
+                    <Button Style="{StaticResource ButtonStyleAuth}" x:Name="AddPhotoBtn"  Foreground="#FB323A68" FontSize="20" Content="Выбрать фото" Background="Transparent" BorderThickness="0" Click="AddPhotoBtn_Click"/>
                 </Border>
                 <Border Margin="20 -20 0 0" CornerRadius="20" Grid.Column="11" Grid.Row="28" Grid.ColumnSpan="9" Grid.RowSpan="1"  BorderBrush="#FB323A68" BorderThickness="3" Background="#323A68">
-                    <Button Style="{StaticResource ButtonStyleAuth}" x:Name="AddMoviebtn" Foreground="White" FontSize="25" Content="Добавить кино" Background="Transparent" BorderThickness="0"/>
+                    <Button Style="{StaticResource ButtonStyleAuth}" x:Name="AddMoviebtn" Foreground="White" FontSize="25" Content="Добавить кино" Background="Transparent" BorderThickness="0" Click="AddMoviebtn_Click"/>
                 </Border>
             </Grid>
         </ScrollViewer>

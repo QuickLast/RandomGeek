@@ -23,8 +23,6 @@ namespace RandomGeek.Pages
         public MainPage()
         {
             InitializeComponent();
-
-            
         }
 
         private void MoveToAuthPage_MouseDown(object sender, MouseEventArgs e)
