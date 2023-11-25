@@ -17,13 +17,13 @@ namespace RandomGeek.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MovieGenre()
         {
-            this.GenreMovie = new HashSet<GenreMovie>();
+            this.Movie = new HashSet<Movie>();
         }
     
         public int IDMovieGenre { get; set; }
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GenreMovie> GenreMovie { get; set; }
+        public virtual ICollection<Movie> Movie { get; set; }
     }
 }

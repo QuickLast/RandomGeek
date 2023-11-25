@@ -5,27 +5,23 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ac118a8b0b584cff9ceb9d95ece9aae9" Name="Diagram1">
-        <EntityTypeShape EntityType="RandomGeek_KamilModel.AgeRating" Width="1.5" PointX="0.75" PointY="5.875" />
-        <EntityTypeShape EntityType="RandomGeek_KamilModel.ContentSelection" Width="1.5" PointX="5.25" PointY="8.25" />
-        <EntityTypeShape EntityType="RandomGeek_KamilModel.Game" Width="1.5" PointX="3" PointY="10.625" />
-        <EntityTypeShape EntityType="RandomGeek_KamilModel.GameGenre" Width="1.5" PointX="3" PointY="18.875" />
-        <EntityTypeShape EntityType="RandomGeek_KamilModel.GenreGame" Width="1.5" PointX="5.25" PointY="11.625" />
-        <EntityTypeShape EntityType="RandomGeek_KamilModel.GenreMovie" Width="1.5" PointX="5.25" PointY="4.875" />
-        <EntityTypeShape EntityType="RandomGeek_KamilModel.Movie" Width="1.5" PointX="3" PointY="4.25" />
-        <EntityTypeShape EntityType="RandomGeek_KamilModel.MovieGenre" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="RandomGeek_KamilModel.MovieType" Width="1.5" PointX="0.75" PointY="3" />
-        <EntityTypeShape EntityType="RandomGeek_KamilModel.Selection" Width="1.5" PointX="3" PointY="15.625" />
-        <EntityTypeShape EntityType="RandomGeek_KamilModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="RandomGeek_KamilModel.User" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RandomGeek_KamilModel.AgeRating" Width="1.5" PointX="0.75" PointY="5.625" />
+        <EntityTypeShape EntityType="RandomGeek_KamilModel.ContentSelection" Width="1.5" PointX="8.25" PointY="5.375" />
+        <EntityTypeShape EntityType="RandomGeek_KamilModel.Game" Width="1.5" PointX="6" PointY="4.625" />
+        <EntityTypeShape EntityType="RandomGeek_KamilModel.GameGenre" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RandomGeek_KamilModel.Movie" Width="1.5" PointX="3" PointY="3.875" />
+        <EntityTypeShape EntityType="RandomGeek_KamilModel.MovieGenre" Width="1.5" PointX="0.75" PointY="2.625" />
+        <EntityTypeShape EntityType="RandomGeek_KamilModel.MovieType" Width="1.5" PointX="0.75" PointY="8.875" />
+        <EntityTypeShape EntityType="RandomGeek_KamilModel.Selection" Width="1.5" PointX="6" PointY="1.375" />
+        <EntityTypeShape EntityType="RandomGeek_KamilModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="1" />
+        <EntityTypeShape EntityType="RandomGeek_KamilModel.User" Width="1.5" PointX="8.75" PointY="9" />
         <AssociationConnector Association="RandomGeek_KamilModel.FK_Game_AgeRating" />
         <AssociationConnector Association="RandomGeek_KamilModel.FK_Movie_AgeRating" />
         <AssociationConnector Association="RandomGeek_KamilModel.FK_ContentSelection_Game" />
         <AssociationConnector Association="RandomGeek_KamilModel.FK_ContentSelection_Movie" />
         <AssociationConnector Association="RandomGeek_KamilModel.FK_ContentSelection_Selection" />
-        <AssociationConnector Association="RandomGeek_KamilModel.FK_GenreGame_Game" />
-        <AssociationConnector Association="RandomGeek_KamilModel.FK_GenreGame_GameGenre" />
-        <AssociationConnector Association="RandomGeek_KamilModel.FK_GenreMovie_Movie" />
-        <AssociationConnector Association="RandomGeek_KamilModel.FK_GenreMovie_MovieGenre" />
+        <AssociationConnector Association="RandomGeek_KamilModel.FK_Game_GameGenre" />
+        <AssociationConnector Association="RandomGeek_KamilModel.FK_Movie_MovieGenre" />
         <AssociationConnector Association="RandomGeek_KamilModel.FK_Movie_MovieType" />
       </Diagram>
     </edmx:Diagrams>

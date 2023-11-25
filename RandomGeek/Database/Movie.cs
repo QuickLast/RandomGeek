@@ -18,7 +18,6 @@ namespace RandomGeek.Database
         public Movie()
         {
             this.ContentSelection = new HashSet<ContentSelection>();
-            this.GenreMovie = new HashSet<GenreMovie>();
         }
     
         public int IDMovie { get; set; }
@@ -31,6 +30,7 @@ namespace RandomGeek.Database
         public string Country { get; set; }
         public Nullable<int> Year { get; set; }
         public Nullable<decimal> BoxOffice { get; set; }
+        public int IDMovieGenre { get; set; }
         public Nullable<int> Duration { get; set; }
         public Nullable<int> EpisodeCount { get; set; }
         public Nullable<int> SeasonCount { get; set; }
@@ -42,8 +42,7 @@ namespace RandomGeek.Database
         public virtual AgeRating AgeRating { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ContentSelection> ContentSelection { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GenreMovie> GenreMovie { get; set; }
+        public virtual MovieGenre MovieGenre { get; set; }
         public virtual MovieType MovieType { get; set; }
     }
 }

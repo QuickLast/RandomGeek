@@ -18,7 +18,6 @@ namespace RandomGeek.Database
         public Game()
         {
             this.ContentSelection = new HashSet<ContentSelection>();
-            this.GenreGame = new HashSet<GenreGame>();
         }
     
         public int IDGame { get; set; }
@@ -27,7 +26,7 @@ namespace RandomGeek.Database
         public string Publisher { get; set; }
         public string Platforms { get; set; }
         public Nullable<int> Year { get; set; }
-        public string Genre { get; set; }
+        public int IDGameGenre { get; set; }
         public Nullable<int> Part { get; set; }
         public Nullable<double> Rating { get; set; }
         public int IDAgeRating { get; set; }
@@ -37,7 +36,6 @@ namespace RandomGeek.Database
         public virtual AgeRating AgeRating { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ContentSelection> ContentSelection { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GenreGame> GenreGame { get; set; }
+        public virtual GameGenre GameGenre { get; set; }
     }
 }

@@ -16,7 +16,7 @@
           <Key>
             <PropertyRef Name="IDContentSelection" />
           </Key>
-          <Property Name="IDContentSelection" Type="int" Nullable="false" />
+          <Property Name="IDContentSelection" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDSelection" Type="int" Nullable="false" />
           <Property Name="IDMovie" Type="int" Nullable="false" />
           <Property Name="IDGame" Type="int" Nullable="false" />
@@ -31,7 +31,7 @@
           <Property Name="Publisher" Type="nvarchar" MaxLength="50" />
           <Property Name="Platforms" Type="nvarchar" MaxLength="50" />
           <Property Name="Year" Type="int" />
-          <Property Name="Genre" Type="nvarchar" MaxLength="100" />
+          <Property Name="IDGameGenre" Type="int" Nullable="false" />
           <Property Name="Part" Type="int" />
           <Property Name="Rating" Type="float" />
           <Property Name="IDAgeRating" Type="int" Nullable="false" />
@@ -42,24 +42,8 @@
           <Key>
             <PropertyRef Name="IDGameGenre" />
           </Key>
-          <Property Name="IDGameGenre" Type="int" Nullable="false" />
+          <Property Name="IDGameGenre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="GenreGame">
-          <Key>
-            <PropertyRef Name="IDGenreGane" />
-          </Key>
-          <Property Name="IDGenreGane" Type="int" Nullable="false" />
-          <Property Name="IDGame" Type="int" Nullable="false" />
-          <Property Name="IDGameGenre" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="GenreMovie">
-          <Key>
-            <PropertyRef Name="IDGenreMovie" />
-          </Key>
-          <Property Name="IDGenreMovie" Type="int" Nullable="false" />
-          <Property Name="IDMovie" Type="int" Nullable="false" />
-          <Property Name="IDMovieGenre" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Movie">
           <Key>
@@ -75,6 +59,7 @@
           <Property Name="Country" Type="nvarchar" MaxLength="50" />
           <Property Name="Year" Type="int" />
           <Property Name="BoxOffice" Type="money" />
+          <Property Name="IDMovieGenre" Type="int" Nullable="false" />
           <Property Name="Duration" Type="int" />
           <Property Name="EpisodeCount" Type="int" />
           <Property Name="SeasonCount" Type="int" />
@@ -87,7 +72,7 @@
           <Key>
             <PropertyRef Name="IDMovieGenre" />
           </Key>
-          <Property Name="IDMovieGenre" Type="int" Nullable="false" />
+          <Property Name="IDMovieGenre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="MovieType">
@@ -101,7 +86,7 @@
           <Key>
             <PropertyRef Name="IDSelection" />
           </Key>
-          <Property Name="IDSelection" Type="int" Nullable="false" />
+          <Property Name="IDSelection" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -171,51 +156,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_GenreGame_Game">
-          <End Role="Game" Type="Self.Game" Multiplicity="1" />
-          <End Role="GenreGame" Type="Self.GenreGame" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Game">
-              <PropertyRef Name="IDGame" />
-            </Principal>
-            <Dependent Role="GenreGame">
-              <PropertyRef Name="IDGame" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_GenreGame_GameGenre">
+        <Association Name="FK_Game_GameGenre">
           <End Role="GameGenre" Type="Self.GameGenre" Multiplicity="1" />
-          <End Role="GenreGame" Type="Self.GenreGame" Multiplicity="*" />
+          <End Role="Game" Type="Self.Game" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GameGenre">
               <PropertyRef Name="IDGameGenre" />
             </Principal>
-            <Dependent Role="GenreGame">
+            <Dependent Role="Game">
               <PropertyRef Name="IDGameGenre" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_GenreMovie_Movie">
-          <End Role="Movie" Type="Self.Movie" Multiplicity="1" />
-          <End Role="GenreMovie" Type="Self.GenreMovie" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Movie">
-              <PropertyRef Name="IDMovie" />
-            </Principal>
-            <Dependent Role="GenreMovie">
-              <PropertyRef Name="IDMovie" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_GenreMovie_MovieGenre">
-          <End Role="MovieGenre" Type="Self.MovieGenre" Multiplicity="1" />
-          <End Role="GenreMovie" Type="Self.GenreMovie" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MovieGenre">
-              <PropertyRef Name="IDMovieGenre" />
-            </Principal>
-            <Dependent Role="GenreMovie">
-              <PropertyRef Name="IDMovieGenre" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -228,6 +177,18 @@
             </Principal>
             <Dependent Role="Movie">
               <PropertyRef Name="IDAgeRating" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movie_MovieGenre">
+          <End Role="MovieGenre" Type="Self.MovieGenre" Multiplicity="1" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MovieGenre">
+              <PropertyRef Name="IDMovieGenre" />
+            </Principal>
+            <Dependent Role="Movie">
+              <PropertyRef Name="IDMovieGenre" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -248,8 +209,6 @@
           <EntitySet Name="ContentSelection" EntityType="Self.ContentSelection" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GameGenre" EntityType="Self.GameGenre" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="GenreGame" EntityType="Self.GenreGame" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="GenreMovie" EntityType="Self.GenreMovie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Movie" EntityType="Self.Movie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MovieGenre" EntityType="Self.MovieGenre" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MovieType" EntityType="Self.MovieType" Schema="dbo" store:Type="Tables" />
@@ -272,24 +231,16 @@
             <End Role="AgeRating" EntitySet="AgeRating" />
             <End Role="Game" EntitySet="Game" />
           </AssociationSet>
-          <AssociationSet Name="FK_GenreGame_Game" Association="Self.FK_GenreGame_Game">
-            <End Role="Game" EntitySet="Game" />
-            <End Role="GenreGame" EntitySet="GenreGame" />
-          </AssociationSet>
-          <AssociationSet Name="FK_GenreGame_GameGenre" Association="Self.FK_GenreGame_GameGenre">
+          <AssociationSet Name="FK_Game_GameGenre" Association="Self.FK_Game_GameGenre">
             <End Role="GameGenre" EntitySet="GameGenre" />
-            <End Role="GenreGame" EntitySet="GenreGame" />
-          </AssociationSet>
-          <AssociationSet Name="FK_GenreMovie_Movie" Association="Self.FK_GenreMovie_Movie">
-            <End Role="Movie" EntitySet="Movie" />
-            <End Role="GenreMovie" EntitySet="GenreMovie" />
-          </AssociationSet>
-          <AssociationSet Name="FK_GenreMovie_MovieGenre" Association="Self.FK_GenreMovie_MovieGenre">
-            <End Role="MovieGenre" EntitySet="MovieGenre" />
-            <End Role="GenreMovie" EntitySet="GenreMovie" />
+            <End Role="Game" EntitySet="Game" />
           </AssociationSet>
           <AssociationSet Name="FK_Movie_AgeRating" Association="Self.FK_Movie_AgeRating">
             <End Role="AgeRating" EntitySet="AgeRating" />
+            <End Role="Movie" EntitySet="Movie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movie_MovieGenre" Association="Self.FK_Movie_MovieGenre">
+            <End Role="MovieGenre" EntitySet="MovieGenre" />
             <End Role="Movie" EntitySet="Movie" />
           </AssociationSet>
           <AssociationSet Name="FK_Movie_MovieType" Association="Self.FK_Movie_MovieType">
@@ -306,8 +257,6 @@
           <EntitySet Name="ContentSelection" EntityType="RandomGeek_KamilModel.ContentSelection" />
           <EntitySet Name="Game" EntityType="RandomGeek_KamilModel.Game" />
           <EntitySet Name="GameGenre" EntityType="RandomGeek_KamilModel.GameGenre" />
-          <EntitySet Name="GenreGame" EntityType="RandomGeek_KamilModel.GenreGame" />
-          <EntitySet Name="GenreMovie" EntityType="RandomGeek_KamilModel.GenreMovie" />
           <EntitySet Name="Movie" EntityType="RandomGeek_KamilModel.Movie" />
           <EntitySet Name="MovieGenre" EntityType="RandomGeek_KamilModel.MovieGenre" />
           <EntitySet Name="MovieType" EntityType="RandomGeek_KamilModel.MovieType" />
@@ -334,21 +283,13 @@
             <End Role="Selection" EntitySet="Selection" />
             <End Role="ContentSelection" EntitySet="ContentSelection" />
           </AssociationSet>
-          <AssociationSet Name="FK_GenreGame_Game" Association="RandomGeek_KamilModel.FK_GenreGame_Game">
-            <End Role="Game" EntitySet="Game" />
-            <End Role="GenreGame" EntitySet="GenreGame" />
-          </AssociationSet>
-          <AssociationSet Name="FK_GenreGame_GameGenre" Association="RandomGeek_KamilModel.FK_GenreGame_GameGenre">
+          <AssociationSet Name="FK_Game_GameGenre" Association="RandomGeek_KamilModel.FK_Game_GameGenre">
             <End Role="GameGenre" EntitySet="GameGenre" />
-            <End Role="GenreGame" EntitySet="GenreGame" />
+            <End Role="Game" EntitySet="Game" />
           </AssociationSet>
-          <AssociationSet Name="FK_GenreMovie_Movie" Association="RandomGeek_KamilModel.FK_GenreMovie_Movie">
-            <End Role="Movie" EntitySet="Movie" />
-            <End Role="GenreMovie" EntitySet="GenreMovie" />
-          </AssociationSet>
-          <AssociationSet Name="FK_GenreMovie_MovieGenre" Association="RandomGeek_KamilModel.FK_GenreMovie_MovieGenre">
+          <AssociationSet Name="FK_Movie_MovieGenre" Association="RandomGeek_KamilModel.FK_Movie_MovieGenre">
             <End Role="MovieGenre" EntitySet="MovieGenre" />
-            <End Role="GenreMovie" EntitySet="GenreMovie" />
+            <End Role="Movie" EntitySet="Movie" />
           </AssociationSet>
           <AssociationSet Name="FK_Movie_MovieType" Association="RandomGeek_KamilModel.FK_Movie_MovieType">
             <End Role="MovieType" EntitySet="MovieType" />
@@ -368,7 +309,7 @@
           <Key>
             <PropertyRef Name="IDContentSelection" />
           </Key>
-          <Property Name="IDContentSelection" Type="Int32" Nullable="false" />
+          <Property Name="IDContentSelection" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDSelection" Type="Int32" Nullable="false" />
           <Property Name="IDMovie" Type="Int32" Nullable="false" />
           <Property Name="IDGame" Type="Int32" Nullable="false" />
@@ -386,7 +327,7 @@
           <Property Name="Publisher" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Platforms" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Year" Type="Int32" />
-          <Property Name="Genre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IDGameGenre" Type="Int32" Nullable="false" />
           <Property Name="Part" Type="Int32" />
           <Property Name="Rating" Type="Double" />
           <Property Name="IDAgeRating" Type="Int32" Nullable="false" />
@@ -394,35 +335,15 @@
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="AgeRating" Relationship="RandomGeek_KamilModel.FK_Game_AgeRating" FromRole="Game" ToRole="AgeRating" />
           <NavigationProperty Name="ContentSelection" Relationship="RandomGeek_KamilModel.FK_ContentSelection_Game" FromRole="Game" ToRole="ContentSelection" />
-          <NavigationProperty Name="GenreGame" Relationship="RandomGeek_KamilModel.FK_GenreGame_Game" FromRole="Game" ToRole="GenreGame" />
+          <NavigationProperty Name="GameGenre" Relationship="RandomGeek_KamilModel.FK_Game_GameGenre" FromRole="Game" ToRole="GameGenre" />
         </EntityType>
         <EntityType Name="GameGenre">
           <Key>
             <PropertyRef Name="IDGameGenre" />
           </Key>
-          <Property Name="IDGameGenre" Type="Int32" Nullable="false" />
+          <Property Name="IDGameGenre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="GenreGame" Relationship="RandomGeek_KamilModel.FK_GenreGame_GameGenre" FromRole="GameGenre" ToRole="GenreGame" />
-        </EntityType>
-        <EntityType Name="GenreGame">
-          <Key>
-            <PropertyRef Name="IDGenreGane" />
-          </Key>
-          <Property Name="IDGenreGane" Type="Int32" Nullable="false" />
-          <Property Name="IDGame" Type="Int32" Nullable="false" />
-          <Property Name="IDGameGenre" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Game" Relationship="RandomGeek_KamilModel.FK_GenreGame_Game" FromRole="GenreGame" ToRole="Game" />
-          <NavigationProperty Name="GameGenre" Relationship="RandomGeek_KamilModel.FK_GenreGame_GameGenre" FromRole="GenreGame" ToRole="GameGenre" />
-        </EntityType>
-        <EntityType Name="GenreMovie">
-          <Key>
-            <PropertyRef Name="IDGenreMovie" />
-          </Key>
-          <Property Name="IDGenreMovie" Type="Int32" Nullable="false" />
-          <Property Name="IDMovie" Type="Int32" Nullable="false" />
-          <Property Name="IDMovieGenre" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Movie" Relationship="RandomGeek_KamilModel.FK_GenreMovie_Movie" FromRole="GenreMovie" ToRole="Movie" />
-          <NavigationProperty Name="MovieGenre" Relationship="RandomGeek_KamilModel.FK_GenreMovie_MovieGenre" FromRole="GenreMovie" ToRole="MovieGenre" />
+          <NavigationProperty Name="Game" Relationship="RandomGeek_KamilModel.FK_Game_GameGenre" FromRole="GameGenre" ToRole="Game" />
         </EntityType>
         <EntityType Name="Movie">
           <Key>
@@ -438,6 +359,7 @@
           <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Year" Type="Int32" />
           <Property Name="BoxOffice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="IDMovieGenre" Type="Int32" Nullable="false" />
           <Property Name="Duration" Type="Int32" />
           <Property Name="EpisodeCount" Type="Int32" />
           <Property Name="SeasonCount" Type="Int32" />
@@ -447,16 +369,16 @@
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="AgeRating" Relationship="RandomGeek_KamilModel.FK_Movie_AgeRating" FromRole="Movie" ToRole="AgeRating" />
           <NavigationProperty Name="ContentSelection" Relationship="RandomGeek_KamilModel.FK_ContentSelection_Movie" FromRole="Movie" ToRole="ContentSelection" />
-          <NavigationProperty Name="GenreMovie" Relationship="RandomGeek_KamilModel.FK_GenreMovie_Movie" FromRole="Movie" ToRole="GenreMovie" />
+          <NavigationProperty Name="MovieGenre" Relationship="RandomGeek_KamilModel.FK_Movie_MovieGenre" FromRole="Movie" ToRole="MovieGenre" />
           <NavigationProperty Name="MovieType" Relationship="RandomGeek_KamilModel.FK_Movie_MovieType" FromRole="Movie" ToRole="MovieType" />
         </EntityType>
         <EntityType Name="MovieGenre">
           <Key>
             <PropertyRef Name="IDMovieGenre" />
           </Key>
-          <Property Name="IDMovieGenre" Type="Int32" Nullable="false" />
+          <Property Name="IDMovieGenre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="GenreMovie" Relationship="RandomGeek_KamilModel.FK_GenreMovie_MovieGenre" FromRole="MovieGenre" ToRole="GenreMovie" />
+          <NavigationProperty Name="Movie" Relationship="RandomGeek_KamilModel.FK_Movie_MovieGenre" FromRole="MovieGenre" ToRole="Movie" />
         </EntityType>
         <EntityType Name="MovieType">
           <Key>
@@ -470,7 +392,7 @@
           <Key>
             <PropertyRef Name="IDSelection" />
           </Key>
-          <Property Name="IDSelection" Type="Int32" Nullable="false" />
+          <Property Name="IDSelection" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ContentSelection" Relationship="RandomGeek_KamilModel.FK_ContentSelection_Selection" FromRole="Selection" ToRole="ContentSelection" />
         </EntityType>
@@ -553,50 +475,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_GenreGame_Game">
-          <End Type="RandomGeek_KamilModel.Game" Role="Game" Multiplicity="1" />
-          <End Type="RandomGeek_KamilModel.GenreGame" Role="GenreGame" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Game">
-              <PropertyRef Name="IDGame" />
-            </Principal>
-            <Dependent Role="GenreGame">
-              <PropertyRef Name="IDGame" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_GenreGame_GameGenre">
+        <Association Name="FK_Game_GameGenre">
           <End Type="RandomGeek_KamilModel.GameGenre" Role="GameGenre" Multiplicity="1" />
-          <End Type="RandomGeek_KamilModel.GenreGame" Role="GenreGame" Multiplicity="*" />
+          <End Type="RandomGeek_KamilModel.Game" Role="Game" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GameGenre">
               <PropertyRef Name="IDGameGenre" />
             </Principal>
-            <Dependent Role="GenreGame">
+            <Dependent Role="Game">
               <PropertyRef Name="IDGameGenre" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_GenreMovie_Movie">
-          <End Type="RandomGeek_KamilModel.Movie" Role="Movie" Multiplicity="1" />
-          <End Type="RandomGeek_KamilModel.GenreMovie" Role="GenreMovie" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Movie">
-              <PropertyRef Name="IDMovie" />
-            </Principal>
-            <Dependent Role="GenreMovie">
-              <PropertyRef Name="IDMovie" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_GenreMovie_MovieGenre">
+        <Association Name="FK_Movie_MovieGenre">
           <End Type="RandomGeek_KamilModel.MovieGenre" Role="MovieGenre" Multiplicity="1" />
-          <End Type="RandomGeek_KamilModel.GenreMovie" Role="GenreMovie" Multiplicity="*" />
+          <End Type="RandomGeek_KamilModel.Movie" Role="Movie" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MovieGenre">
               <PropertyRef Name="IDMovieGenre" />
             </Principal>
-            <Dependent Role="GenreMovie">
+            <Dependent Role="Movie">
               <PropertyRef Name="IDMovieGenre" />
             </Dependent>
           </ReferentialConstraint>
@@ -645,7 +543,7 @@
                 <ScalarProperty Name="IDAgeRating" ColumnName="IDAgeRating" />
                 <ScalarProperty Name="Rating" ColumnName="Rating" />
                 <ScalarProperty Name="Part" ColumnName="Part" />
-                <ScalarProperty Name="Genre" ColumnName="Genre" />
+                <ScalarProperty Name="IDGameGenre" ColumnName="IDGameGenre" />
                 <ScalarProperty Name="Year" ColumnName="Year" />
                 <ScalarProperty Name="Platforms" ColumnName="Platforms" />
                 <ScalarProperty Name="Publisher" ColumnName="Publisher" />
@@ -663,24 +561,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="GenreGame">
-            <EntityTypeMapping TypeName="RandomGeek_KamilModel.GenreGame">
-              <MappingFragment StoreEntitySet="GenreGame">
-                <ScalarProperty Name="IDGameGenre" ColumnName="IDGameGenre" />
-                <ScalarProperty Name="IDGame" ColumnName="IDGame" />
-                <ScalarProperty Name="IDGenreGane" ColumnName="IDGenreGane" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="GenreMovie">
-            <EntityTypeMapping TypeName="RandomGeek_KamilModel.GenreMovie">
-              <MappingFragment StoreEntitySet="GenreMovie">
-                <ScalarProperty Name="IDMovieGenre" ColumnName="IDMovieGenre" />
-                <ScalarProperty Name="IDMovie" ColumnName="IDMovie" />
-                <ScalarProperty Name="IDGenreMovie" ColumnName="IDGenreMovie" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Movie">
             <EntityTypeMapping TypeName="RandomGeek_KamilModel.Movie">
               <MappingFragment StoreEntitySet="Movie">
@@ -691,6 +571,7 @@
                 <ScalarProperty Name="SeasonCount" ColumnName="SeasonCount" />
                 <ScalarProperty Name="EpisodeCount" ColumnName="EpisodeCount" />
                 <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="IDMovieGenre" ColumnName="IDMovieGenre" />
                 <ScalarProperty Name="BoxOffice" ColumnName="BoxOffice" />
                 <ScalarProperty Name="Year" ColumnName="Year" />
                 <ScalarProperty Name="Country" ColumnName="Country" />

@@ -29,8 +29,6 @@ namespace RandomGeek.Database
         public virtual DbSet<ContentSelection> ContentSelection { get; set; }
         public virtual DbSet<Game> Game { get; set; }
         public virtual DbSet<GameGenre> GameGenre { get; set; }
-        public virtual DbSet<GenreGame> GenreGame { get; set; }
-        public virtual DbSet<GenreMovie> GenreMovie { get; set; }
         public virtual DbSet<Movie> Movie { get; set; }
         public virtual DbSet<MovieGenre> MovieGenre { get; set; }
         public virtual DbSet<MovieType> MovieType { get; set; }

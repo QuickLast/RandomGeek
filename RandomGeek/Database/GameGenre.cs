@@ -17,13 +17,13 @@ namespace RandomGeek.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public GameGenre()
         {
-            this.GenreGame = new HashSet<GenreGame>();
+            this.Game = new HashSet<Game>();
         }
     
         public int IDGameGenre { get; set; }
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GenreGame> GenreGame { get; set; }
+        public virtual ICollection<Game> Game { get; set; }
     }
 }
