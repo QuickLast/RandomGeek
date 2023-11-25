@@ -41,7 +41,7 @@ namespace RandomGeek.Pages
 
         private void MoveToMainPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new MainPage());
+          //  NavigationService.Navigate(new MainPage());
         }
     }
 }

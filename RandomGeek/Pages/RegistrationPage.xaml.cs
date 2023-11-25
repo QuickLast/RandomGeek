@@ -46,7 +46,7 @@ namespace RandomGeek.Pages
 
                 MessageBox.Show("Регистрация прошла успешно!");
 
-                NavigationService.Navigate(new MainPage());
+              //  NavigationService.Navigate(new MainPage());
             }
             
         }

@@ -1,4 +1,5 @@
-﻿using RandomGeek.Functions;
+﻿using RandomGeek.Database;
+using RandomGeek.Functions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,16 +23,25 @@ namespace RandomGeek.Pages
     /// </summary>
     public partial class MainPage : Page
     {
-        public MainPage()
+        public MainPage(User user)
         {
             InitializeComponent();
-            if (Auth.isAuth == false )
+            if (!Auth.isAuth)
             {
-                 ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
+                ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
             }
-            else if(Auth.isAuth == true)
+            else
             {
                 ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Exit.png"));
+            }
+            
+            if (Auth.isAdmin(user))
+            {
+                SettingsImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Settings.png"));
+            }
+            else
+            {
+                SettingsImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
             }
             
         }

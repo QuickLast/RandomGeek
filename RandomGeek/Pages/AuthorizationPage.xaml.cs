@@ -1,7 +1,9 @@
 ﻿using RandomGeek.Database;
+using RandomGeek.Functions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +25,8 @@ namespace RandomGeek.Pages
     {
         public static User user;
         public static List<User> users { get; set; }
+        public static User userToSend;
+        public static User emptyUser = new User();
         public AuthorizationPage()
         {
             InitializeComponent();
@@ -30,7 +34,7 @@ namespace RandomGeek.Pages
 
         private void NoEntryBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MainPage());
+            NavigationService.Navigate(new MainPage(emptyUser));
         }
 
         private void EntranceBtn_Click(object sender, RoutedEventArgs e)
@@ -40,11 +44,12 @@ namespace RandomGeek.Pages
 
             users = new List<User>(DbConnection.RandomGeek_KamilEntities.User.ToList());
             user = users.FirstOrDefault(i => i.Email == login && i.Password == password);
+            userToSend = user;
 
             if (user != null)
             {
-                MessageBox.Show($"Успешно!");
-                NavigationService.Navigate(new MainPage());
+                Auth.isAuth = !Auth.isAuth;
+                NavigationService.Navigate(new MainPage(userToSend));
             }
             else
             {
@@ -52,9 +57,6 @@ namespace RandomGeek.Pages
                 EmailTb.Text = string.Empty;
                 PasswordPb.Password = string.Empty;
             }
-
-
-             
         }
 
         private void RegBtn_Click(object sender, RoutedEventArgs e)
