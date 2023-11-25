@@ -25,5 +25,6 @@ namespace RandomGeek.Functions
             }
             return false;
         }
+        public static User user = new User();
     }
 }
