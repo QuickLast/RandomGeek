@@ -68,10 +68,10 @@
                 <Image Grid.Row="0" Source="/Assets/Images/Logo.png" Width="65" Height="65" Margin="0 20 0 0"></Image>
                 <Image Grid.Row="1" Source="/Assets/Images/Main.png" Width="55" Height="55" Margin="0 31 0 0"
                        MouseDown="MoveToMainPage_MouseDown"></Image>
-                <Image MouseDown="MoveToAuthPage_MouseDown"
-                       Grid.Row="2" Source="/Assets/Images/SignIn.png" Width="55" Height="55" Margin="0 31 0 0"></Image>
-                <Image MouseDown="MoveToCinemaPage_MouseDown"
-                       Grid.Row="3" Source="/Assets/Images/Cinema.png" Width="55" Height="55" Margin="0 31 0 0"></Image>
+                <Image Grid.Row="2" Source="/Assets/Images/SignIn.png" Width="55" Height="55" Margin="0 31 0 0"
+                       MouseDown="MoveToAuthPage_MouseDown"></Image>
+                <Image Grid.Row="3" Source="/Assets/Images/Cinema.png" Width="55" Height="55" Margin="0 31 0 0"
+                       MouseDown="MoveToCinemaPage_MouseDown"></Image>
                 <Image Grid.Row="11" Source="/Assets/Images/Settings.png" Width="75" Height="75" Margin="22,4,22,0" VerticalAlignment="Top"></Image>
                 <Image Grid.Row="12" Source="/Assets/Images/Exit.png" Width="55" Height="55" Margin="0 0 0 10"></Image>
             </Grid>
@@ -146,7 +146,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock TextAlignment="Left" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="15" Grid.RowSpan="1" FontSize="50" FontWeight="Black" Foreground="#FB323A68">ИГРОВАЯ ИНДУСТРИЯ</TextBlock>
+                    <TextBlock TextAlignment="Left" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="15" Grid.RowSpan="2" FontSize="50" FontWeight="Black" Foreground="#FB323A68">ИГРОВАЯ ИНДУСТРИЯ</TextBlock>
                     <Border Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="9" Grid.RowSpan="3"
                     CornerRadius="20" BorderBrush="White" BorderThickness="1"
                     VerticalAlignment="Center" Height="50">
@@ -162,7 +162,7 @@
                     </StackPanel>
 
                     <StackPanel Grid.Row="4" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="31">
-                        <TextBlock FontWeight="Bold" FontSize="40" Foreground="#FB323A68" Margin="0 20 0 0">Популярные игры</TextBlock>
+                        <TextBlock FontWeight="Bold" FontSize="40" Foreground="#FB323A68" Margin="0 20 0 0">Лучшие игры</TextBlock>
                         <StackPanel Margin="0 20 0 0" HorizontalAlignment="Left" Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="18" Grid.RowSpan="5" Orientation="Horizontal" VerticalAlignment="Center">
                             <StackPanel Margin="0 0 40 0">
                                 <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>
