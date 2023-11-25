@@ -68,7 +68,7 @@
                 <Image Grid.Row="1" Source="/Assets/Images/Main.png" Width="55" Height="55" Margin="0 31 0 0" MouseDown="MoveToMainPage_MouseDown"></Image>
                 <Image Grid.Row="2" Source="/Assets/Images/Cinema.png" Width="55" Height="55" Margin="0 31 0 0" MouseDown="MoveToCinemaPage_MouseDown"></Image>
                 <Image Grid.Row="3" Source="/Assets/Images/Games.png" Width="55" Height="55" Margin="0 31 0 0" MouseDown="MoveToGamesPage_MouseDown"></Image>
-                <Image Grid.Row="11" Source="/Assets/Images/Settings.png" Width="75" Height="75" Margin="22,4,22,0" VerticalAlignment="Top" MouseDown="MoveToSettingsPage_MouseDown"></Image>
+                <Image x:Name="SettingsImg" Grid.Row="11" Source="/Assets/Images/Settings.png" Width="75" Height="75" Margin="22,4,22,0" VerticalAlignment="Top" MouseDown="MoveToSettingsPage_MouseDown"></Image>
                 <Image Name="ExitSignInImg" Grid.Row="12" Source="/Assets/Images/Exit.png" Width="55" Height="55" Margin="0 0 0 10" MouseDown="MoveToAuthorizationPage_MouseDown"></Image>
             </Grid>
         </StackPanel>

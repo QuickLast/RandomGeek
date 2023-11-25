@@ -26,9 +26,11 @@ namespace RandomGeek.Pages
     /// </summary>
     public partial class MainPage : Page
     {
+        User userToSend;
         public MainPage(User user)
         {
             InitializeComponent();
+            userToSend = user;
             if (!Auth.isAuth)
             {
                 ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
@@ -76,12 +78,24 @@ namespace RandomGeek.Pages
 
         private void MoveToSettingsPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new AdminPage());
+            if (Auth.isAdmin(userToSend))
+            {
+                NavigationService.Navigate(new AdminPage());
+            }
+            else
+            {
+               
+            }
+            
         }
 
         private void MoveToAuthorizationPage_MouseDown(object sender, MouseButtonEventArgs e)
-        { 
-            NavigationService.Navigate(new AuthorizationPage());
+        {
+            if (ExitSignInImg.Source == new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg")))
+            {
+                
+            }
+            else NavigationService.Navigate(new AuthorizationPage());
         }
     }
 }

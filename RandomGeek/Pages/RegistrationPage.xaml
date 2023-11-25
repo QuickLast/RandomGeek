@@ -67,6 +67,7 @@
                         Margin="0 35 0 0"
                         Width="700">
                 <TextBlock Text="Email"
+                           FontSize="30"
                            Style="{StaticResource RalewayRegular}"
                            Foreground="#FF323A68" />
                 <TextBox Style="{DynamicResource TextBoxStyleReg}" 
@@ -75,12 +76,14 @@
                          />
                 <TextBlock Text="Имя пользователя"
                            Style="{StaticResource RalewayRegular}"
-                           Foreground="#FF323A68" />
+                           Foreground="#FF323A68"
+                           FontSize="30"/>
                 <TextBox x:Name="NameTb"
                          Style="{DynamicResource TextBoxStyleReg}"
                          Background="#FFD9D9D9"
                           />
                 <TextBlock Text="Пароль"
+                           FontSize="30"
                            Style="{StaticResource RalewayRegular}"
                            Foreground="#FF323A68" />
                 <PasswordBox x:Name="PasswordPb"
@@ -89,7 +92,7 @@
             <StackPanel  Width="700">
                 <StackPanel HorizontalAlignment="Right">
                     <Button x:Name="HaveAnAccountBtn"
-                            Style="{StaticResource RalewayRegular}"
+                            Style="{StaticResource MyButtonStyle}"
                             Content="Уже есть аккаунт?"
                             FontSize="25"
                             Background="{x:Null}"
@@ -100,9 +103,10 @@
             <StackPanel Margin="0 5 0 0">
                 <Button Style="{DynamicResource ButtonStyleReg}"
                         x:Name="RegBtn"
-                        FontWeight="Bold"
+                        FontWeight="Regular"
                         Content="Зарегистрироваться"
                         Width="700"
+                        FontSize="30"
                         Height="65"
                         Background="#FF323A68"
                         Foreground="#FFD9D9D9"

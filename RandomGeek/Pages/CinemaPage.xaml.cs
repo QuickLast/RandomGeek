@@ -34,6 +34,14 @@ namespace RandomGeek.Pages
                 ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Exit.png"));
                 ProfileSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Profile.png"));
             }
+            if (Auth.isAdmin(Auth.user))
+            {
+                SettingsImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Settings.png"));
+            }
+            else
+            {
+                SettingsImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
+            }
         }
         private void MoveToAuthPage_MouseDown(object sender, MouseEventArgs e)
         {

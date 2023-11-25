@@ -72,7 +72,7 @@
                        MouseDown="MoveToAuthPage_MouseDown"></Image>
                 <Image Grid.Row="3" Source="/Assets/Images/Cinema.png" Width="55" Height="55" Margin="0 31 0 0"
                        MouseDown="MoveToCinemaPage_MouseDown"></Image>
-                <Image Grid.Row="11" Source="/Assets/Images/Settings.png" Width="75" Height="75" Margin="22,4,22,0" VerticalAlignment="Top"></Image>
+                <Image x:Name="SettingsImg" Grid.Row="11" Source="/Assets/Images/Settings.png" Width="75" Height="75" Margin="22,4,22,0" VerticalAlignment="Top"></Image>
                 <Image Name="ExitSignInImg" Grid.Row="12" Source="/Assets/Images/Exit.png" Width="55" Height="55" Margin="0 0 0 10"></Image>
             </Grid>
         </StackPanel>
