@@ -196,7 +196,7 @@
                     </StackPanel>
 
                     <StackPanel Grid.Row="10" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="31">
-                        <TextBlock FontWeight="Bold" FontSize="40" Foreground="#FB323A68" Margin="0 20 0 0">Лучшее</TextBlock>
+                        <TextBlock FontWeight="Bold" FontSize="40" Foreground="#FB323A68" Margin="0 20 0 0">Cтратегии</TextBlock>
                         <StackPanel Margin="0 20 0 0" HorizontalAlignment="Left" Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="18" Grid.RowSpan="5" Orientation="Horizontal" VerticalAlignment="Center">
                             <StackPanel Margin="0 0 40 0">
                                 <Image Width="170" Height="170" Source="/Assets/Images/Games.png"></Image>

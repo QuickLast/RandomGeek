@@ -157,11 +157,7 @@
 
                 </StackPanel>
 
-                <Ellipse Width="200" Height="200" Grid.Column="1" Grid.Row="1">
-                    <Ellipse.Fill>
-                        <ImageBrush ImageSource="/Assets/Images/MainPageBanner.png" Stretch="UniformToFill"/>
-                    </Ellipse.Fill>
-                </Ellipse>
+                <Image Name="ProfilePictureImg" Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="3"></Image>
 
                 <Border CornerRadius="20" BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="6">
                     <Button Style="{StaticResource ButtonStyleAuth}" x:Name="ChoosePhotoBtn"
@@ -169,7 +165,7 @@
                             FontSize="25"
                             Content="Выбрать фото"
                             Background="Transparent"
-                            BorderThickness="0"/>
+                            BorderThickness="0" Click="ChoosePhotoBtn_Click"/>
                 </Border>
 
                 <StackPanel Grid.Column="1" Grid.ColumnSpan="10" Grid.Row="9" Orientation="Horizontal">

@@ -1,6 +1,10 @@
-﻿using RandomGeek.Functions;
+﻿using Microsoft.Win32;
+using RandomGeek.Database;
+using RandomGeek.Functions;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,6 +67,24 @@ namespace RandomGeek.Pages
         private void MoveToMainPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             NavigationService.Navigate(new MainPage(Auth.user));
+        }
+
+        private void ChoosePhotoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog()
+            {
+                Filter = "*.png|*.png|*.jpg|*.jpg|*.jpeg|*.jpeg"
+            };
+            if (openFileDialog.ShowDialog().GetValueOrDefault())
+            {
+                Auth.user.Photo = File.ReadAllBytes(openFileDialog.FileName);
+                ProfilePictureImg.Source = new BitmapImage(new Uri(openFileDialog.FileName));
+            }
+
+            DbConnection.RandomGeek_KamilEntities.User.AddOrUpdate(Auth.user);
+            DbConnection.RandomGeek_KamilEntities.SaveChanges();
+
+            MessageBox.Show("Фотография профиля обновлена.");
         }
     }
 }

@@ -229,6 +229,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\Zamena.jpg" />
+    <Resource Include="Assets\Images\KittenAtWork.jpg" />
     <Content Include="Database\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
