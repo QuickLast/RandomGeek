@@ -1,4 +1,5 @@
-﻿using RandomGeek.Functions;
+﻿using RandomGeek.Database;
+using RandomGeek.Functions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,14 @@ namespace RandomGeek.Pages
     /// </summary>
     public partial class MovieCardPage : Page
     {
+        public static List<Movie> movies {  get; set; }
         public MovieCardPage()
         {
             InitializeComponent();
+            Random random = new Random();
+
+            movies = DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovieType == 1 && x.IDMovie == random.Next(7, 52)).ToList();
+            this.DataContext = this;
         }
         private void MoveToAuthPage_MouseDown(object sender, MouseEventArgs e)
         {

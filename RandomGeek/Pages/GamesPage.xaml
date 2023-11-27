@@ -222,7 +222,7 @@
                         </ListView.ItemsPanel>
                     </ListView>
 
-                    <TextBlock Grid.Row="16" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="31" FontWeight="Bold" FontSize="40" Foreground="#FB323A68" Margin="0 20 0 0">Шутеры</TextBlock>
+                    <TextBlock Grid.Row="16" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="31" FontWeight="Bold" FontSize="40" Foreground="#FB323A68" Margin="0 20 0 0">ММО РПГ</TextBlock>
                     <ListView x:Name="ShootersLv"
                               Background="#99AAC6"
                               Width="auto"

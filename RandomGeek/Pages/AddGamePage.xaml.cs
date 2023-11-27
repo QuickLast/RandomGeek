@@ -29,7 +29,7 @@ namespace RandomGeek.Pages
         {
             InitializeComponent();
 
-            gameGenres = new List<GameGenre>(DbConnection.RandomGeek_KamilEntities.GameGenre.ToList());
+            gameGenres = new List<GameGenre>(DbConnection.RandomGeekEntities.GameGenre.ToList());
             GenreCBx.ItemsSource = gameGenres;
             GenreCBx.DisplayMemberPath = "Name";
         }
@@ -54,7 +54,7 @@ namespace RandomGeek.Pages
 
         private void AddGamebtn_Click(object sender, RoutedEventArgs e)
         {
-            if (NameTbx.Text == string.Empty || DescriptionTbx.Text == string.Empty || RatingTbx.Text == string.Empty || CompanyTbx.Text == string.Empty || StartYearTbx.Text == string.Empty || GenreCBx.SelectedItem == null)
+            if (NameTbx.Text == string.Empty || DescriptionTbx.Text == string.Empty || RatingTbx.Text == string.Empty || PlatformTbx.Text == string.Empty || CompanyTbx.Text == string.Empty || StartYearTbx.Text == string.Empty || GenreCBx.SelectedItem == null)
             {
                 MessageBox.Show("Заполните все поля!");
             }
@@ -65,13 +65,15 @@ namespace RandomGeek.Pages
                     Name = NameTbx.Text,
                     Description = DescriptionTbx.Text,
                     Publisher = CompanyTbx.Text,
+                    Rating = float.Parse(RatingTbx.Text),
+                    Platforms = PlatformTbx.Text,
                     Year = int.Parse(StartYearTbx.Text),
                     IDGameGenre = (GenreCBx.SelectedItem as GameGenre).IDGameGenre,
                     Photo = gameToAdd.Photo
                 };
 
-                DbConnection.RandomGeek_KamilEntities.Game.Add(game);
-                DbConnection.RandomGeek_KamilEntities.SaveChanges();
+                DbConnection.RandomGeekEntities.Game.Add(game);
+                DbConnection.RandomGeekEntities.SaveChanges();
 
                 MessageBox.Show("Данные записаны!");
 

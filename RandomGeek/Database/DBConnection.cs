@@ -8,6 +8,6 @@ namespace RandomGeek.Database
 {
     public class DbConnection
     {
-        public static RandomGeek_KamilEntities RandomGeek_KamilEntities = new RandomGeek_KamilEntities();
+        public static RandomGeekEntities RandomGeekEntities = new RandomGeekEntities();
     }
 }

@@ -29,17 +29,17 @@ namespace RandomGeek.Pages
         {
             InitializeComponent();
 
-            games = new List<Game>(DbConnection.RandomGeek_KamilEntities.Game.ToList());
+            games = new List<Game>(DbConnection.RandomGeekEntities.Game.Where(x => x.Rating >= 8.8).ToList());
             this.DataContext = this;
 
             BestGamesLv.ItemsSource = games;
 
-            strategies = new List<Game>(DbConnection.RandomGeek_KamilEntities.Game.Where(x => x.IDGameGenre == 1).ToList());
+            strategies = new List<Game>(DbConnection.RandomGeekEntities.Game.Where(x => x.IDGameGenre == 14).ToList());
             this.DataContext = this;
 
             StrategiesLv.ItemsSource = strategies;
 
-            shooters = new List<Game>(DbConnection.RandomGeek_KamilEntities.Game.Where(x => x.IDGameGenre == 2).ToList());
+            shooters = new List<Game>(DbConnection.RandomGeekEntities.Game.Where(x => x.IDGameGenre == 11).ToList());
             this.DataContext = this;
 
             ShootersLv.ItemsSource = shooters;

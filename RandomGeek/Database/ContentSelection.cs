@@ -16,8 +16,8 @@ namespace RandomGeek.Database
     {
         public int IDContentSelection { get; set; }
         public int IDSelection { get; set; }
-        public int IDMovie { get; set; }
-        public int IDGame { get; set; }
+        public Nullable<int> IDMovie { get; set; }
+        public Nullable<int> IDGame { get; set; }
     
         public virtual Game Game { get; set; }
         public virtual Movie Movie { get; set; }

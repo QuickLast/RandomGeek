@@ -170,7 +170,7 @@
                     <Image Margin="0 10 0 0"
                            Width="800"
                            Height="425"
-                           Source="/Assets/Images/Games.png"></Image>
+                           Source="{Binding movies}"></Image>
                 </StackPanel>
 
                 <StackPanel Margin="0 10 0 0"
