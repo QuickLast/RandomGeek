@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:RandomGeek.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
-      Title="RandomGeek | Случайное кино" 
+      WindowTitle="RandomGeek | Случайное кино" 
       FontSize="40">
 
     <Grid>
