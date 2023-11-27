@@ -30,7 +30,7 @@ namespace RandomGeek.Pages
         {
             InitializeComponent();
             Random random = new Random();
-            int randomInt = random.Next(7, 52);
+            int randomInt = random.Next(1, 45);
             randomMovie = DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie;
             MovieNameTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Name;
             MovieDescTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Description;

@@ -29,7 +29,7 @@ namespace RandomGeek.Pages
         {
             InitializeComponent();
             Random random = new Random();
-            int randomInt = random.Next(3, 28);
+            int randomInt = random.Next(1, 26);
             randomGame = DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game;
             GameNameTBk.Text = (DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Name;
             GameDescTBk.Text = (DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Description;
@@ -37,6 +37,7 @@ namespace RandomGeek.Pages
             GameCompanyTBk.Text = (DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Publisher;
             GameYearTBk.Text = (DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Year.ToString();
             GameIMG.Source = ToImage((DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Photo);
+            GameRatingTBk.Text += (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Rating.ToString();
 
             this.DataContext = this;
         }

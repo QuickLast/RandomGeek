@@ -194,7 +194,7 @@
                                Text="{Binding randomMovieGenre}"/>
                     </StackPanel>
                     
-                    <TextBlock  Name="MovieRatingTBk" FontWeight="Regular"
+                    <TextBlock  Name="GameRatingTBk" FontWeight="Regular"
                                Foreground="#FB323A68"
                                Style="{StaticResource RalewayRegular}"
                                FontSize="30"

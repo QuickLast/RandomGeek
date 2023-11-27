@@ -2,9 +2,7 @@
 using RandomGeek.Functions;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,19 +19,14 @@ using static System.Net.Mime.MediaTypeNames;
 namespace RandomGeek.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainPage.xaml
+    /// Логика взаимодействия для SearchPage.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class SearchPage : Page
     {
         User userToSend;
-        public static List<Selection> selection { get; set; }
-        public MainPage(User user)
+        public SearchPage(User user)
         {
             InitializeComponent();
-
-            selection = new List<Selection>(DbConnection.RandomGeekEntities.Selection.ToList());
-            this.DataContext = this;
-
             userToSend = user;
             if (!Auth.isAuth)
             {
@@ -45,7 +38,7 @@ namespace RandomGeek.Pages
                 ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Exit.png"));
                 ProfileSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Profile.png"));
             }
-            
+
             if (Auth.isAdmin(user))
             {
                 SettingsImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Settings.png"));
@@ -54,11 +47,7 @@ namespace RandomGeek.Pages
             {
                 SettingsImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
             }
-
-            LVPodborka.ItemsSource = selection;
-
         }
-
 
         private void MoveToAuthPage_MouseDown(object sender, MouseEventArgs e)
         {
@@ -90,29 +79,23 @@ namespace RandomGeek.Pages
             }
             else
             {
-               
+
             }
-            
+
         }
 
         private void MoveToAuthorizationPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (ExitSignInImg.Source == new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg")))
             {
-                
+
             }
             else NavigationService.Navigate(new AuthorizationPage());
         }
 
-        private void RandomMovieBtn_Click(object sender, RoutedEventArgs e)
+        private void LVServices_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            NavigationService.Navigate(new MovieCardPage());
-        }
 
-        private void RandomGameBtn_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new GameCardPage());
         }
-
     }
 }
