@@ -43,7 +43,7 @@ namespace RandomGeek.Pages
             string login = EmailTb.Text.Trim();
             string password = PasswordPb.Password.Trim();
 
-            users = new List<User>(DbConnection.RandomGeek_KamilEntities.User.ToList());
+            users = new List<User>(DbConnection.RandomGeekEntities.User.ToList());
             user = users.FirstOrDefault(i => i.Email == login && i.Password == password);
             Auth.user = user;
 

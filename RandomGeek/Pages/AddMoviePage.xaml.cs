@@ -30,10 +30,10 @@ namespace RandomGeek.Pages
         {
             InitializeComponent();
 
-            movieGenres = new List<MovieGenre>(DbConnection.RandomGeek_KamilEntities.MovieGenre.ToList());
+            movieGenres = new List<MovieGenre>(DbConnection.RandomGeekEntities.MovieGenre.ToList());
             GenreCBx.ItemsSource = movieGenres;
             GenreCBx.DisplayMemberPath = "Name";
-            movieType = new List<MovieType>(DbConnection.RandomGeek_KamilEntities.MovieType.ToList());
+            movieType = new List<MovieType>(DbConnection.RandomGeekEntities.MovieType.ToList());
             TypeCBx.ItemsSource = movieType;
             TypeCBx.DisplayMemberPath = "Name";
         }
@@ -45,7 +45,7 @@ namespace RandomGeek.Pages
 
         private void AddMoviebtn_Click(object sender, RoutedEventArgs e)
         {
-                if (NameTbx.Text == string.Empty || DescriptionTbx.Text == string.Empty || DirectorTbx.Text == string.Empty || CountryProjectTbx.Text == string.Empty || GenreCBx.SelectedItem == null || TypeCBx.SelectedItem == null)
+                if (NameTbx.Text == string.Empty || DescriptionTbx.Text == string.Empty || RatingTbx.Text == string.Empty || CompanyTbx.Text == string.Empty || StartYearTbx.Text == string.Empty || DirectorTbx.Text == string.Empty || CountryProjectTbx.Text == string.Empty || GenreCBx.SelectedItem == null || TypeCBx.SelectedItem == null)
                 {
                     MessageBox.Show("Заполните все поля!");
                 }
@@ -57,13 +57,16 @@ namespace RandomGeek.Pages
                         Description = DescriptionTbx.Text,
                         Director = DirectorTbx.Text,
                         Country = CountryProjectTbx.Text,
+                        Rating = float.Parse(RatingTbx.Text),
+                        Year = int.Parse(StartYearTbx.Text),
+                        Studio = CompanyTbx.Text,
                         IDMovieGenre = (GenreCBx.SelectedItem as MovieGenre).IDMovieGenre,
                         IDMovieType = (TypeCBx.SelectedItem as MovieType).IDMovieType,
                         Photo = movieToAdd.Photo
                     };
 
-                    DbConnection.RandomGeek_KamilEntities.Movie.Add(movie);
-                    DbConnection.RandomGeek_KamilEntities.SaveChanges();
+                    DbConnection.RandomGeekEntities.Movie.Add(movie);
+                    DbConnection.RandomGeekEntities.SaveChanges();
 
                     MessageBox.Show("Данные записаны!");
 

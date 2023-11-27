@@ -30,7 +30,7 @@ namespace RandomGeek.Pages
         {
             InitializeComponent();
 
-            movies = new List<Movie>(DbConnection.RandomGeek_KamilEntities.Movie.ToList());
+            movies = new List<Movie>(DbConnection.RandomGeekEntities.Movie.ToList());
             this.DataContext = this;
 
             WatchedMoviesLv.ItemsSource = movies;
@@ -88,8 +88,8 @@ namespace RandomGeek.Pages
                 ProfilePictureImg.Source = new BitmapImage(new Uri(openFileDialog.FileName));
             }
 
-            DbConnection.RandomGeek_KamilEntities.User.AddOrUpdate(Auth.user);
-            DbConnection.RandomGeek_KamilEntities.SaveChanges();
+            DbConnection.RandomGeekEntities.User.AddOrUpdate(Auth.user);
+            DbConnection.RandomGeekEntities.SaveChanges();
 
             MessageBox.Show("Фотография профиля обновлена.");
         }

@@ -42,8 +42,8 @@ namespace RandomGeek.Pages
                     Password = PasswordPb.Password
                 };
 
-                DbConnection.RandomGeek_KamilEntities.User.Add(user);
-                DbConnection.RandomGeek_KamilEntities.SaveChanges();
+                DbConnection.RandomGeekEntities.User.Add(user);
+                DbConnection.RandomGeekEntities.SaveChanges();
 
                 MessageBox.Show("Регистрация прошла успешно!");
 
