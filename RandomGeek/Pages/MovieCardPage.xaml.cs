@@ -34,17 +34,11 @@ namespace RandomGeek.Pages
             randomMovie = DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie;
             MovieNameTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Name;
             MovieDescTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Description;
-            SmallMovieNameTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Name;
             MovieGenreTBk.Text = (DbConnection.RandomGeekEntities.MovieGenre.Where(x => x.IDMovieGenre == randomMovie.IDMovieGenre).ToList()[0] as MovieGenre).Name;
             MovieCompanyTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Studio;
             MovieYearTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Year.ToString();
-            //MovieIMG.Source = new BitmapImage((new Uri(DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Photo).ToString());
+            MovieIMG.Source = new BitmapImage(new Uri(randomMovie.Photo.ToString()));
 
-            /*
-            randomMovieGenre = DbConnection.RandomGeekEntities.MovieGenre.Where(x => x.IDMovieGenre == randomMovie.IDMovieGenre).ToList()[0] as MovieGenre;*/
-
-            /*            movies = DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovieType == 1 && x.IDMovie == random.Next(7, 52)).ToList();
-            */
             this.DataContext = this;
         }
         private void MoveToAuthPage_MouseDown(object sender, MouseEventArgs e)
