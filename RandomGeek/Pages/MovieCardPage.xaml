@@ -163,7 +163,7 @@
                     <TextBlock Margin="0 10 0 0"
                                Name="MovieNameTBk"
                                HorizontalAlignment="Center"
-                               FontWeight="Black"
+                               FontWeight="Bold"
                                Foreground="#FB323A68"
                                Style="{StaticResource DelaGothicOne}"
                                FontSize="50"
@@ -179,25 +179,21 @@
                     Grid.Column="8"
                     Grid.ColumnSpan="8"
                     Grid.RowSpan="2">
-                        <TextBlock Name="SmallMovieNameTBk"
-                            FontWeight="Black"
-                                   Foreground="#FB323A68"
-                               Style="{StaticResource RalewayRegular}"
-                                   FontSize="30"
-                                   Text="{Binding randomMovie.Name}" />
+                        
                     <StackPanel Orientation="Horizontal">   
-                    <TextBlock Name="MovieGenreTBk" FontWeight="Black"
+                    <TextBlock Name="MovieGenreTBk" FontWeight="SemiBold"
                                    Foreground="#FB323A68"
                                    Style="{StaticResource RalewayRegular}"
                                    FontSize="30"
                                Text="Жанр: "/>
                     <!--для привязки жанра--> 
-                    <TextBlock FontWeight="Black"
+                    
+                    </StackPanel>
+                    <TextBlock FontWeight="SemiBold"
                                Foreground="#FB323A68"
                                Style="{StaticResource RalewayRegular}"
                                FontSize="30"
                                Text="{Binding randomMovieGenre}"/>
-                    </StackPanel>
                 </StackPanel>
                 <StackPanel Margin="0 10 0 0"
                             Grid.Row="14"
@@ -205,26 +201,26 @@
                             Grid.ColumnSpan="8"
                             Grid.RowSpan="2">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Name="MovieCompanyTBk" FontWeight="Black"
+                        <TextBlock Name="MovieCompanyTBk" FontWeight="SemiBold"
                                    Foreground="#FB323A68"
                                    Style="{StaticResource RalewayRegular}"
                                    FontSize="30"
                                    Text="Компания:" />
                         <!--для привязки компании-->
-                        <TextBlock FontWeight="Black"
+                        <TextBlock FontWeight="SemiBold"
                                    Foreground="#FB323A68"
                                    Style="{StaticResource RalewayRegular}"
                                    FontSize="30" 
                                    Text="{Binding randomMovie.Studio}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Name="MovieYearTBk" FontWeight="Black"
+                        <TextBlock Name="MovieYearTBk" FontWeight="SemiBold"
                                    Foreground="#FB323A68"
                                    Style="{StaticResource RalewayRegular}"
                                    FontSize="30"
                                    Text="Год выпуска:" />
                         <!--для привязки года выпуска-->
-                        <TextBlock FontWeight="Black"
+                        <TextBlock FontWeight="SemiBold"
                                    Foreground="#FB323A68"
                                    Style="{StaticResource RalewayRegular}"
                                    FontSize="30" 
@@ -238,7 +234,7 @@
                             Grid.ColumnSpan="16"
                             Grid.RowSpan="6">
                     
-                    <TextBlock Name="MovieDescTBk" FontWeight="Black"
+                    <TextBlock Name="MovieDescTBk" FontWeight="SemiBold"
                                Foreground="#FB323A68"
                                TextWrapping="Wrap"
                                Style="{StaticResource RalewayRegular}"

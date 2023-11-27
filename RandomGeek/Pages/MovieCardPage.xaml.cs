@@ -37,7 +37,7 @@ namespace RandomGeek.Pages
             MovieGenreTBk.Text = (DbConnection.RandomGeekEntities.MovieGenre.Where(x => x.IDMovieGenre == randomMovie.IDMovieGenre).ToList()[0] as MovieGenre).Name;
             MovieCompanyTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Studio;
             MovieYearTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Year.ToString();
-            byte[] MovieImage = randomMovie.Photo; 
+            MovieIMG.Source = ToImage((DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Photo);
 
             this.DataContext = this;
         }
@@ -63,6 +63,19 @@ namespace RandomGeek.Pages
         private void MoveToSettingsPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             NavigationService.Navigate(new AdminPage());
+        }
+
+        public BitmapImage ToImage(byte[] array)
+        {
+            using (var ms = new System.IO.MemoryStream(array))
+            {
+                var image = new BitmapImage();
+                image.BeginInit();
+                image.CacheOption = BitmapCacheOption.OnLoad; // here
+                image.StreamSource = ms;
+                image.EndInit();
+                return image;
+            }
         }
     }
 }
