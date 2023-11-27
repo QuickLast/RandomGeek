@@ -156,8 +156,8 @@
                         </StackPanel>
                     </Border>
                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="27" Grid.ColumnSpan="5" Grid.RowSpan="2" Orientation="Horizontal">
-                        <Border CornerRadius="20" BorderBrush="#FB323A68" BorderThickness="3">
-                            <Button Style="{StaticResource ButtonStyleAuth}" Foreground="Black" FontSize="30" Margin="15 10" Content="Случайное кино" Background="Transparent" BorderThickness="0" Click="Button_Click"></Button>
+                        <Border CornerRadius="20" BorderBrush="#FB323A68" BorderThickness="3" Width="270" Height="60">
+                            <Button Style="{StaticResource ButtonStyleAuth}" Foreground="Black" FontSize="30" Content="Случайное кино" Background="Transparent" BorderThickness="0" Click="Button_Click"></Button>
                         </Border>
                     </StackPanel>
 

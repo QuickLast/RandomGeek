@@ -28,6 +28,27 @@ namespace RandomGeek.Pages
         public GameCardPage()
         {
             InitializeComponent();
+
+            if (!Auth.isAuth)
+            {
+                ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
+                ProfileSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/SignIn.png"));
+            }
+            else
+            {
+                ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Exit.png"));
+                ProfileSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Profile.png"));
+            }
+
+            if (Auth.isAdmin(Auth.user))
+            {
+                SettingsImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Settings.png"));
+            }
+            else
+            {
+                SettingsImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
+            }
+
             Random random = new Random();
             int randomInt = random.Next(1, 26);
             randomGame = DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game;
