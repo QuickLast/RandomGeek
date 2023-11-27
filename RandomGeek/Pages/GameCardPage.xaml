@@ -1,4 +1,4 @@
-﻿<Page x:Class="RandomGeek.Pages.MovieCardPage"
+﻿<Page x:Class="RandomGeek.Pages.GameCardPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -161,14 +161,14 @@
                             Grid.ColumnSpan="16"
                             Grid.RowSpan="10">
                     <TextBlock Margin="0 10 0 0"
-                               Name="MovieNameTBk"
+                               Name="GameNameTBk"
                                HorizontalAlignment="Center"
                                FontWeight="Bold"
                                Foreground="#FB323A68"
                                Style="{StaticResource DelaGothicOne}"
                                FontSize="50"
                                Text="{Binding randomMovie.Name}"/>
-                    <Image Name="MovieIMG" Margin="0 10 0 0"
+                    <Image Name="GameIMG" Margin="0 10 0 0"
                            Width="800"
                            Height="425"
                            Source="{Binding MovieImage}"></Image>
@@ -187,12 +187,13 @@
                                    FontSize="30"
                                Text="Жанр: "/>
                         <!--для привязки жанра-->
-                        <TextBlock  Name="MovieGenreTBk" FontWeight="SemiBold"
+                        <TextBlock  Name="GameGenreTBk" FontWeight="SemiBold"
                                Foreground="#FB323A68"
                                Style="{StaticResource RalewayRegular}"
                                FontSize="30"
                                Text="{Binding randomMovieGenre}"/>
                     </StackPanel>
+                    
                     <TextBlock  Name="MovieRatingTBk" FontWeight="Regular"
                                Foreground="#FB323A68"
                                Style="{StaticResource RalewayRegular}"
@@ -209,9 +210,9 @@
                                    Foreground="#FB323A68"
                                    Style="{StaticResource RalewayRegular}"
                                    FontSize="30"
-                                   Text="Компания: " />
+                                   Text="Издатель: " />
                         <!--для привязки компании-->
-                        <TextBlock Name="MovieCompanyTBk" FontWeight="SemiBold"
+                        <TextBlock Name="GameCompanyTBk" FontWeight="SemiBold"
                                    Foreground="#FB323A68"
                                    Style="{StaticResource RalewayRegular}"
                                    FontSize="30" 
@@ -224,7 +225,7 @@
                                    FontSize="30"
                                    Text="Год выпуска: " />
                         <!--для привязки года выпуска-->
-                        <TextBlock Name="MovieYearTBk" FontWeight="SemiBold"
+                        <TextBlock Name="GameYearTBk" FontWeight="SemiBold"
                                    Foreground="#FB323A68"
                                    Style="{StaticResource RalewayRegular}"
                                    FontSize="30" 
@@ -238,7 +239,7 @@
                             Grid.ColumnSpan="16"
                             Grid.RowSpan="6">
 
-                    <TextBlock Name="MovieDescTBk" FontWeight="Regular"
+                    <TextBlock Name="GameDescTBk" FontWeight="Regular"
                                Foreground="#FB323A68"
                                TextWrapping="Wrap"
                                Style="{StaticResource RalewayRegular}"

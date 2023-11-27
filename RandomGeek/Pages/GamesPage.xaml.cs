@@ -92,5 +92,10 @@ namespace RandomGeek.Pages
         {
             NavigationService.Navigate(new MainPage(Auth.user));
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new GameCardPage());
+        }
     }
 }

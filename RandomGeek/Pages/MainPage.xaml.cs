@@ -95,5 +95,15 @@ namespace RandomGeek.Pages
             }
             else NavigationService.Navigate(new AuthorizationPage());
         }
+
+        private void RandomMovieBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MovieCardPage());
+        }
+
+        private void RandomGameBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new GameCardPage());
+        }
     }
 }

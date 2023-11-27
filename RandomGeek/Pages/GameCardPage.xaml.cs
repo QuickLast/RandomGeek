@@ -1,5 +1,4 @@
-﻿using Microsoft.Win32;
-using RandomGeek.Database;
+﻿using RandomGeek.Database;
 using RandomGeek.Functions;
 using System;
 using System.Collections.Generic;
@@ -19,26 +18,25 @@ using System.Windows.Shapes;
 namespace RandomGeek.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MovieCardPage.xaml
+    /// Логика взаимодействия для GameCardPage.xaml
     /// </summary>
-    public partial class MovieCardPage : Page
+    public partial class GameCardPage : Page
     {
-        public static List<Movie> movies {  get; set; }
-        public Movie randomMovie;
-        public MovieGenre randomMovieGenre;
-        public MovieCardPage()
+        public static List<Movie> movies { get; set; }
+        public Game randomGame;
+        public MovieGenre randomGameGenre;
+        public GameCardPage()
         {
             InitializeComponent();
             Random random = new Random();
             int randomInt = random.Next(7, 52);
-            randomMovie = DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie;
-            MovieNameTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Name;
-            MovieDescTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Description;
-            MovieGenreTBk.Text = (DbConnection.RandomGeekEntities.MovieGenre.Where(x => x.IDMovieGenre == randomMovie.IDMovieGenre).ToList()[0] as MovieGenre).Name;
-            MovieCompanyTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Studio;
-            MovieYearTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Year.ToString();
-            MovieIMG.Source = ToImage((DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Photo);
-            MovieRatingTBk.Text += (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Rating.ToString();
+            randomGame = DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game;
+            GameNameTBk.Text = (DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Name;
+            GameDescTBk.Text = (DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Description;
+            GameGenreTBk.Text = (DbConnection.RandomGeekEntities.GameGenre.Where(x => x.IDGameGenre == randomGame.IDGameGenre).ToList()[0] as GameGenre).Name;
+            GameCompanyTBk.Text = (DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Publisher;
+            GameYearTBk.Text = (DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Year.ToString();
+            GameIMG.Source = ToImage((DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Photo);
 
             this.DataContext = this;
         }
