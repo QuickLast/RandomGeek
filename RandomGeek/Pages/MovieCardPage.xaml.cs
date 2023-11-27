@@ -31,10 +31,9 @@ namespace RandomGeek.Pages
             Random random = new Random();
 
             int randomInt = random.Next(7, 52);
-            MovieNameTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Name;
 
-            /*randomMovie = DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == random.Next(7, 52)).ToList()[0] as Movie;
-            randomMovieGenre = DbConnection.RandomGeekEntities.MovieGenre.Where(x => x.IDMovieGenre == randomMovie.IDMovieGenre).ToList()[0] as MovieGenre;*/
+            randomMovie = DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie;
+            randomMovieGenre = DbConnection.RandomGeekEntities.MovieGenre.Where(x => x.IDMovieGenre == randomMovie.IDMovieGenre).ToList()[0] as MovieGenre;
 
             /*            movies = DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovieType == 1 && x.IDMovie == random.Next(7, 52)).ToList();
             */
