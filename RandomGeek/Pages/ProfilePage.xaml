@@ -137,7 +137,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Name="UserNameTBk" TextAlignment="Center"
+                <TextBlock Name="UserNameTBk" TextAlignment="Left"
                            Grid.Row="2"
                            Grid.Column="5"
                            Grid.ColumnSpan="9"

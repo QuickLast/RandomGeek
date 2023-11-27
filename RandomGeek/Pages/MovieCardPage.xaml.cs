@@ -65,7 +65,14 @@ namespace RandomGeek.Pages
         }
         private void MoveToAuthPage_MouseDown(object sender, MouseEventArgs e)
         {
-            NavigationService.Navigate(new AuthorizationPage());
+            if (Auth.isAuth)
+            {
+                NavigationService.Navigate(new ProfilePage());
+            }
+            else
+            {
+                NavigationService.Navigate(new AuthorizationPage());
+            }
         }
 
         private void MoveToGamesPage_MouseDown(object sender, MouseButtonEventArgs e)
