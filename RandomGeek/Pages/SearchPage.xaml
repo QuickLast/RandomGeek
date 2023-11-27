@@ -7,7 +7,7 @@
       mc:Ignorable="d"
       d:DesignHeight="1080"
       d:DesignWidth="1920"
-      Title="SearchPage" FontSize="40">
+      Title="RandomGeek | Поиск" FontSize="40">
 
     <Grid>
         <Grid.ColumnDefinitions>

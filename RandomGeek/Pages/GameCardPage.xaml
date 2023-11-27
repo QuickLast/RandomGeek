@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:RandomGeek.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
-      Title="MovieCardPage" 
+      Title="RandomGeek | Случайная игра" 
       FontSize="40">
 
     <Grid>
@@ -70,8 +70,7 @@
                        MouseDown="MoveToMainPage_MouseDown"></Image>
                 <Image Name="ProfileSignInImg" Grid.Row="2" Source="/Assets/Images/SignIn.png" Width="55" Height="55" Margin="0 31 0 0"
                        MouseDown="MoveToAuthPage_MouseDown"></Image>
-                <Image Grid.Row="3" Source="/Assets/Images/Cinema.png" Width="55" Height="55" Margin="0 31 0 0"
-                       MouseDown="MoveToCinemaPage_MouseDown"></Image>
+                
                 <Image Name="SettingsImg" Grid.Row="11" Source="/Assets/Images/Settings.png" Width="75" Height="75" Margin="22,4,22,0" VerticalAlignment="Top"></Image>
                 <Image Name="ExitSignInImg" Grid.Row="12" Source="/Assets/Images/Exit.png" Width="55" Height="55" Margin="0 0 0 10"></Image>
             </Grid>
