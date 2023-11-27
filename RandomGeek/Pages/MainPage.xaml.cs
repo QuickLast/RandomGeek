@@ -31,6 +31,8 @@ namespace RandomGeek.Pages
         {
             InitializeComponent();
 
+            this.Title = "RandomGeek | Главная страница";
+
             selection = new List<Selection>(DbConnection.RandomGeekEntities.Selection.ToList());
             this.DataContext = this;
 

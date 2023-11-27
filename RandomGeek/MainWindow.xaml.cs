@@ -21,6 +21,7 @@ namespace RandomGeek
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static string WindowTitle;
         public MainWindow()
         {
             InitializeComponent();
