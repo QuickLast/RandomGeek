@@ -37,7 +37,7 @@ namespace RandomGeek.Pages
             MovieGenreTBk.Text = (DbConnection.RandomGeekEntities.MovieGenre.Where(x => x.IDMovieGenre == randomMovie.IDMovieGenre).ToList()[0] as MovieGenre).Name;
             MovieCompanyTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Studio;
             MovieYearTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Year.ToString();
-            MovieIMG.Source = new BitmapImage(new Uri(randomMovie.Photo.ToString()));
+            byte[] MovieImage = randomMovie.Photo; 
 
             this.DataContext = this;
         }
