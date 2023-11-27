@@ -29,7 +29,7 @@ namespace RandomGeek.Pages
         {
             InitializeComponent();
             Random random = new Random();
-            int randomInt = random.Next(7, 52);
+            int randomInt = random.Next(3, 28);
             randomGame = DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game;
             GameNameTBk.Text = (DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Name;
             GameDescTBk.Text = (DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Description;
