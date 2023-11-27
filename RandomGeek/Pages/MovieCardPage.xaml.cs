@@ -1,4 +1,5 @@
-﻿using RandomGeek.Database;
+﻿using Microsoft.Win32;
+using RandomGeek.Database;
 using RandomGeek.Functions;
 using System;
 using System.Collections.Generic;
@@ -29,11 +30,18 @@ namespace RandomGeek.Pages
         {
             InitializeComponent();
             Random random = new Random();
-
+            randomMovie = DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == random.Next(7, 52)).ToList()[0] as Movie;
             int randomInt = random.Next(7, 52);
+            MovieNameTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Name;
+            MovieDescTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Description;
+            SmallMovieNameTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Name;
+            MovieGenreTBk.Text = (DbConnection.RandomGeekEntities.MovieGenre.Where(x => x.IDMovieGenre == randomMovie.IDMovieGenre).ToList()[0] as MovieGenre).Name;
+            MovieCompanyTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Studio;
+            MovieYearTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Year.ToString();
+            //MovieIMG.Source = new BitmapImage((new Uri(DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Photo).ToString());
 
-            randomMovie = DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie;
-            randomMovieGenre = DbConnection.RandomGeekEntities.MovieGenre.Where(x => x.IDMovieGenre == randomMovie.IDMovieGenre).ToList()[0] as MovieGenre;
+            /*
+            randomMovieGenre = DbConnection.RandomGeekEntities.MovieGenre.Where(x => x.IDMovieGenre == randomMovie.IDMovieGenre).ToList()[0] as MovieGenre;*/
 
             /*            movies = DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovieType == 1 && x.IDMovie == random.Next(7, 52)).ToList();
             */
