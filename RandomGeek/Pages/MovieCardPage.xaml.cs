@@ -30,11 +30,14 @@ namespace RandomGeek.Pages
             InitializeComponent();
             Random random = new Random();
 
-            randomMovie = DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == random.Next(7, 52)).ToList()[0] as Movie;
-            randomMovieGenre = DbConnection.RandomGeekEntities.MovieGenre.Where(x => x.IDMovieGenre == randomMovie.IDMovieGenre).ToList()[0] as MovieGenre;
+            MovieNameTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == random.Next(7, 52)).ToList()[0] as Movie).Name;
 
-/*            movies = DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovieType == 1 && x.IDMovie == random.Next(7, 52)).ToList();
-*/            this.DataContext = this;
+            /*randomMovie = DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == random.Next(7, 52)).ToList()[0] as Movie;
+            randomMovieGenre = DbConnection.RandomGeekEntities.MovieGenre.Where(x => x.IDMovieGenre == randomMovie.IDMovieGenre).ToList()[0] as MovieGenre;*/
+
+            /*            movies = DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovieType == 1 && x.IDMovie == random.Next(7, 52)).ToList();
+            */
+            this.DataContext = this;
         }
         private void MoveToAuthPage_MouseDown(object sender, MouseEventArgs e)
         {
