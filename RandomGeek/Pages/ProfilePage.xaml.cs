@@ -30,6 +30,8 @@ namespace RandomGeek.Pages
         {
             InitializeComponent();
 
+            UserNameTBk.Text = Auth.user.Name;
+
             movies = new List<Movie>(DbConnection.RandomGeekEntities.Movie.ToList());
             this.DataContext = this;
 

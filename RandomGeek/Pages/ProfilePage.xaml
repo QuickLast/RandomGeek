@@ -137,12 +137,12 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <TextBlock TextAlignment="Center"
+                <TextBlock Name="UserNameTBk" TextAlignment="Center"
                            Grid.Row="2"
                            Grid.Column="5"
                            Grid.ColumnSpan="9"
                            Grid.RowSpan="2"
-                           Text="Имя пользователя"
+                           Text="{Binding Name}"
                            FontSize="50"
                            FontWeight="Black"
                            Foreground="#FB323A68"/>
