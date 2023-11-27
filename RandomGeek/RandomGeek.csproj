@@ -283,6 +283,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\Top.png" />
+    <Resource Include="Assets\Images\Profile1.png" />
+    <Resource Include="Assets\Images\Profile2.png" />
+    <Resource Include="Assets\Images\Profile3.png" />
+    <Resource Include="Assets\Images\Profile4.png" />
     <Content Include="Database\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

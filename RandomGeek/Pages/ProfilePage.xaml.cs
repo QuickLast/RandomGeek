@@ -32,6 +32,10 @@ namespace RandomGeek.Pages
 
             UserNameTBk.Text = Auth.user.Name;
 
+            Random random = new Random();
+
+            ProfilePictureImg.Source = new BitmapImage(new Uri($"pack://application:,,,/RandomGeek;component/Assets/Images/Profile{random.Next(1,4)}.png"));
+
             movies = new List<Movie>(DbConnection.RandomGeekEntities.Movie.ToList());
             this.DataContext = this;
 
