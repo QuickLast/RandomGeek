@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RandomGeek.Database;
+using RandomGeek.Functions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +23,25 @@ namespace RandomGeek.Pages
         public AdminPage()
         {
             InitializeComponent();
+            if (!Auth.isAuth)
+            {
+                ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
+                ProfileSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/SignIn.png"));
+            }
+            else
+            {
+                ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Exit.png"));
+                ProfileSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Profile.png"));
+            }
+
+            if (Auth.isAdmin(Auth.user))
+            {
+                SettingsImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Settings.png"));
+            }
+            else
+            {
+                SettingsImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
+            }
         }
 
         private void AddMovieBtn_Click(object sender, RoutedEventArgs e)
@@ -50,7 +71,7 @@ namespace RandomGeek.Pages
 
         private void MoveToMainPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-           // NavigationService.Navigate(new MainPage());
+           NavigationService.Navigate(new MainPage(Auth.user));
         }
     }
 }

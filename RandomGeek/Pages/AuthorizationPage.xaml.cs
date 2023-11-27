@@ -25,11 +25,12 @@ namespace RandomGeek.Pages
     {
         public static User user;
         public static List<User> users { get; set; }
-        public static User userToSend;
         public static User emptyUser = new User();
         public AuthorizationPage()
         {
             InitializeComponent();
+            Auth.user = emptyUser;
+            Auth.isAuth = false;
         }
 
         private void NoEntryBtn_Click(object sender, RoutedEventArgs e)
@@ -44,12 +45,12 @@ namespace RandomGeek.Pages
 
             users = new List<User>(DbConnection.RandomGeek_KamilEntities.User.ToList());
             user = users.FirstOrDefault(i => i.Email == login && i.Password == password);
-            userToSend = user;
+            Auth.user = user;
 
             if (user != null)
             {
-                Auth.isAuth = !Auth.isAuth;
-                NavigationService.Navigate(new MainPage(userToSend));
+                Auth.isAuth = true;
+                NavigationService.Navigate(new MainPage(Auth.user));
             }
             else
             {

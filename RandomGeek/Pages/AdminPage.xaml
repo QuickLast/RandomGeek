@@ -66,12 +66,12 @@
                 <Image Grid.Row="0" Source="/Assets/Images/Logo.png" Width="65" Height="65" Margin="0 20 0 0"></Image>
                 <Image Grid.Row="1" Source="/Assets/Images/Main.png" Width="55" Height="55" Margin="0 31 0 0"
                        MouseDown="MoveToMainPage_MouseDown"></Image>
-                <Image Grid.Row="2" Source="/Assets/Images/SignIn.png" Width="55" Height="55" Margin="0 31 0 0"
+                <Image Name="ProfileSignInImg" Grid.Row="2" Source="/Assets/Images/SignIn.png" Width="55" Height="55" Margin="0 31 0 0"
                        MouseDown="MoveToAuthPage_MouseDown"></Image>
                 <Image Grid.Row="3" Source="/Assets/Images/Games.png" Width="55" Height="55" Margin="0 31 0 0"
                        MouseDown="MoveToGamesPage_MouseDown"></Image>
-                <Image Grid.Row="11" Source="/Assets/Images/Settings.png" Width="75" Height="75" Margin="22,4,22,0" VerticalAlignment="Top"></Image>
-                <Image Grid.Row="12" Source="/Assets/Images/Exit.png" Width="55" Height="55" Margin="0 0 0 10"></Image>
+                <Image Name="SettingsImg" Grid.Row="10" Source="/Assets/Images/Settings.png" Width="75" Height="75" Margin="22,4,22,0" VerticalAlignment="Top"></Image>
+                <Image Name="ExitSignInImg" Grid.Row="11" Source="/Assets/Images/Exit.png" Width="55" Height="55" Margin="0 0 0 10"></Image>
             </Grid>
         </StackPanel>
 
@@ -148,7 +148,10 @@
                 </StackPanel>
                 <TextBlock  Margin="10 10 10 10" TextAlignment="Center" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="9" Grid.RowSpan="2" FontSize="50" FontWeight="Black" Foreground="#FB323A68">АДМИН-ПАНЕЛЬ</TextBlock>
                 <TextBox VerticalAlignment="Center" Margin="20 0 0 0" FontSize="20" BorderThickness="0" Background="Transparent"/>
+                <Image Source="/Assets/Images/KittenAtWork.jpg" Grid.Row="4" Grid.Column="9" Grid.RowSpan="30" Grid.ColumnSpan="15"></Image>
+                <TextBlock Grid.Row="19" Grid.Column="14" Grid.ColumnSpan="5" Grid.RowSpan="2" Foreground="#FB323A68" FontSize="30" TextAlignment="Center">Админ за работой</TextBlock>
             </Grid>
+
         </StackPanel>
     </Grid>
 </Page>

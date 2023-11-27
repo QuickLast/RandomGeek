@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище RandomGeekModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище RandomGeek_KamilModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ContentSelection">
           <Key>
             <PropertyRef Name="IDContentSelection" />
@@ -168,7 +168,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище RandomGeekModelContainer">
+        <EntityContainer Name="Хранилище RandomGeek_KamilModelContainer">
           <EntitySet Name="ContentSelection" EntityType="Self.ContentSelection" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GameGenre" EntityType="Self.GameGenre" Schema="dbo" store:Type="Tables" />
@@ -203,45 +203,11 @@
             <End Role="Movie" EntitySet="Movie" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="RandomGeekModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="RandomGeekEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ContentSelection" EntityType="RandomGeekModel.ContentSelection" />
-          <EntitySet Name="Game" EntityType="RandomGeekModel.Game" />
-          <EntitySet Name="GameGenre" EntityType="RandomGeekModel.GameGenre" />
-          <EntitySet Name="Movie" EntityType="RandomGeekModel.Movie" />
-          <EntitySet Name="MovieGenre" EntityType="RandomGeekModel.MovieGenre" />
-          <EntitySet Name="MovieType" EntityType="RandomGeekModel.MovieType" />
-          <EntitySet Name="Selection" EntityType="RandomGeekModel.Selection" />
-          <EntitySet Name="sysdiagrams" EntityType="RandomGeekModel.sysdiagrams" />
-          <EntitySet Name="User" EntityType="RandomGeekModel.User" />
-          <AssociationSet Name="FK_ContentSelection_Game" Association="RandomGeekModel.FK_ContentSelection_Game">
-            <End Role="Game" EntitySet="Game" />
-            <End Role="ContentSelection" EntitySet="ContentSelection" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ContentSelection_Movie" Association="RandomGeekModel.FK_ContentSelection_Movie">
-            <End Role="Movie" EntitySet="Movie" />
-            <End Role="ContentSelection" EntitySet="ContentSelection" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ContentSelection_Selection" Association="RandomGeekModel.FK_ContentSelection_Selection">
-            <End Role="Selection" EntitySet="Selection" />
-            <End Role="ContentSelection" EntitySet="ContentSelection" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Game_GameGenre" Association="RandomGeekModel.FK_Game_GameGenre">
-            <End Role="GameGenre" EntitySet="GameGenre" />
-            <End Role="Game" EntitySet="Game" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Movie_MovieGenre" Association="RandomGeekModel.FK_Movie_MovieGenre">
-            <End Role="MovieGenre" EntitySet="MovieGenre" />
-            <End Role="Movie" EntitySet="Movie" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Movie_MovieType" Association="RandomGeekModel.FK_Movie_MovieType">
-            <End Role="MovieType" EntitySet="MovieType" />
-            <End Role="Movie" EntitySet="Movie" />
-          </AssociationSet>
-        </EntityContainer>
+      <Schema Namespace="RandomGeek_KamilModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ContentSelection">
           <Key>
             <PropertyRef Name="IDContentSelection" />
@@ -250,9 +216,9 @@
           <Property Name="IDSelection" Type="Int32" Nullable="false" />
           <Property Name="IDMovie" Type="Int32" Nullable="false" />
           <Property Name="IDGame" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Game" Relationship="RandomGeekModel.FK_ContentSelection_Game" FromRole="ContentSelection" ToRole="Game" />
-          <NavigationProperty Name="Movie" Relationship="RandomGeekModel.FK_ContentSelection_Movie" FromRole="ContentSelection" ToRole="Movie" />
-          <NavigationProperty Name="Selection" Relationship="RandomGeekModel.FK_ContentSelection_Selection" FromRole="ContentSelection" ToRole="Selection" />
+          <NavigationProperty Name="Game" Relationship="Self.FK_ContentSelection_Game" FromRole="ContentSelection" ToRole="Game" />
+          <NavigationProperty Name="Movie" Relationship="Self.FK_ContentSelection_Movie" FromRole="ContentSelection" ToRole="Movie" />
+          <NavigationProperty Name="Selection" Relationship="Self.FK_ContentSelection_Selection" FromRole="ContentSelection" ToRole="Selection" />
         </EntityType>
         <EntityType Name="Game">
           <Key>
@@ -267,8 +233,8 @@
           <Property Name="Rating" Type="Double" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="ContentSelection" Relationship="RandomGeekModel.FK_ContentSelection_Game" FromRole="Game" ToRole="ContentSelection" />
-          <NavigationProperty Name="GameGenre" Relationship="RandomGeekModel.FK_Game_GameGenre" FromRole="Game" ToRole="GameGenre" />
+          <NavigationProperty Name="ContentSelection" Relationship="Self.FK_ContentSelection_Game" FromRole="Game" ToRole="ContentSelection" />
+          <NavigationProperty Name="GameGenre" Relationship="Self.FK_Game_GameGenre" FromRole="Game" ToRole="GameGenre" />
         </EntityType>
         <EntityType Name="GameGenre">
           <Key>
@@ -276,7 +242,7 @@
           </Key>
           <Property Name="IDGameGenre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Game" Relationship="RandomGeekModel.FK_Game_GameGenre" FromRole="GameGenre" ToRole="Game" />
+          <NavigationProperty Name="Game" Relationship="Self.FK_Game_GameGenre" FromRole="GameGenre" ToRole="Game" />
         </EntityType>
         <EntityType Name="Movie">
           <Key>
@@ -296,9 +262,9 @@
           <Property Name="Rating" Type="Double" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="ContentSelection" Relationship="RandomGeekModel.FK_ContentSelection_Movie" FromRole="Movie" ToRole="ContentSelection" />
-          <NavigationProperty Name="MovieGenre" Relationship="RandomGeekModel.FK_Movie_MovieGenre" FromRole="Movie" ToRole="MovieGenre" />
-          <NavigationProperty Name="MovieType" Relationship="RandomGeekModel.FK_Movie_MovieType" FromRole="Movie" ToRole="MovieType" />
+          <NavigationProperty Name="ContentSelection" Relationship="Self.FK_ContentSelection_Movie" FromRole="Movie" ToRole="ContentSelection" />
+          <NavigationProperty Name="MovieGenre" Relationship="Self.FK_Movie_MovieGenre" FromRole="Movie" ToRole="MovieGenre" />
+          <NavigationProperty Name="MovieType" Relationship="Self.FK_Movie_MovieType" FromRole="Movie" ToRole="MovieType" />
         </EntityType>
         <EntityType Name="MovieGenre">
           <Key>
@@ -306,7 +272,7 @@
           </Key>
           <Property Name="IDMovieGenre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Movie" Relationship="RandomGeekModel.FK_Movie_MovieGenre" FromRole="MovieGenre" ToRole="Movie" />
+          <NavigationProperty Name="Movie" Relationship="Self.FK_Movie_MovieGenre" FromRole="MovieGenre" ToRole="Movie" />
         </EntityType>
         <EntityType Name="MovieType">
           <Key>
@@ -314,7 +280,7 @@
           </Key>
           <Property Name="IDMovieType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Movie" Relationship="RandomGeekModel.FK_Movie_MovieType" FromRole="MovieType" ToRole="Movie" />
+          <NavigationProperty Name="Movie" Relationship="Self.FK_Movie_MovieType" FromRole="MovieType" ToRole="Movie" />
         </EntityType>
         <EntityType Name="Selection">
           <Key>
@@ -322,13 +288,13 @@
           </Key>
           <Property Name="IDSelection" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ContentSelection" Relationship="RandomGeekModel.FK_ContentSelection_Selection" FromRole="Selection" ToRole="ContentSelection" />
+          <NavigationProperty Name="ContentSelection" Relationship="Self.FK_ContentSelection_Selection" FromRole="Selection" ToRole="ContentSelection" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
@@ -346,8 +312,8 @@
           <Property Name="Admin" Type="Int32" />
         </EntityType>
         <Association Name="FK_ContentSelection_Game">
-          <End Type="RandomGeekModel.Game" Role="Game" Multiplicity="1" />
-          <End Type="RandomGeekModel.ContentSelection" Role="ContentSelection" Multiplicity="*" />
+          <End Role="Game" Type="Self.Game" Multiplicity="1" />
+          <End Role="ContentSelection" Type="Self.ContentSelection" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Game">
               <PropertyRef Name="IDGame" />
@@ -358,8 +324,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ContentSelection_Movie">
-          <End Type="RandomGeekModel.Movie" Role="Movie" Multiplicity="1" />
-          <End Type="RandomGeekModel.ContentSelection" Role="ContentSelection" Multiplicity="*" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="1" />
+          <End Role="ContentSelection" Type="Self.ContentSelection" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Movie">
               <PropertyRef Name="IDMovie" />
@@ -370,8 +336,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ContentSelection_Selection">
-          <End Type="RandomGeekModel.Selection" Role="Selection" Multiplicity="1" />
-          <End Type="RandomGeekModel.ContentSelection" Role="ContentSelection" Multiplicity="*" />
+          <End Role="Selection" Type="Self.Selection" Multiplicity="1" />
+          <End Role="ContentSelection" Type="Self.ContentSelection" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Selection">
               <PropertyRef Name="IDSelection" />
@@ -382,8 +348,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Game_GameGenre">
-          <End Type="RandomGeekModel.GameGenre" Role="GameGenre" Multiplicity="1" />
-          <End Type="RandomGeekModel.Game" Role="Game" Multiplicity="*" />
+          <End Role="GameGenre" Type="Self.GameGenre" Multiplicity="1" />
+          <End Role="Game" Type="Self.Game" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GameGenre">
               <PropertyRef Name="IDGameGenre" />
@@ -394,8 +360,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Movie_MovieGenre">
-          <End Type="RandomGeekModel.MovieGenre" Role="MovieGenre" Multiplicity="1" />
-          <End Type="RandomGeekModel.Movie" Role="Movie" Multiplicity="*" />
+          <End Role="MovieGenre" Type="Self.MovieGenre" Multiplicity="1" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MovieGenre">
               <PropertyRef Name="IDMovieGenre" />
@@ -406,8 +372,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Movie_MovieType">
-          <End Type="RandomGeekModel.MovieType" Role="MovieType" Multiplicity="1" />
-          <End Type="RandomGeekModel.Movie" Role="Movie" Multiplicity="*" />
+          <End Role="MovieType" Type="Self.MovieType" Multiplicity="1" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MovieType">
               <PropertyRef Name="IDMovieType" />
@@ -417,109 +383,144 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityContainer Name="RandomGeek_KamilEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ContentSelection" EntityType="Self.ContentSelection" />
+          <EntitySet Name="Game" EntityType="Self.Game" />
+          <EntitySet Name="GameGenre" EntityType="Self.GameGenre" />
+          <EntitySet Name="Movie" EntityType="Self.Movie" />
+          <EntitySet Name="MovieGenre" EntityType="Self.MovieGenre" />
+          <EntitySet Name="MovieType" EntityType="Self.MovieType" />
+          <EntitySet Name="Selection" EntityType="Self.Selection" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_ContentSelection_Game" Association="Self.FK_ContentSelection_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="ContentSelection" EntitySet="ContentSelection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentSelection_Movie" Association="Self.FK_ContentSelection_Movie">
+            <End Role="Movie" EntitySet="Movie" />
+            <End Role="ContentSelection" EntitySet="ContentSelection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentSelection_Selection" Association="Self.FK_ContentSelection_Selection">
+            <End Role="Selection" EntitySet="Selection" />
+            <End Role="ContentSelection" EntitySet="ContentSelection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Game_GameGenre" Association="Self.FK_Game_GameGenre">
+            <End Role="GameGenre" EntitySet="GameGenre" />
+            <End Role="Game" EntitySet="Game" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movie_MovieGenre" Association="Self.FK_Movie_MovieGenre">
+            <End Role="MovieGenre" EntitySet="MovieGenre" />
+            <End Role="Movie" EntitySet="Movie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movie_MovieType" Association="Self.FK_Movie_MovieType">
+            <End Role="MovieType" EntitySet="MovieType" />
+            <End Role="Movie" EntitySet="Movie" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище RandomGeekModelContainer" CdmEntityContainer="RandomGeekEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище RandomGeek_KamilModelContainer" CdmEntityContainer="RandomGeek_KamilEntities">
           <EntitySetMapping Name="ContentSelection">
-            <EntityTypeMapping TypeName="RandomGeekModel.ContentSelection">
+            <EntityTypeMapping TypeName="RandomGeek_KamilModel.ContentSelection">
               <MappingFragment StoreEntitySet="ContentSelection">
-                <ScalarProperty Name="IDGame" ColumnName="IDGame" />
-                <ScalarProperty Name="IDMovie" ColumnName="IDMovie" />
-                <ScalarProperty Name="IDSelection" ColumnName="IDSelection" />
                 <ScalarProperty Name="IDContentSelection" ColumnName="IDContentSelection" />
+                <ScalarProperty Name="IDSelection" ColumnName="IDSelection" />
+                <ScalarProperty Name="IDMovie" ColumnName="IDMovie" />
+                <ScalarProperty Name="IDGame" ColumnName="IDGame" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Game">
-            <EntityTypeMapping TypeName="RandomGeekModel.Game">
+            <EntityTypeMapping TypeName="RandomGeek_KamilModel.Game">
               <MappingFragment StoreEntitySet="Game">
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Rating" ColumnName="Rating" />
-                <ScalarProperty Name="IDGameGenre" ColumnName="IDGameGenre" />
-                <ScalarProperty Name="Year" ColumnName="Year" />
-                <ScalarProperty Name="Platforms" ColumnName="Platforms" />
-                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IDGame" ColumnName="IDGame" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+                <ScalarProperty Name="Platforms" ColumnName="Platforms" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="IDGameGenre" ColumnName="IDGameGenre" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GameGenre">
-            <EntityTypeMapping TypeName="RandomGeekModel.GameGenre">
+            <EntityTypeMapping TypeName="RandomGeek_KamilModel.GameGenre">
               <MappingFragment StoreEntitySet="GameGenre">
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IDGameGenre" ColumnName="IDGameGenre" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Movie">
-            <EntityTypeMapping TypeName="RandomGeekModel.Movie">
+            <EntityTypeMapping TypeName="RandomGeek_KamilModel.Movie">
               <MappingFragment StoreEntitySet="Movie">
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Rating" ColumnName="Rating" />
-                <ScalarProperty Name="SeasonCount" ColumnName="SeasonCount" />
-                <ScalarProperty Name="EpisodeCount" ColumnName="EpisodeCount" />
-                <ScalarProperty Name="Duration" ColumnName="Duration" />
-                <ScalarProperty Name="IDMovieGenre" ColumnName="IDMovieGenre" />
-                <ScalarProperty Name="Year" ColumnName="Year" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="Studio" ColumnName="Studio" />
-                <ScalarProperty Name="Director" ColumnName="Director" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="IDMovieType" ColumnName="IDMovieType" />
                 <ScalarProperty Name="IDMovie" ColumnName="IDMovie" />
+                <ScalarProperty Name="IDMovieType" ColumnName="IDMovieType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Director" ColumnName="Director" />
+                <ScalarProperty Name="Studio" ColumnName="Studio" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="IDMovieGenre" ColumnName="IDMovieGenre" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="EpisodeCount" ColumnName="EpisodeCount" />
+                <ScalarProperty Name="SeasonCount" ColumnName="SeasonCount" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MovieGenre">
-            <EntityTypeMapping TypeName="RandomGeekModel.MovieGenre">
+            <EntityTypeMapping TypeName="RandomGeek_KamilModel.MovieGenre">
               <MappingFragment StoreEntitySet="MovieGenre">
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IDMovieGenre" ColumnName="IDMovieGenre" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MovieType">
-            <EntityTypeMapping TypeName="RandomGeekModel.MovieType">
+            <EntityTypeMapping TypeName="RandomGeek_KamilModel.MovieType">
               <MappingFragment StoreEntitySet="MovieType">
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IDMovieType" ColumnName="IDMovieType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Selection">
-            <EntityTypeMapping TypeName="RandomGeekModel.Selection">
+            <EntityTypeMapping TypeName="RandomGeek_KamilModel.Selection">
               <MappingFragment StoreEntitySet="Selection">
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IDSelection" ColumnName="IDSelection" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="RandomGeekModel.sysdiagrams">
+            <EntityTypeMapping TypeName="RandomGeek_KamilModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="RandomGeekModel.User">
+            <EntityTypeMapping TypeName="RandomGeek_KamilModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="Admin" ColumnName="Admin" />
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Admin" ColumnName="Admin" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using RandomGeek.Database;
+using RandomGeek.Functions;
 
 namespace RandomGeek.Pages
 {
@@ -46,7 +47,7 @@ namespace RandomGeek.Pages
 
                 MessageBox.Show("Регистрация прошла успешно!");
 
-              //  NavigationService.Navigate(new MainPage());
+              NavigationService.Navigate(new MainPage(Auth.user));
             }
             
         }

@@ -15,8 +15,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using RandomGeek.Database;
-using RandomGeek.Functions;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace RandomGeek.Pages
@@ -26,16 +24,20 @@ namespace RandomGeek.Pages
     /// </summary>
     public partial class MainPage : Page
     {
+        User userToSend;
         public MainPage(User user)
         {
             InitializeComponent();
+            userToSend = user;
             if (!Auth.isAuth)
             {
                 ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
+                ProfileSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/SignIn.png"));
             }
             else
             {
                 ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Exit.png"));
+                ProfileSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Profile.png"));
             }
             
             if (Auth.isAdmin(user))
@@ -74,12 +76,24 @@ namespace RandomGeek.Pages
 
         private void MoveToSettingsPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new AdminPage());
+            if (Auth.isAdmin(userToSend))
+            {
+                NavigationService.Navigate(new AdminPage());
+            }
+            else
+            {
+               
+            }
+            
         }
 
         private void MoveToAuthorizationPage_MouseDown(object sender, MouseButtonEventArgs e)
-        { 
-            NavigationService.Navigate(new AuthorizationPage());
+        {
+            if (ExitSignInImg.Source == new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg")))
+            {
+                
+            }
+            else NavigationService.Navigate(new AuthorizationPage());
         }
     }
 }
