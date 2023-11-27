@@ -97,5 +97,18 @@ namespace RandomGeek.Pages
         {
             NavigationService.Navigate(new GameCardPage());
         }
+
+        private void MoveToSettingsPage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Auth.isAdmin(Auth.user))
+            {
+                NavigationService.Navigate(new AdminPage());
+            }
+            else
+            {
+
+            }
+
+        }
     }
 }
