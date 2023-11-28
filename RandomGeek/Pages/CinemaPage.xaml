@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RandomGeek.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="1080" d:DesignWidth="1920"
+      d:DesignHeight="1000" d:DesignWidth="1920"
       WindowTitle="RandomGeek | Кино: фильмы и сериалы" FontSize="40">
 
     <Grid>
@@ -68,12 +68,12 @@
                 <Image Grid.Row="0" Source="/Assets/Images/Logo.png" Width="65" Height="65" Margin="0 20 0 0"></Image>
                 <Image Grid.Row="1" Source="/Assets/Images/Main.png" Width="55" Height="55" Margin="0 31 0 0"
                        MouseDown="MoveToMainPage_MouseDown"></Image>
-                <Image Name="ProfileSignInImg" Grid.Row="2" Source="/Assets/Images/SignIn.png" Width="55" Height="55" Margin="0 31 0 0"
+                <Image Name="ProfileSignInImg" Grid.Row="2" Source="/Assets/Images/SignIn.png" Width="55" Height="55" Margin="0 20 0 0"
                        MouseDown="MoveToAuthPage_MouseDown"></Image>
-                <Image Grid.Row="3" Source="/Assets/Images/Games.png" Width="55" Height="55" Margin="0 31 0 0"
+                <Image Grid.Row="3" Source="/Assets/Images/Games.png" Width="55" Height="55" Margin="0 20 0 0"
                        MouseDown="MoveToGamesPage_MouseDown"></Image>
-                <Image x:Name="SettingsImg" Grid.Row="11" Source="/Assets/Images/Settings.png" Width="75" Height="75" Margin="22,4,22,0" VerticalAlignment="Top"></Image>
-                <Image Name="ExitSignInImg" Grid.Row="12" Source="/Assets/Images/Exit.png" Width="55" Height="55" Margin="0 0 0 10"></Image>
+                <Image x:Name="SettingsImg" Grid.Row="10" Source="/Assets/Images/Settings.png" Width="75" Height="75" Margin="22,4,22,0" VerticalAlignment="Top" MouseDown="MoveToSettingsPage_MouseDown"></Image>
+                <Image Name="ExitSignInImg" Grid.Row="11" Source="/Assets/Images/Exit.png" Width="55" Height="55" Margin="0 0 0 10"  MouseDown="MoveToAuthorizationPage_MouseDown"></Image>
             </Grid>
         </StackPanel>
 
@@ -181,7 +181,8 @@
                                     <TextBlock Margin="0 10 0 0"
                                                Foreground="#FB323A68"
                                                FontSize="25"
-                                               Text="{Binding Name}"/>
+                                               Text="{Binding Name}"
+                                               TextAlignment="Center"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -201,7 +202,8 @@
                               Grid.Column="1"
                               Grid.ColumnSpan="28"
                               Grid.Row="12"
-                              Grid.RowSpan="4">
+                              Grid.RowSpan="4"
+                              >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
@@ -211,7 +213,8 @@
                                     <TextBlock Margin="0 10 0 0"
                                                Foreground="#FB323A68"
                                                FontSize="25"
-                                               Text="{Binding Name}"/>
+                                               Text="{Binding Name}"
+                                               TextAlignment="Center"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -243,7 +246,8 @@
                                     <TextBlock Margin="0 10 0 0"
                                                Foreground="#FB323A68"
                                                FontSize="25"
-                                               Text="{Binding Name}"/>
+                                               Text="{Binding Name}"
+                                               TextAlignment="Center"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>

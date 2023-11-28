@@ -26,5 +26,6 @@ namespace RandomGeek.Functions
             return false;
         }
         public static User user = new User();
+        public static List<Movie> randomWatched = new List<Movie>();
     }
 }

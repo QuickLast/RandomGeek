@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:RandomGeek.Pages"
       mc:Ignorable="d"
-      d:DesignHeight="1080"
+      d:DesignHeight="1000"
       d:DesignWidth="1920"
       WindowTitle="RandomGeek | Поиск" FontSize="40">
 
@@ -91,7 +91,7 @@
                        Margin="0 31 0 0"
                        MouseDown="MoveToGamesPage_MouseDown"></Image>
                 <Image  x:Name="SettingsImg"
-                        Grid.Row="11"
+                        Grid.Row="10"
                         Source="/Assets/Images/Settings.png"
                         Width="75"
                         Height="75"
@@ -99,7 +99,7 @@
                         VerticalAlignment="Top"
                         MouseDown="MoveToSettingsPage_MouseDown"></Image>
                 <Image x:Name="ExitSignInImg"
-                       Grid.Row="12"
+                       Grid.Row="11"
                        Source="/Assets/Images/Exit.png"
                        Width="55"
                        Height="55"

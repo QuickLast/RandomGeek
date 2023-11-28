@@ -26,9 +26,12 @@ namespace RandomGeek.Pages
         public static List<MovieGenre> movieGenres {  get; set; }
         public static List<MovieType> movieType { get; set; }
         public static Movie movieToAdd = new Movie();
-        public AddMoviePage()
+        User userToSend;
+        public AddMoviePage(User user)
         {
             InitializeComponent();
+
+            userToSend = user;
 
             movieGenres = new List<MovieGenre>(DbConnection.RandomGeekEntities.MovieGenre.ToList());
             GenreCBx.ItemsSource = movieGenres;
@@ -40,7 +43,7 @@ namespace RandomGeek.Pages
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AdminPage());
+            NavigationService.Navigate(new AdminPage(userToSend));
         }
 
         private void AddMoviebtn_Click(object sender, RoutedEventArgs e)
@@ -70,7 +73,7 @@ namespace RandomGeek.Pages
 
                     MessageBox.Show("Данные записаны!");
 
-                    NavigationService.Navigate(new AdminPage());
+                    NavigationService.Navigate(new AdminPage(userToSend));
                 }
         }
 

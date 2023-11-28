@@ -25,9 +25,12 @@ namespace RandomGeek.Pages
         public static List<Movie> movies { get; set; }
         public Game randomGame;
         public MovieGenre randomGameGenre;
-        public GameCardPage()
+        User userToSend;
+        public GameCardPage(User user)
         {
             InitializeComponent();
+
+            userToSend = user;
 
             if (!Auth.isAuth)
             {
@@ -66,7 +69,7 @@ namespace RandomGeek.Pages
         {
             if (Auth.isAuth)
             {
-                NavigationService.Navigate(new ProfilePage());
+                NavigationService.Navigate(new ProfilePage(userToSend));
             }
             else
             {
@@ -76,21 +79,29 @@ namespace RandomGeek.Pages
 
         private void MoveToGamesPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new GamesPage());
+            NavigationService.Navigate(new GamesPage(userToSend));
         }
         private void MoveToMainPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new MainPage(Auth.user));
+            NavigationService.Navigate(new MainPage(userToSend));
         }
 
         private void MoveToCinemaPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new CinemaPage());
+            NavigationService.Navigate(new CinemaPage(userToSend));
         }
 
         private void MoveToSettingsPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new AdminPage());
+            NavigationService.Navigate(new AdminPage(userToSend));
+        }
+        private void MoveToAuthorizationPage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (ExitSignInImg.Source == new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg")))
+            {
+
+            }
+            else NavigationService.Navigate(new AuthorizationPage());
         }
 
         public BitmapImage ToImage(byte[] array)

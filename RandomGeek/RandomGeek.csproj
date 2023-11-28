@@ -110,9 +110,6 @@
     <Compile Include="Database\Selection.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Database\User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -287,6 +284,8 @@
     <Resource Include="Assets\Images\Profile2.png" />
     <Resource Include="Assets\Images\Profile3.png" />
     <Resource Include="Assets\Images\Profile4.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Database\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

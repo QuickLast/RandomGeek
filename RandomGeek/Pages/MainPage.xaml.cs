@@ -66,7 +66,7 @@ namespace RandomGeek.Pages
         {
             if (Auth.isAuth)
             {
-                NavigationService.Navigate(new ProfilePage());
+                NavigationService.Navigate(new ProfilePage(userToSend));
             }
             else
             {
@@ -76,19 +76,19 @@ namespace RandomGeek.Pages
 
         private void MoveToGamesPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new GamesPage());
+            NavigationService.Navigate(new GamesPage(userToSend));
         }
 
         private void MoveToCinemaPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new CinemaPage());
+            NavigationService.Navigate(new CinemaPage(userToSend));
         }
 
         private void MoveToSettingsPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (Auth.isAdmin(userToSend))
             {
-                NavigationService.Navigate(new AdminPage());
+                NavigationService.Navigate(new AdminPage(userToSend));
             }
             else
             {
@@ -108,12 +108,12 @@ namespace RandomGeek.Pages
 
         private void RandomMovieBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MovieCardPage());
+            NavigationService.Navigate(new MovieCardPage(userToSend));
         }
 
         private void RandomGameBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new GameCardPage());
+            NavigationService.Navigate(new GameCardPage(userToSend));
         }
 
     }

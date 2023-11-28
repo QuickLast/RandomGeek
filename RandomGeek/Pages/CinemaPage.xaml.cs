@@ -25,9 +25,12 @@ namespace RandomGeek.Pages
         public static List<Movie> movies {  get; set; }
         public static List<Movie> series { get; set; }
         public static List<Movie> cartoons { get; set; }
-        public CinemaPage()
+        User userToSend;
+        public CinemaPage(User user)
         {
             InitializeComponent();
+
+            userToSend = user;
 
             movies = new List<Movie>(DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovieType == 1 && x.Rating >= 7.8).ToList());
             this.DataContext = this;
@@ -69,7 +72,7 @@ namespace RandomGeek.Pages
         {
             if (Auth.isAuth)
             {
-                NavigationService.Navigate(new ProfilePage());
+                NavigationService.Navigate(new ProfilePage(userToSend));
             }
             else
             {
@@ -79,35 +82,44 @@ namespace RandomGeek.Pages
 
         private void MoveToGamesPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new GamesPage());
+            NavigationService.Navigate(new GamesPage(userToSend));
         }
 
         private void MoveToCinemaPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new CinemaPage());
+            NavigationService.Navigate(new CinemaPage(userToSend));
         }
 
         private void MoveToMainPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-           NavigationService.Navigate(new MainPage(Auth.user));
+           NavigationService.Navigate(new MainPage(userToSend));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MovieCardPage());
+            NavigationService.Navigate(new MovieCardPage(userToSend));
         }
 
         private void MoveToSettingsPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (Auth.isAdmin(Auth.user))
             {
-                NavigationService.Navigate(new AdminPage());
+                NavigationService.Navigate(new AdminPage(userToSend));
             }
             else
             {
 
             }
 
+        }
+
+        private void MoveToAuthorizationPage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (ExitSignInImg.Source == new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg")))
+            {
+
+            }
+            else NavigationService.Navigate(new AuthorizationPage());
         }
     }
 }

@@ -25,9 +25,12 @@ namespace RandomGeek.Pages
     {
         public static List<GameGenre> gameGenres { get; set; }
         public static Game gameToAdd = new Game();
-        public AddGamePage()
+        User userToSend;
+        public AddGamePage(User user)
         {
             InitializeComponent();
+
+            userToSend = user;
 
             gameGenres = new List<GameGenre>(DbConnection.RandomGeekEntities.GameGenre.ToList());
             GenreCBx.ItemsSource = gameGenres;
@@ -36,7 +39,7 @@ namespace RandomGeek.Pages
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AdminPage());
+            NavigationService.Navigate(new AdminPage(userToSend));
         }
 
         private void AddPhotoBtn_Click(object sender, RoutedEventArgs e)
@@ -77,7 +80,7 @@ namespace RandomGeek.Pages
 
                 MessageBox.Show("Данные записаны!");
 
-                NavigationService.Navigate(new AdminPage());
+                NavigationService.Navigate(new AdminPage(userToSend));
             }
         }
     }

@@ -26,9 +26,12 @@ namespace RandomGeek.Pages
     public partial class ProfilePage : Page
     {
         public static List<Movie> movies { get; set; }
-        public ProfilePage()
+        User userToSend;
+        public ProfilePage(User user)
         {
             InitializeComponent();
+
+            userToSend = user;
 
             UserNameTBk.Text = Auth.user.Name;
 
@@ -36,10 +39,14 @@ namespace RandomGeek.Pages
 
             ProfilePictureImg.Source = new BitmapImage(new Uri($"pack://application:,,,/RandomGeek;component/Assets/Images/Profile{random.Next(1,4)}.png"));
 
-            movies = new List<Movie>(DbConnection.RandomGeekEntities.Movie.ToList());
+            WatchedMoviesLv.ItemsSource = Auth.randomWatched.AsEnumerable().Reverse();
             this.DataContext = this;
 
-            WatchedMoviesLv.ItemsSource = movies;
+            if (Auth.randomWatched.Count == 0)
+            {
+                WatchedMovieTBk.Text = "На данный момент вы еще не воспользовались нашей магией, а зря!";
+            }
+
 
             if (!Auth.isAuth)
             {
@@ -60,26 +67,34 @@ namespace RandomGeek.Pages
 
         private void MoveToGamesPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new GamesPage());
+            NavigationService.Navigate(new GamesPage(userToSend));
         }
 
         private void MoveToCinemaPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new CinemaPage());
+            NavigationService.Navigate(new CinemaPage(userToSend));
         }
 
         private void MoveToSettingsPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new AdminPage());
+            NavigationService.Navigate(new AdminPage(userToSend));
         }
 
-        private void MoveToAuthorizationPage_MouseDown(object sender, MouseButtonEventArgs e)
+        private void MoveToAuthPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             NavigationService.Navigate(new AuthorizationPage());
         }
         private void MoveToMainPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new MainPage(Auth.user));
+            NavigationService.Navigate(new MainPage(userToSend));
+        }
+        private void MoveToAuthorizationPage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (ExitSignInImg.Source == new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg")))
+            {
+
+            }
+            else NavigationService.Navigate(new AuthorizationPage());
         }
 
         private void ChoosePhotoBtn_Click(object sender, RoutedEventArgs e)

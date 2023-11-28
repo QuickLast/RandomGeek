@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RandomGeek.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="1080" d:DesignWidth="1920"
+      d:DesignHeight="1000" d:DesignWidth="1920"
       WindowTitle="RandomGeek | Профиль">
 
     <Grid>
@@ -57,6 +57,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
+                    
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -66,10 +67,10 @@
                 </Grid.RowDefinitions>
                 <Image Grid.Row="0" Source="/Assets/Images/Logo.png" Width="65" Height="65" Margin="0 20 0 0"></Image>
                 <Image Grid.Row="1" Source="/Assets/Images/Main.png" Width="55" Height="55" Margin="0 31 0 0" MouseDown="MoveToMainPage_MouseDown"></Image>
-                <Image Grid.Row="2" Source="/Assets/Images/Cinema.png" Width="55" Height="55" Margin="0 31 0 0" MouseDown="MoveToCinemaPage_MouseDown"></Image>
-                <Image Grid.Row="3" Source="/Assets/Images/Games.png" Width="55" Height="55" Margin="0 31 0 0" MouseDown="MoveToGamesPage_MouseDown"></Image>
-                <Image x:Name="SettingsImg" Grid.Row="11" Source="/Assets/Images/Settings.png" Width="75" Height="75" Margin="22,4,22,0" VerticalAlignment="Top" MouseDown="MoveToSettingsPage_MouseDown"></Image>
-                <Image Name="ExitSignInImg" Grid.Row="12" Source="/Assets/Images/Exit.png" Width="55" Height="55" Margin="0 0 0 10" MouseDown="MoveToAuthorizationPage_MouseDown"></Image>
+                <Image Grid.Row="2" Source="/Assets/Images/Cinema.png" Width="55" Height="55" Margin="0 20 0 0" MouseDown="MoveToCinemaPage_MouseDown"></Image>
+                <Image Grid.Row="3" Source="/Assets/Images/Games.png" Width="55" Height="55" Margin="0 20 0 0" MouseDown="MoveToGamesPage_MouseDown"></Image>
+                <Image x:Name="SettingsImg" Grid.Row="10" Source="/Assets/Images/Settings.png" Width="75" Height="75" Margin="22,4,22,0" VerticalAlignment="Top" MouseDown="MoveToSettingsPage_MouseDown"></Image>
+                <Image Name="ExitSignInImg" Grid.Row="11" Source="/Assets/Images/Exit.png" Width="55" Height="55" Margin="0 0 0 10" MouseDown="MoveToAuthorizationPage_MouseDown"></Image>
             </Grid>
         </StackPanel>
 
@@ -168,21 +169,20 @@
                             BorderThickness="0" Click="ChoosePhotoBtn_Click"/>
                 </Border>
 
-                <StackPanel Grid.Column="1" Grid.ColumnSpan="10" Grid.Row="9" Orientation="Horizontal">
-                    <TextBlock x:Name="WatchedMovieBtn"
+                <StackPanel Grid.Column="1" Grid.ColumnSpan="30" Grid.Row="9" Orientation="Horizontal">
+                    <TextBlock x:Name="WatchedMovieTBk"
                             Foreground="#FB323A68"
                             FontSize="40"
                             FontWeight="Bold"
                             Background="Transparent"
-                            >Просмотренное кино</TextBlock>
+                            Width="1400"
+                            >Вам выпало:</TextBlock>
 
                 </StackPanel>
 
                 <ListView x:Name="WatchedMoviesLv"
                               Background="#99AAC6"
                               Width="auto"
-                              ItemsSource="{Binding movies}"
-                              d:ItemsSource="{d:SampleData ItemCount=7}"
                               Grid.Column="1"
                               Grid.ColumnSpan="28"
                               Grid.Row="11"
@@ -196,7 +196,8 @@
                                 <TextBlock Margin="0 10 0 0"
                                                Foreground="#FB323A68"
                                                FontSize="25"
-                                               Text="{Binding Name}"/>
+                                               Text="{Binding Name}"
+                                           TextAlignment="Center"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
