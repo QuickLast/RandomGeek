@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using RandomGeek.Functions;
 
 namespace RandomGeek.Pages
 {
@@ -31,8 +32,10 @@ namespace RandomGeek.Pages
             InitializeComponent();
             Auth.user = emptyUser;
             Auth.isAuth = false;
-        }
 
+            Auth.randomWatched = new List<Movie>();
+            Auth.randomWatchedGame = new List<Game>();
+        }
         private void NoEntryBtn_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new MainPage(emptyUser));

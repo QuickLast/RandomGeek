@@ -46,8 +46,10 @@ namespace RandomGeek.Pages
                 DbConnection.RandomGeekEntities.SaveChanges();
 
                 MessageBox.Show("Регистрация прошла успешно!");
+                Auth.isAuth = true;
+                Auth.user = user;
 
-              NavigationService.Navigate(new MainPage(Auth.user));
+                NavigationService.Navigate(new MainPage(Auth.user));
             }
             
         }

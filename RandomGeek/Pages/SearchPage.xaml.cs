@@ -24,12 +24,20 @@ namespace RandomGeek.Pages
     public partial class SearchPage : Page
     {
         User userToSend;
+        public static List<Movie> movies = DbConnection.RandomGeekEntities.Movie.ToList();
+        public static List<Game> games = DbConnection.RandomGeekEntities.Game.ToList();
         public SearchPage(User user, String textFromSearch)
         {
             InitializeComponent();
 
             SearchTBx.Text = textFromSearch;
-            
+
+            if (SearchTBx.Text.Trim() != String.Empty)
+            {
+                SearchLV.ItemsSource = movies.Where(x => x.Name.ToLower().Contains(SearchTBx.Text.Trim().ToLower()));
+                SearchGamesLV.ItemsSource = games.Where(x => x.Name.ToLower().Contains(SearchTBx.Text.Trim().ToLower()));
+            }
+
             userToSend = user;
             if (!Auth.isAuth)
             {
@@ -104,9 +112,24 @@ namespace RandomGeek.Pages
             else NavigationService.Navigate(new AuthorizationPage());
         }
 
-        private void LVServices_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void SearchTBx_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (SearchTBx.Text.Trim() != String.Empty)
+            {
+                SearchLV.ItemsSource = movies.Where(x => x.Name.ToLower().Contains(SearchTBx.Text.Trim().ToLower()));
+                SearchGamesLV.ItemsSource = games.Where(x => x.Name.ToLower().Contains(SearchTBx.Text.Trim().ToLower()));
+            }
+        }
+        private void WatchedMoviesLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var t = ((ListView)sender).SelectedItem as Movie;
+            NavigationService.Navigate(new ListViewCardPage(userToSend, new ProfilePage(userToSend), t));
+        }
 
+        private void WatchedGamesLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var t = ((ListView)sender).SelectedItem as Game;
+            NavigationService.Navigate(new ListViewCardPageGames(userToSend, new ProfilePage(userToSend), t));
         }
     }
 }

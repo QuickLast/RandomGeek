@@ -185,19 +185,39 @@
                         Height="50">
                     <StackPanel Orientation="Horizontal">
                         <TextBox Name="SearchTBx" Foreground="White" VerticalAlignment="Center" Margin="17 0 0 0" Width="485" FontSize="25" BorderThickness="0" Background="Transparent"
-                                 KeyDown="OnKeyDownHandler"/>
+                                 KeyDown="OnKeyDownHandler" TextChanged="SearchTBx_TextChanged"/>
                         <Image Source="/Assets/Images/Search.png" Width="25" Height="25"/>
                     </StackPanel>
                 </Border>
-                <ScrollViewer Grid.Row="3"
+                <TextBlock x:Name="FoundMoviesTBk"
+                            Foreground="#FB323A68"
+                            FontSize="40"
+                            FontWeight="Bold"
+                            Background="Transparent"
+                            Width="1400"
+                            Grid.Row="3" Grid.RowSpan="2"
+                            Grid.Column="4" Grid.ColumnSpan="11"
+                            VerticalAlignment="Center"
+                            >Кино по вашему запросу:</TextBlock>
+                <TextBlock x:Name="FoundGamesTBk"
+                            Foreground="#FB323A68"
+                            FontSize="40"
+                            FontWeight="Bold"
+                            Background="Transparent"
+                            Width="1400"
+                            Grid.Row="3" Grid.RowSpan="2"
+                            Grid.Column="17" Grid.ColumnSpan="11"
+                            VerticalAlignment="Center"
+                            >Игры по вашему запросу:</TextBlock>
+                <ScrollViewer Grid.Row="5"
                               Grid.RowSpan="18"
-                              Grid.ColumnSpan="18"
-                              Grid.Column="8">
-                    <ListView x:Name="LVServices"
+                              Grid.ColumnSpan="12"
+                              Grid.Column="4">
+                    <ListView x:Name="SearchLV"
                               Background="#99AAC6"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                               d:ItemsSource="{d:SampleData ItemCount=10}"
-                              SelectionChanged="LVServices_SelectionChanged"
+                              SelectionChanged="WatchedMoviesLv_SelectionChanged"
                               >
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -206,15 +226,42 @@
                                            Width="150"
                                            Height="150"
                                            HorizontalAlignment="Center" />
-                                    <StackPanel>
+                                    <StackPanel VerticalAlignment="Center">
                                         <TextBlock Text="{Binding Name}"
-                                                   Style="{StaticResource DelaGothicOne}"/>
-                                        <TextBlock Text="{Binding Descripton}"
-                                                   Style="{StaticResource RalewayRegular}"
-                                                   FontSize="25"
-                                                   TextWrapping="Wrap"
-                                                   Width="1000"
-                                                   HorizontalAlignment="Center" />
+                                                   Foreground="#FB323A68"
+                                               FontSize="50" Width="400" Margin="15 0 0 0"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                </ScrollViewer>
+                <ScrollViewer Grid.Row="5"
+                              Grid.RowSpan="18"
+                              Grid.ColumnSpan="12"
+                              Grid.Column="17">
+                    <ListView x:Name="SearchGamesLV"
+                              Background="#99AAC6"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              d:ItemsSource="{d:SampleData ItemCount=10}"
+                              SelectionChanged="WatchedGamesLv_SelectionChanged"
+                              >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="{Binding Photo}"
+                                           Width="150"
+                                           Height="150"
+                                           HorizontalAlignment="Center" />
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding Name}"
+                                                   Foreground="#FB323A68"
+                                               FontSize="50" Width="400" Margin="15 0 0 0"/>
                                     </StackPanel>
                                 </StackPanel>
                             </DataTemplate>

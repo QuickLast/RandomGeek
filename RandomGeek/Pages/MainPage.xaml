@@ -199,7 +199,7 @@
                     </ListView>
                 
 
-                <Image Grid.Column="15" Grid.ColumnSpan="13" Grid.RowSpan="22"  Source="/Assets/Images/MainPageBanner.png" Margin="0,0,-485.462,-0.043"></Image>
+                <Image Grid.Column="16" Grid.ColumnSpan="13" Grid.RowSpan="22"  Source="/Assets/Images/MainPageBanner.png" Margin="0,0,-485.462,-0.043"></Image>
             </Grid>
         </StackPanel>
     </Grid>

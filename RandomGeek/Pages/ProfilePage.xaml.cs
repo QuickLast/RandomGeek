@@ -37,7 +37,10 @@ namespace RandomGeek.Pages
 
             Random random = new Random();
 
-            ProfilePictureImg.Source = new BitmapImage(new Uri($"pack://application:,,,/RandomGeek;component/Assets/Images/Profile{random.Next(1,4)}.png"));
+            if (user.Photo == null)
+                ProfilePictureImg.Source = new BitmapImage(new Uri($"pack://application:,,,/RandomGeek;component/Assets/Images/Profile{random.Next(1, 4)}.png"));
+            else
+                ProfilePictureImg.Source = ToImage(user.Photo);
 
             WatchedMoviesLv.ItemsSource = Auth.randomWatched.AsEnumerable().Reverse();
             WatchedGamesLv.ItemsSource = Auth.randomWatchedGame.AsEnumerable().Reverse();
@@ -48,7 +51,6 @@ namespace RandomGeek.Pages
                 WatchedMovieTBk.Text = "На данный момент вы еще не воспользовались нашей магией, а зря!";
                 WatchedGameTBk.Text = "";
             }
-
 
             if (!Auth.isAuth)
             {
@@ -127,6 +129,19 @@ namespace RandomGeek.Pages
         {
             var t = ((ListView)sender).SelectedItem as Game;
             NavigationService.Navigate(new ListViewCardPageGames(userToSend, new ProfilePage(userToSend), t));
+        }
+
+        public BitmapImage ToImage(byte[] array)
+        {
+            using (var ms = new System.IO.MemoryStream(array))
+            {
+                var image = new BitmapImage();
+                image.BeginInit();
+                image.CacheOption = BitmapCacheOption.OnLoad; // here
+                image.StreamSource = ms;
+                image.EndInit();
+                return image;
+            }
         }
     }
 }
