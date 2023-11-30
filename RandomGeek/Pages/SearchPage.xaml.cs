@@ -24,9 +24,12 @@ namespace RandomGeek.Pages
     public partial class SearchPage : Page
     {
         User userToSend;
-        public SearchPage(User user)
+        public SearchPage(User user, String textFromSearch)
         {
             InitializeComponent();
+
+            SearchTBx.Text = textFromSearch;
+            
             userToSend = user;
             if (!Auth.isAuth)
             {
@@ -58,6 +61,14 @@ namespace RandomGeek.Pages
             else
             {
                 NavigationService.Navigate(new AuthorizationPage());
+            }
+        }
+
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                NavigationService.Navigate(new SearchPage(userToSend, SearchTBx.Text));
             }
         }
 

@@ -54,7 +54,7 @@ namespace RandomGeek.Pages
             }
 
             Random random = new Random();
-            int randomInt = random.Next(1, 45);
+            int randomInt = random.Next(DbConnection.RandomGeekEntities.Movie.ToList()[0].IDMovie, DbConnection.RandomGeekEntities.Movie.ToList().Count);
             randomMovie = DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie;
             Auth.randomWatched.Add(randomMovie);
             MovieNameTBk.Text = (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Name;
@@ -77,6 +77,11 @@ namespace RandomGeek.Pages
             {
                 NavigationService.Navigate(new AuthorizationPage());
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MovieCardPage(userToSend));
         }
 
         private void MoveToGamesPage_MouseDown(object sender, MouseButtonEventArgs e)

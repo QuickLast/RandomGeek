@@ -143,7 +143,6 @@
                            Grid.Column="5"
                            Grid.ColumnSpan="9"
                            Grid.RowSpan="2"
-                           Text="{Binding Name}"
                            FontSize="50"
                            FontWeight="Black"
                            Foreground="#FB323A68"/>
@@ -176,7 +175,7 @@
                             FontWeight="Bold"
                             Background="Transparent"
                             Width="1400"
-                            >Вам выпало:</TextBlock>
+                            >Выпавшие фильмы:</TextBlock>
 
                 </StackPanel>
 

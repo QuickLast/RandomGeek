@@ -53,7 +53,7 @@ namespace RandomGeek.Pages
             }
 
             Random random = new Random();
-            int randomInt = random.Next(1, 26);
+            int randomInt = random.Next(DbConnection.RandomGeekEntities.Game.ToList()[0].IDGame, DbConnection.RandomGeekEntities.Game.ToList().Count);
             randomGame = DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game;
             GameNameTBk.Text = (DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Name;
             GameDescTBk.Text = (DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Description;
@@ -61,7 +61,7 @@ namespace RandomGeek.Pages
             GameCompanyTBk.Text = (DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Publisher;
             GameYearTBk.Text = (DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Year.ToString();
             GameIMG.Source = ToImage((DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Photo);
-            GameRatingTBk.Text += (DbConnection.RandomGeekEntities.Movie.Where(x => x.IDMovie == randomInt).ToList()[0] as Movie).Rating.ToString();
+            GameRatingTBk.Text += (DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Rating.ToString();
 
             this.DataContext = this;
         }
@@ -102,6 +102,11 @@ namespace RandomGeek.Pages
 
             }
             else NavigationService.Navigate(new AuthorizationPage());
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new GameCardPage(userToSend));
         }
 
         public BitmapImage ToImage(byte[] array)

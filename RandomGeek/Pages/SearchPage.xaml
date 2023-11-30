@@ -184,29 +184,21 @@
                         UseLayoutRounding="True"
                         Height="50">
                     <StackPanel Orientation="Horizontal">
-                        <TextBox FontWeight="Black"
-                                 Foreground="#FB323A68"
-                                 VerticalAlignment="Center"
-                                 Margin="17 0 0 0"
-                                 Width="425"
-                                 FontSize="25"
-                                 BorderThickness="0"
-                                 Background="Transparent" />
-                        <Image Source="/Assets/Images/Search.png"
-                               Width="25"
-                               Margin="45 0 0 0"
-                               Height="25" />
+                        <TextBox Name="SearchTBx" Foreground="White" VerticalAlignment="Center" Margin="17 0 0 0" Width="485" FontSize="25" BorderThickness="0" Background="Transparent"
+                                 KeyDown="OnKeyDownHandler"/>
+                        <Image Source="/Assets/Images/Search.png" Width="25" Height="25"/>
                     </StackPanel>
                 </Border>
                 <ScrollViewer Grid.Row="3"
                               Grid.RowSpan="18"
-                              Grid.ColumnSpan="31"
-                              Grid.Column="1">
+                              Grid.ColumnSpan="18"
+                              Grid.Column="8">
                     <ListView x:Name="LVServices"
                               Background="#99AAC6"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                               d:ItemsSource="{d:SampleData ItemCount=10}"
-                              SelectionChanged="LVServices_SelectionChanged">
+                              SelectionChanged="LVServices_SelectionChanged"
+                              >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">

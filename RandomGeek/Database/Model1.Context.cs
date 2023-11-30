@@ -13,10 +13,10 @@ namespace RandomGeek.Database
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class RandomGeek_FinalEntities : DbContext
+    public partial class RandomGeekEntities_Final1 : DbContext
     {
-        public RandomGeek_FinalEntities()
-            : base("name=RandomGeek_FinalEntities")
+        public RandomGeekEntities_Final1()
+            : base("name=RandomGeekEntities_Final1")
         {
         }
     

@@ -97,6 +97,14 @@ namespace RandomGeek.Pages
             
         }
 
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                NavigationService.Navigate(new SearchPage(userToSend, SearchTBx.Text));
+            }
+        }
+
         private void MoveToAuthorizationPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (ExitSignInImg.Source == new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg")))

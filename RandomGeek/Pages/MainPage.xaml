@@ -142,7 +142,8 @@
                     CornerRadius="20" BorderBrush="White" BorderThickness="1"
                     VerticalAlignment="Center" UseLayoutRounding="True" Height="50">
                     <StackPanel Orientation="Horizontal">
-                        <TextBox Foreground="White" VerticalAlignment="Center" Margin="17 0 0 0" Width="425" FontSize="25" BorderThickness="0" Background="Transparent"/>
+                        <TextBox Name="SearchTBx" Foreground="White" VerticalAlignment="Center" Margin="17 0 0 0" Width="425" FontSize="25" BorderThickness="0" Background="Transparent"
+                                 KeyDown="OnKeyDownHandler"/>
                         <Image Source="/Assets/Images/Search.png" Width="25" Height="25"/>
                     </StackPanel>
                 </Border>
