@@ -166,10 +166,10 @@
                             <Button Style="{StaticResource ButtonStyleAuth}" x:Name="RandomGameBtn" Foreground="Black" FontSize="30" Content="Случайная игра" Background="Transparent" BorderThickness="0" Click="RandomGameBtn_Click"></Button>
                         </Border>
                     </StackPanel>
-                    <TextBlock FontWeight="Bold" FontSize="30" Foreground="#FB323A68" Margin="0 20 0 0">Подборки от RandomGeeks</TextBlock>
+                    <!--<TextBlock FontWeight="Bold" FontSize="30" Foreground="#FB323A68" Margin="0 20 0 0">Подборки от RandomGeeks</TextBlock>-->
                 </StackPanel>
 
-                    <ListView x:Name="LVPodborka"
+                    <!--<ListView x:Name="LVPodborka"
                               Background="#99AAC6"
                               Width="auto" 
                               d:ItemsSource="{d:SampleData ItemCount=5}"
@@ -196,7 +196,7 @@
                                 <WrapPanel Orientation="Horizontal" />
                             </ItemsPanelTemplate>
                         </ListView.ItemsPanel>
-                    </ListView>
+                    </ListView>-->
                 
 
                 <Image Grid.Column="16" Grid.ColumnSpan="13" Grid.RowSpan="22"  Source="/Assets/Images/MainPageBanner.png" Margin="0,0,-485.462,-0.043"></Image>
