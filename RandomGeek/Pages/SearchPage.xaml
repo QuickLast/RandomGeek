@@ -82,13 +82,13 @@
                        Source="/Assets/Images/Cinema.png"
                        Width="55"
                        Height="55"
-                       Margin="0 31 0 0"
+                       Margin="0 20 0 0"
                        MouseDown="MoveToCinemaPage_MouseDown"></Image>
                 <Image Grid.Row="3"
                        Source="/Assets/Images/Games.png"
                        Width="55"
                        Height="55"
-                       Margin="0 31 0 0"
+                       Margin="0 20 0 0"
                        MouseDown="MoveToGamesPage_MouseDown"></Image>
                 <Image  x:Name="SettingsImg"
                         Grid.Row="10"

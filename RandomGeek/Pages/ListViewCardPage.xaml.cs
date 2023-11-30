@@ -18,20 +18,25 @@ using System.Windows.Shapes;
 namespace RandomGeek.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для GameCardPage.xaml
+    /// Логика взаимодействия для ListViewCardPage.xaml
     /// </summary>
-    public partial class GameCardPage : Page
+    public partial class ListViewCardPage : Page
     {
-        public static List<Movie> movies { get; set; }
-        public Game randomGame;
-        public MovieGenre randomGameGenre;
         User userToSend;
-        public GameCardPage(User user)
+        Page PageToSend;
+        public ListViewCardPage(User user, Page pageToSend, Movie movie)
         {
             InitializeComponent();
 
-            userToSend = user;
+            ItemNameTBk.Text = movie.Name;
+            ItemIMG.Source = ToImage(movie.Photo);
+            ItemGenreTBk.Text = movie.MovieGenre.Name;
+            ItemCompanyTBk.Text = movie.Studio;
+            ItemRatingTBk.Text += movie.Rating;
+            ItemYearTBk.Text = movie.Year.ToString();
+            ItemDescTBk.Text = movie.Description;
 
+            userToSend = user;
             if (!Auth.isAuth)
             {
                 ExitSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
@@ -43,7 +48,7 @@ namespace RandomGeek.Pages
                 ProfileSignInImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Profile.png"));
             }
 
-            if (Auth.isAdmin(Auth.user))
+            if (Auth.isAdmin(user))
             {
                 SettingsImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Settings.png"));
             }
@@ -51,21 +56,9 @@ namespace RandomGeek.Pages
             {
                 SettingsImg.Source = new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg"));
             }
-
-            Random random = new Random();
-            int randomInt = random.Next(DbConnection.RandomGeekEntities.Game.ToList()[0].IDGame, DbConnection.RandomGeekEntities.Game.ToList().Count);
-            randomGame = DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game;
-            Auth.randomWatchedGame.Add(randomGame);
-            GameNameTBk.Text = (DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Name;
-            GameDescTBk.Text = (DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Description;
-            GameGenreTBk.Text = (DbConnection.RandomGeekEntities.GameGenre.Where(x => x.IDGameGenre == randomGame.IDGameGenre).ToList()[0] as GameGenre).Name;
-            GameCompanyTBk.Text = (DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Publisher;
-            GameYearTBk.Text = (DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Year.ToString();
-            GameIMG.Source = ToImage((DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Photo);
-            GameRatingTBk.Text += (DbConnection.RandomGeekEntities.Game.Where(x => x.IDGame == randomInt).ToList()[0] as Game).Rating.ToString();
-
-            this.DataContext = this;
+            PageToSend = pageToSend;
         }
+
         private void MoveToAuthPage_MouseDown(object sender, MouseEventArgs e)
         {
             if (Auth.isAuth)
@@ -82,20 +75,33 @@ namespace RandomGeek.Pages
         {
             NavigationService.Navigate(new GamesPage(userToSend));
         }
-        private void MoveToMainPage_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MainPage(userToSend));
+            NavigationService.Navigate(PageToSend);
         }
 
         private void MoveToCinemaPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             NavigationService.Navigate(new CinemaPage(userToSend));
         }
+        private void MoveToMainPage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService.Navigate(new MainPage(userToSend));
+        }
 
         private void MoveToSettingsPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new AdminPage(userToSend));
+            if (Auth.isAdmin(userToSend))
+            {
+                NavigationService.Navigate(new AdminPage(userToSend));
+            }
+            else
+            {
+
+            }
+
         }
+
         private void MoveToAuthorizationPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (ExitSignInImg.Source == new BitmapImage(new Uri("pack://application:,,,/RandomGeek;component/Assets/Images/Zamena.jpg")))
@@ -104,12 +110,6 @@ namespace RandomGeek.Pages
             }
             else NavigationService.Navigate(new AuthorizationPage());
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new GameCardPage(userToSend));
-        }
-
         public BitmapImage ToImage(byte[] array)
         {
             using (var ms = new System.IO.MemoryStream(array))

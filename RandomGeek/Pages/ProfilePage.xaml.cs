@@ -40,11 +40,13 @@ namespace RandomGeek.Pages
             ProfilePictureImg.Source = new BitmapImage(new Uri($"pack://application:,,,/RandomGeek;component/Assets/Images/Profile{random.Next(1,4)}.png"));
 
             WatchedMoviesLv.ItemsSource = Auth.randomWatched.AsEnumerable().Reverse();
+            WatchedGamesLv.ItemsSource = Auth.randomWatchedGame.AsEnumerable().Reverse();
             this.DataContext = this;
 
-            if (Auth.randomWatched.Count == 0)
+            if (Auth.randomWatched.Count == 0 && Auth.randomWatchedGame.Count == 0)
             {
                 WatchedMovieTBk.Text = "На данный момент вы еще не воспользовались нашей магией, а зря!";
+                WatchedGameTBk.Text = "";
             }
 
 
@@ -113,6 +115,18 @@ namespace RandomGeek.Pages
             DbConnection.RandomGeekEntities.SaveChanges();
 
             MessageBox.Show("Фотография профиля обновлена.");
+        }
+
+        private void WatchedMoviesLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var t = ((ListView)sender).SelectedItem as Movie;
+            NavigationService.Navigate(new ListViewCardPage(userToSend, new ProfilePage(userToSend), t));
+        }
+
+        private void WatchedGamesLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var t = ((ListView)sender).SelectedItem as Game;
+            NavigationService.Navigate(new ListViewCardPageGames(userToSend, new ProfilePage(userToSend), t));
         }
     }
 }

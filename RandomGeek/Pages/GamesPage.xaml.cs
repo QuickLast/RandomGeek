@@ -121,5 +121,18 @@ namespace RandomGeek.Pages
             }
             else NavigationService.Navigate(new AuthorizationPage());
         }
+
+        private void BestGamesLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var t = ((ListView)sender).SelectedItem as Game;
+            NavigationService.Navigate(new ListViewCardPageGames(userToSend, new GamesPage(userToSend), t));
+        }
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                NavigationService.Navigate(new SearchPage(userToSend, SearchTBx.Text));
+            }
+        }
     }
 }

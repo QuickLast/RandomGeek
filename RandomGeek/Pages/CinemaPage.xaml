@@ -151,7 +151,7 @@
                     CornerRadius="20" BorderBrush="White" BorderThickness="1"
                     VerticalAlignment="Center" Height="50">
                         <StackPanel Orientation="Horizontal">
-                            <TextBox Foreground="White" VerticalAlignment="Center" Margin="17 0 0 0" Width="425" FontSize="25" BorderThickness="0" Background="Transparent"/>
+                            <TextBox KeyDown="OnKeyDownHandler" Name="SearchTBx" Foreground="White" VerticalAlignment="Center" Margin="17 0 0 0" Width="425" FontSize="25" BorderThickness="0" Background="Transparent"/>
                             <Image Source="/Assets/Images/Search.png" Width="25" Height="25"/>
                         </StackPanel>
                     </Border>
@@ -171,7 +171,7 @@
                               Grid.Column="1"
                               Grid.ColumnSpan="28"
                               Grid.Row="6"
-                              Grid.RowSpan="4">
+                              Grid.RowSpan="4" SelectionChanged="BestMoviesLv_SelectionChanged">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
@@ -202,7 +202,7 @@
                               Grid.Column="1"
                               Grid.ColumnSpan="28"
                               Grid.Row="12"
-                              Grid.RowSpan="4"
+                              Grid.RowSpan="4" SelectionChanged="BestMoviesLv_SelectionChanged"
                               >
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -236,7 +236,8 @@
                               Grid.Column="1"
                               Grid.ColumnSpan="28"
                               Grid.Row="18"
-                              Grid.RowSpan="4">
+                              Grid.RowSpan="4"
+                              SelectionChanged="BestMoviesLv_SelectionChanged">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>

@@ -68,6 +68,13 @@ namespace RandomGeek.Pages
             
         }
 
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                NavigationService.Navigate(new SearchPage(userToSend, SearchTBx.Text));
+            }
+        }
         private void MoveToAuthPage_MouseDown(object sender, MouseEventArgs e)
         {
             if (Auth.isAuth)
@@ -120,6 +127,12 @@ namespace RandomGeek.Pages
 
             }
             else NavigationService.Navigate(new AuthorizationPage());
+        }
+
+        private void BestMoviesLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var t = ((ListView)sender).SelectedItem as Movie;
+            NavigationService.Navigate(new ListViewCardPage(userToSend, new CinemaPage(userToSend), t));
         }
     }
 }

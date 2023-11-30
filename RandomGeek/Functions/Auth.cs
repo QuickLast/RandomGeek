@@ -27,5 +27,6 @@ namespace RandomGeek.Functions
         }
         public static User user = new User();
         public static List<Movie> randomWatched = new List<Movie>();
+        public static List<Game> randomWatchedGame = new List<Game>();
     }
 }
